@@ -1,7 +1,6 @@
 import { createApp } from 'vue'
 import { Quasar } from 'quasar'
 import quasarLang from 'quasar/lang/es'
-import quasarConfig from './quasar.config.js'
 import router from './routes/router.js'
 import { createPinia, PiniaVuePlugin } from 'pinia'
 
@@ -18,10 +17,16 @@ import '@quasar/extras/animate/fadeOut.css'
 // Import Quasar css
 import 'quasar/src/css/index.sass'
 
+import { i18n } from './utils/i18n.js'
+
 import App from './App.vue'
 
 createApp(App)
-.use(Quasar, quasarConfig)
+.use(Quasar, {
+  plugins: {}, // import Quasar plugins and add here
+  lang: quasarLang,
+})
 .use(createPinia())
 .use(router)
+.use(i18n)
 .mount('#app')

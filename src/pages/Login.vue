@@ -1,5 +1,5 @@
 <template>
-  {{ $t('welcome') }}
+  {{ $t('login') }}
 </template>
 
 <script setup>
