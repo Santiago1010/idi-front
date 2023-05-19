@@ -18,20 +18,7 @@ import '@quasar/extras/animate/fadeOut.css'
 // Import Quasar css
 import 'quasar/src/css/index.sass'
 
-// Import general styles
-import './style.css'
-
 var countryCode = navigator.language.split('-')[0];
-
-/*import es from './utils/locales/es.json'
-
-const i18n = new VueI18n({
-  locale: countryCode, // Establece el idioma inicial
-  fallbackLocale: 'es', // Establece el idioma de respaldo si no se encuentra la traducción
-  messages: {
-    es: es,
-  },
-})*/
 
 import App from './App.vue'
 
@@ -40,7 +27,7 @@ createApp(App)
   plugins: {}, // import Quasar plugins and add here
   lang: quasarLang,
 })
-//.use(i18n) // Agrega el complemento de VueI18n
+//.use(VueI18n) // Agrega el complemento de VueI18n
 .use(createPinia())
 .use(router)
 .mount('#app')

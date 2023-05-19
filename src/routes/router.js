@@ -6,6 +6,7 @@ import MainLayout from '../layouts/MainLayout.vue'
 
 // Importar páginas
 import Index from '../pages/Index.vue'
+import Login from '../pages/Login.vue'
 
 import NotFound from '../pages/NotFound.vue'
 
@@ -18,6 +19,10 @@ const routes = [
         path: '/',
         component: Index
       },
+      {
+        path: '/login',
+        component: Login
+      }
     ],
   },
   /*{
