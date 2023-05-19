@@ -1,27 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 // Importar layouts
-import MainLayout from '../../../layouts/MainLayout.vue'
-import SessionLayout from '../../../layouts/SessionLayout.vue'
+import MainLayout from '../layouts/MainLayout.vue'
+//import SessionLayout from '../layouts/SessionLayout.vue'
 
 // Importar páginas
-import Index from '../../../pages/Index.vue'
-import Login from '../../../pages/Login.vue'
-import Home from '../../../pages/Home.vue'
-import Signup from '../../../pages/Signup.vue'
-import ConfirmAccount from '../../../pages/ConfirmAccount.vue'
-import AboutUs from '../../../pages/AboutUs.vue'
-import RecoverPassword from '../../../pages/RecoverPassword.vue'
+import Index from '../pages/Index.vue'
 
-import Campaigns from '../../../pages/Campaigns.vue'
-import History from '../../../pages/History.vue'
-import Account from '../../../pages/Account.vue'
-
-import Campaign from '../../../pages/Campaign.vue'
-
-import NotFound from '../../../pages/NotFound.vue'
-
-import { useSessionStore } from '../stores/SessionStore.js'
+import NotFound from '../pages/NotFound.vue'
 
 const routes = [
   {
@@ -34,12 +20,12 @@ const routes = [
       },
     ],
   },
-  {
+  /*{
     path: '/',
     component: SessionLayout,
     children: [
     ],
-    /*beforeEnter: (to, from, next) => {
+    beforeEnter: (to, from, next) => {
       const sessionStore = useSessionStore()
 
       if (sessionStorage.jwt) {
@@ -55,7 +41,17 @@ const routes = [
         sessionStore.clear()
         next({path: '/login'});
       }
-    }*/
+    }
+  },*/
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'not-found',
+    component: NotFound
+  },
+  {
+    path: '/:pathMatch(.*)',
+    name: 'bad-not-found',
+    component: NotFound
   },
 ];
 

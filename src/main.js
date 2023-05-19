@@ -1,7 +1,9 @@
 import { createApp } from 'vue'
 import { Quasar } from 'quasar'
 import quasarLang from 'quasar/lang/es'
-import { createI18n } from 'vue-i18n'
+import VueI18n from 'vue-i18n'
+import router from './routes/router.js'
+import { createPinia, PiniaVuePlugin } from 'pinia'
 
 // Import icon libraries
 import '@quasar/extras/material-icons/material-icons.css'
@@ -21,13 +23,15 @@ import './style.css'
 
 var countryCode = navigator.language.split('-')[0];
 
-const i18n = createI18n({
+/*import es from './utils/locales/es.json'
+
+const i18n = new VueI18n({
   locale: countryCode, // Establece el idioma inicial
   fallbackLocale: 'es', // Establece el idioma de respaldo si no se encuentra la traducción
   messages: {
-    es: require('./utils/locales/es.json'),
+    es: es,
   },
-})
+})*/
 
 import App from './App.vue'
 
@@ -36,5 +40,7 @@ createApp(App)
   plugins: {}, // import Quasar plugins and add here
   lang: quasarLang,
 })
-.use(i18n) // Agrega el complemento de VueI18n
+//.use(i18n) // Agrega el complemento de VueI18n
+.use(createPinia())
+.use(router)
 .mount('#app')
