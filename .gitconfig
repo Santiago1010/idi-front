@@ -1,0 +1,11 @@
+[core]
+        autocrlf = false
+
+[push]
+        default = simple
+
+[branch]
+        autosetupmerge = always
+
+[remote "origin"]
+        push = HEAD:refs/heads/main
