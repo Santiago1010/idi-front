@@ -1,13 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + Vue</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<html>
+<head>
+  <script>
+    // Obtener el código del país del navegador
+    var countryCode = navigator.language.split('-')[0];
+
+    // Establecer el atributo lang del HTML
+    document.documentElement.setAttribute('lang', countryCode);
+  </script>
+
+  <!-- Metatags para el proyecto. -->
+  <title>IDI: Investigación, Desarrollo de Innovación</title>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, user-scalable=yes" />
+  <meta name="description" content="Herramienta de apoyo en procesos de investigación, desarrollo e innovación" />
+  <meta name="keywords" content="investigación, desarrollo, innovación, herramienta, apoyo" />
+  <meta name="author" content="Santiago Correa Aguirre" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="robots" content="index, follow" />
+  <meta name="revisit-after" content="7 days" />
+
+  <!--<meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@example" />
+  <meta name="twitter:title" content="Título de la página para Twitter" />
+  <meta name="twitter:description" content="Descripción de la página para Twitter" />
+  <meta name="twitter:image" content="https://example.com/image.jpg" />
+  <meta property="og:title" content="Título de la página para Open Graph" />
+  <meta property="og:description" content="Descripción de la página para Open Graph" />
+  <meta property="og:image" content="https://example.com/image.jpg" />
+  <meta property="og:url" content="https://example.com/pagina" />
+  <meta property="og:type" content="website" />-->
+
+  <!-- Estilos, iconos y demás importaciones para el proyecto. -->
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Contenedor principal de la aplicación -->
+  <div id="app"></div>
+
+  <!-- Importar el script principal de la aplicación -->
+  <script type="module" src="/src/main.js"></script>
+</body>
 </html>
