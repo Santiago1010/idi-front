@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Configuración global de Axios
 const instance = axios.create({
-  baseURL: 'https://api.example.com', // Cambia esto por la URL base de tu API
+  baseURL: `${import.meta.env.VITE_API_SERVER_URI}/api/v1`,
   headers: {
     common: {
       'Content-Type': 'application/json',
@@ -12,7 +12,7 @@ const instance = axios.create({
 
 // Interceptor para agregar la cabecera del idioma a todas las solicitudes
 instance.interceptors.request.use((config) => {
-  const language = 'es'; // Cambia esto por el idioma actual de tu aplicación
+  const language = 'es';
   config.headers['Accept-Language'] = language;
 
   const token = localStorage.getItem('jwt'); // Obtiene el token JWT almacenado en el cliente
