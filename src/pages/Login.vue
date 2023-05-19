@@ -1,1 +1,6 @@
-<template></template>
+<template>
+  {{ $t('welcome') }}
+</template>
+
+<script setup>
+</script>
