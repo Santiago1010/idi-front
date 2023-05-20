@@ -2,7 +2,7 @@
   <q-btn color="secondary" :label="$t('changeLanguage')">
     <q-menu auto-close>
       <q-list style="min-width: 100px">
-        <q-item v-for="(language, index) in languages" @click="changelanguage(index)" clickable>
+        <q-item v-for="(language, index) in languages" @click="changeLanguage(index)" clickable>
           <q-item-section>{{ language }}</q-item-section>
         </q-item>
       </q-list>
@@ -11,31 +11,26 @@
 </template>
 
 <script setup>
-  // Importar internos de vue
-  import { ref } from 'vue'
+// Importar internos de vue
+import { ref } from 'vue';
+import { useLocaleSwitcher } from '../composable/use-locale-switcher.js';
 
-  // Importar store
-  import { useLanguageStore } from '../stores/LanguageStore.js'
+const localeSwitcher = useLocaleSwitcher();
 
-  const languageStore = useLanguageStore()
+// Constantes y variables del componente
+const languages = ref({
+  'de': '🇩🇪 Deutsch',
+  'en-GB': '🇬🇧 English',
+  'es': '🇪🇸 Español',
+  'ja': '🇯🇵 日本語',
+  'pt': '🇵🇹 Português',
+  'ru': '🇷🇺 Русский',
+  // 'zh-CN': '🇨🇳 中文',
+});
 
-  // Constantes y variables del componente
-  const languages = ref({
-    'de': '🇩🇪 Deutsch',
-    'en': '🇬🇧 English',
-    'es': '🇪🇸 Español',
-    'ja': '🇯🇵 日本語',
-    'pt': '🇵🇹 Português',
-    'ru': '🇷🇺 Русский',
-    'zh': '🇨🇳 中文'
-  });
 
-  // Funciones y métodos
-  const changelanguage = (newLanguage) => {
-    localStorage.removeItem('language');
-
-    if (!localStorage.language) {
-      languageStore.setNewLanguage({ newLanguage })
-    }
-  }
+// Funciones y métodos
+function changeLanguage(newLanguage) {
+  localeSwitcher.setLocale(newLanguage);
+}
 </script>
