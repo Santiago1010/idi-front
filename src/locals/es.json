@@ -15,6 +15,7 @@
   },
   "inputs": {
     "user": {
+      "label": "usuario",
       "code": {
         "label": "Código de identificación del usuario",
         "tooltip": "Este código es inmutable.",
@@ -88,6 +89,7 @@
       },
     },
     "institution": {
+      "label": "institución",
       "code": {
         "label": "Código de identificación de la institución",
         "tooltip": "Este código es inmutable.",

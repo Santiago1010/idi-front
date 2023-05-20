@@ -15,6 +15,7 @@
   },
   "inputs": {
     "user": {
+      "label": "User",
       "code": {
         "label": "User identification code",
         "tooltip": "This code is immutable.",
@@ -88,6 +89,7 @@
       }
     },
     "institution": {
+      "label": "Platform",
       "code": {
         "label": "Institution identification code",
         "tooltip": "This code is immutable.",

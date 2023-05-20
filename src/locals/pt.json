@@ -15,6 +15,7 @@
   },
   "inputs": {
     "user": {
+      "label": "Usuário",
       "code": {
         "label": "Código de identificação do usuário",
         "tooltip": "Este código é imutável.",
@@ -88,6 +89,7 @@
       }
     },
     "institution": {
+      "label": "Plataforma",
       "code": {
         "label": "Código de identificação da instituição",
         "tooltip": "Este código é imutável.",

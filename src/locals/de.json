@@ -15,6 +15,7 @@
   },
   "inputs": {
     "user": {
+      "label": "Benutzer",
       "code": {
         "label": "Benutzeridentifikationscode",
         "tooltip": "Dieser Code ist unveränderlich.",
@@ -88,6 +89,7 @@
       }
     },
     "institution": {
+      "label": "Plattform",
       "code": {
         "label": "Institutionsidentifikationscode",
         "tooltip": "Dieser Code ist unveränderlich.",
