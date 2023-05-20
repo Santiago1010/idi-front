@@ -4,7 +4,7 @@
       <q-card-section class="text-h2">{{ $t('login.label') }}</q-card-section>
 
       <q-card-section>
-        <q-input v-model="userData.email" type="text" class="q-my-md" outlined :label="$t('emailLabel.label')" :hint="$t('emailLabel.hint')">
+        <q-input v-model="loginData.email" type="text" class="q-my-md" outlined :label="$t('emailLabel.label')" :hint="$t('emailLabel.hint')">
           <q-tooltip>{{ $t('emailLabel.tooltip') }}</q-tooltip>
 
           <template v-slot:prepend>
@@ -12,7 +12,7 @@
           </template>
         </q-input>
 
-        <q-input v-model="userData.password" :type="showPassword ? 'text' : 'password'" class="q-my-md" outlined :label="$t('passwordLabel.label')" :hint="$t('passwordLabel.hint')" counter>
+        <q-input v-model="loginData.password" :type="showPassword ? 'text' : 'password'" class="q-my-md" outlined :label="$t('passwordLabel.label')" :hint="$t('passwordLabel.hint')" counter>
           <q-tooltip>{{ $t('passwordLabel.tooltip') }}</q-tooltip>
 
           <template v-slot:prepend>
@@ -53,16 +53,16 @@
   // Constantes y variables de la página.
   const showPassword = ref(false)
 
-  const userData = ref({
+  const loginData = ref({
     email: null,
     password: null
   })
 
   // Funciones y métodos
   const loginUser = () => {
-    utilsStore.setNewLoadersState(true)
+    //utilsStore.setNewLoadersState(true)
 
-    /*loginUser(userData.value).then(response => {
+    /*loginUser(loginData.value).then(response => {
       //
     }).catch(error => console.error(error)).then(() => {
       utilsStore.setNewLoadersState(false)

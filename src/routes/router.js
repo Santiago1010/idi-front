@@ -7,6 +7,7 @@ import MainLayout from '../layouts/MainLayout.vue'
 // Importar páginas
 import Index from '../pages/Index.vue'
 import Login from '../pages/Login.vue'
+import Signup from '../pages/Signup.vue'
 
 import NotFound from '../pages/NotFound.vue'
 
@@ -22,6 +23,10 @@ const routes = [
       {
         path: '/login',
         component: Login
+      },
+      {
+        path: '/signup/:type',
+        component: Signup
       }
     ],
   },
