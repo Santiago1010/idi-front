@@ -1,7 +1,4 @@
 <template>
-  <!--<select v-model="$i18n.locale" label="Cambiar idioma">
-    <option v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`" :value="locale">{{ locale }}</option>
-  </select>-->
   <div class="dropdown" :class="{ active: dropdownActive }" @click="dropdownActive = !dropdownActive">
     <input type="text" class="textBox" :placeholder="$t('changeLanguage')" readonly>
 
@@ -14,11 +11,6 @@
 <script setup>
   // Importar internos de vue
   import { ref, onMounted } from 'vue'
-
-  // Importar store
-  import { useLanguageStore } from '../stores/LanguageStore.js'
-
-  const languageStore = useLanguageStore()
 
   // Constantes y variables del componente
   const optionsLanguages = ref([
