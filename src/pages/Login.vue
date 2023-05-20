@@ -1,7 +1,7 @@
 <template>
   <q-card class="q-ma-md q-pa-md">
     <q-form>
-      <q-card-section class="text-h2">{{ $t('login') }}</q-card-section>
+      <q-card-section class="text-h2">{{ $t('login.label') }}</q-card-section>
 
       <q-card-section>
         <q-input v-model="userData.email" type="text" class="q-my-md" outlined :label="$t('emailLabel.label')" :hint="$t('emailLabel.hint')">
@@ -23,10 +23,14 @@
             <q-icon :name="showPassword ? 'visibility_off' : 'visibility'" class="cursor-pointer" @click="showPassword = !showPassword" />
           </template>
         </q-input>
+
+        <router-link to="/">{{ $t('forgotPassword') }}</router-link>
       </q-card-section>
 
       <q-card-actions>
-        <q-btn :label="$t('login')" color="info" class="long-btn" icon-right="login"></q-btn>
+        <q-btn :label="$t('login.label')" color="info" class="long-btn" icon-right="login">
+          <q-tooltip>{{ $t('login.butttonTooltip') }}</q-tooltip>
+        </q-btn>
       </q-card-actions>
     </q-form>
   </q-card>
@@ -43,4 +47,13 @@
     email: null,
     password: null
   })
+
+  // Funciones y métodos
+  const loginUser = () => {
+    loginUser(userData.value).then(response => {
+      //
+    }).catch(error => console.error(error)).then(() => {
+      //
+    })
+  }
 </script>

@@ -1,6 +1,9 @@
 {
   "language": "Español",
-  "login": "Iniciar sesión",
+  "login": {
+    "label": "Iniciar sesión",
+    "butttonTooltip": "Presiona 'Enter' o haz clic para iniciar sesión. Asegúrate de cumplir todas las validaciones requeridas y tener una cuenta registrada y confirmada."
+  },
   "slogan": "Hecho con ❤️ y 🧠 por un mejor futuro",
   "changeLanguage": "cambiar idioma",
   "emailLabel": {
@@ -12,5 +15,6 @@
     "label": "Contraseña",
     "tooltip": "Por favor ingresa una contraseña válida. La contraseña debe tener al menos 8 caracteres. En caso de olvidarla, puedes solicitar la recuperación de la misma.",
     "hint": "Pista: Asegúrate de ingresar una contraseña segura de al menos 8 caracteres."
-  }
+  },
+  "forgotPassword": "¿Has olvidado tu contraseña? Haz clic aquí para recuperarla."
 }

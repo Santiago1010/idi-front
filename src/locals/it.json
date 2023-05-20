@@ -1,6 +1,9 @@
 {
   "language": "Italiano",
-  "login": "Accedi",
+  "login": {
+    "label": "Accedi",
+    "buttonTooltip": "Premi 'Invio' o fai clic per accedere. Assicurati di rispettare tutte le validazioni richieste e di avere un account registrato e confermato."
+  },
   "slogan": "Realizzato con ❤️ e 🧠 per un futuro migliore",
   "changeLanguage": "cambia lingua",
   "emailLabel": {
@@ -12,5 +15,6 @@
     "label": "Password",
     "tooltip": "Per favore, inserisci una password valida. La password deve contenere almeno 8 caratteri. In caso di dimenticanza, puoi richiedere il recupero della stessa.",
     "hint": "Suggerimento: Assicurati di inserire una password sicura di almeno 8 caratteri."
-  }
+  },
+  "forgotPassword": "Hai dimenticato la tua password? Clicca qui per recuperarla."
 }

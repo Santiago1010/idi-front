@@ -1,6 +1,9 @@
 {
   "language": "Português",
-  "login": "Conecte-se",
+  "login": {
+    "label": "Conecte-se",
+    "buttonTooltip": "Pressione 'Enter' ou clique para entrar. Certifique-se de cumprir todas as validações necessárias e ter uma conta registrada e confirmada."
+  },
   "slogan": "Feito com ❤️ e 🧠 por um futuro melhor",
   "changeLanguage": "mudar idioma",
   "emailLabel": "E-mail",
@@ -13,5 +16,6 @@
     "label": "Senha",
     "tooltip": "Por favor, digite uma senha válida. A senha deve ter pelo menos 8 caracteres. Caso você esqueça, você pode solicitar a recuperação da mesma.",
     "hint": "Dica: Certifique-se de inserir uma senha segura com pelo menos 8 caracteres."
-  }
+  },
+  "forgotPassword": "Esqueceu sua senha? Clique aqui para recuperá-la."
 }

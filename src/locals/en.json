@@ -1,6 +1,9 @@
 {
   "language": "English",
-  "login": "Login",
+  "login": {
+    "label": "Log In",
+    "buttonTooltip": "Press 'Enter' or click to log in. Make sure to fulfill all required validations and have a registered and confirmed account."
+  },
   "slogan": "Made with ❤️ and 🧠 for a better future",
   "changeLanguage": "change language",
   "emailLabel": "Email",
@@ -13,5 +16,6 @@
     "label": "Password",
     "tooltip": "Please enter a valid password. The password must be at least 8 characters long. In case you forget it, you can request recovery of your password.",
     "hint": "Hint: Make sure to enter a secure password of at least 8 characters."
-  }
+  },
+  "forgotPassword": "Forgot your password? Click here to recover it."
 }

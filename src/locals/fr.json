@@ -1,6 +1,9 @@
 {
   "language": "Français",
-  "login": "Se connecter",
+  "login": {
+    "label": "Se connecter",
+    "buttonTooltip": "Appuyez sur 'Entrée' ou cliquez pour vous connecter. Assurez-vous de remplir toutes les validations requises et d'avoir un compte enregistré et confirmé."
+  },
   "slogan": "Fait avec ❤️ et 🧠 pour un avenir meilleur",
   "changeLanguage": "changer de langue",
   "emailLabel": {
@@ -12,5 +15,6 @@
     "label": "Mot de passe",
     "tooltip": "Veuillez entrer un mot de passe valide. Le mot de passe doit contenir au moins 8 caractères. En cas d'oubli, vous pouvez demander la récupération du mot de passe.",
     "hint": "Astuce : Assurez-vous d'entrer un mot de passe sécurisé d'au moins 8 caractères."
-  }
+  },
+  "forgotPassword": "Mot de passe oublié ? Cliquez ici pour le récupérer."
 }
