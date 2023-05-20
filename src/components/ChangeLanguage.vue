@@ -1,5 +1,5 @@
 <template>
-  <div class="dropdown" :class="{ active: dropdownActive }" @click="dropdownActive = !dropdownActive">
+  <div class="dropdown desktop-only" :class="{ active: dropdownActive }" @click="dropdownActive = !dropdownActive">
     <input type="text" class="textBox" :placeholder="$t('options.changeLanguage')" readonly>
 
     <div class="options">

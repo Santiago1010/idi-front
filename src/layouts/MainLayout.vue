@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="hhh LpR fFf">
+  <q-layout view="hhh lpR fff">
 
     <q-header reveal elevated class="bg-primary text-white">
       <q-toolbar>
@@ -10,14 +10,14 @@
             <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg">
           </q-avatar>
 
-          {{ $t('info.platform.name') }}: {{ $t('info.platform.lastName') }}
+          {{ $t('info.platform.name') }}<span class="desktop-only">: {{ $t('info.platform.lastName') }}</span>
         </q-toolbar-title>
 
         <ChangeLanguage />
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" side="left" overlay bordered>
+    <q-drawer show-if-above v-model="leftDrawerOpen" side="left" bordered>
       <!-- drawer content -->
     </q-drawer>
 
@@ -25,7 +25,7 @@
       <router-view />
     </q-page-container>
 
-    <q-footer class="bg-grey-8 text-white" style="position: relative;">
+    <q-footer bordered class="bg-grey-8 text-white">
       <q-toolbar>
         <q-toolbar-title>
           <q-avatar>

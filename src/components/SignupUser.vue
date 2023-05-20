@@ -2,8 +2,8 @@
   <q-form @submit.prevent="signupUser">
     <q-card-section class="row">
       <div class="col-12 col-md-4">
-        <q-select v-model="userData.institution" outlined class="q-mx-sm" :label="$t('institutionLabel.label')" :hint="$t('institutionLabel.hint')">
-          <q-tooltip>{{ $t('institutionLabel.tooltip') }}</q-tooltip>
+        <q-select v-model="userData.institution" outlined class="q-mx-sm" :label="$t('inputs.institution.name.label')" :hint="$t('inputs.institution.name.hint')">
+          <q-tooltip>{{ $t('inputs.institution.name.tooltip') }}</q-tooltip>
 
           <template v-slot:prepend>
             <q-icon name="home_work" />
