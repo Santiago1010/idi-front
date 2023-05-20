@@ -3,7 +3,7 @@
     <input type="text" class="textBox" :placeholder="$t('changeLanguage')" readonly>
 
     <div class="options">
-      <div v-for="language in optionsLanguages" :key="language.language" @click="$i18n.locale = language.locale"><span :class="`fi fi-${language.class}`"></span> {{ language.language }}</div>
+      <div v-for="language in optionsLanguages" :key="language.language" @click="$i18n.locale = changeLanguage(language.locale)"><span :class="`fi fi-${language.class}`"></span> {{ language.language }}</div>
     </div>
   </div>
 </template>
@@ -46,6 +46,14 @@
     }
   ]);
   const dropdownActive = ref(false)
+
+  // Funciones y métodos
+  const changeLanguage = (newLanguage) => {
+    localStorage.removeItem('language')
+    localStorage.setItem('language', newLanguage)
+
+    return newLanguage
+  }
 </script>
 
 <style scoped>
