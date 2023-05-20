@@ -11,6 +11,8 @@
           </q-avatar>
           Title
         </q-toolbar-title>
+
+        <ChangeLanguage />
       </q-toolbar>
     </q-header>
 
@@ -37,8 +39,13 @@
 </template>
 
 <script setup>
+  // Importar internos de vue
   import { ref } from 'vue'
 
+  // Importar componentes
+  import ChangeLanguage from '../components/ChangeLanguage.vue'
+
+  // Variables y constantes del layout
   const leftDrawerOpen = ref(false)
 
   const toggleLeftDrawer = () => {
