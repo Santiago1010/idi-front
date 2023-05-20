@@ -32,7 +32,6 @@
 
   // Funciones y métodos
   const changelanguage = (newLanguage) => {
-    console.clear()
     localStorage.removeItem('language');
 
     if (!localStorage.language) {

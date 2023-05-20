@@ -1,5 +1,5 @@
 <template>
-  {{ $t('login') }}
+  <p class="text-body1">{{ $t('login') }}</p>
 </template>
 
 <script setup>
