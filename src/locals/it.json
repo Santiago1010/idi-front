@@ -1,0 +1,16 @@
+{
+  "language": "🇮🇹 Italiano",
+  "login": "Accedi",
+  "slogan": "Realizzato con ❤️ e 🧠 per un futuro migliore",
+  "changeLanguage": "🇮🇹 cambia lingua",
+  "emailLabel": {
+    "label": "Indirizzo email",
+    "tooltip": "Per favore, inserisci un indirizzo email valido. L'email deve essere presente nella lista degli indirizzi email validi.",
+    "hint": "Suggerimento: Assicurati di inserire un indirizzo email valido. Generalmente, sono gli indirizzi email istituzionali."
+  },
+  "passwordLabel": {
+    "label": "Password",
+    "tooltip": "Per favore, inserisci una password valida. La password deve contenere almeno 8 caratteri. In caso di dimenticanza, puoi richiedere il recupero della stessa.",
+    "hint": "Suggerimento: Assicurati di inserire una password sicura di almeno 8 caratteri."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "language": "🇫🇷 Français",
+  "login": "Se connecter",
+  "slogan": "Fait avec ❤️ et 🧠 pour un avenir meilleur",
+  "changeLanguage": "🇪🇸 changer de langue",
+  "emailLabel": {
+    "label": "Adresse e-mail",
+    "tooltip": "Veuillez entrer une adresse e-mail valide. L'e-mail doit être dans la liste des e-mails valides.",
+    "hint": "Astuce : Assurez-vous d'entrer une adresse e-mail valide. Généralement, ce sont les e-mails institutionnels."
+  },
+  "passwordLabel": {
+    "label": "Mot de passe",
+    "tooltip": "Veuillez entrer un mot de passe valide. Le mot de passe doit contenir au moins 8 caractères. En cas d'oubli, vous pouvez demander la récupération du mot de passe.",
+    "hint": "Astuce : Assurez-vous d'entrer un mot de passe sécurisé d'au moins 8 caractères."
+  }
+}

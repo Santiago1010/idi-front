@@ -6,6 +6,6 @@ export const i18n = createI18n({
   globalInjection: true,
   locale: localStorage.language,
   fallbackLocale: 'es',
-  availableLocales: ['de', 'en', 'es', 'ja', 'pt', 'ru', 'zh'],
+  availableLocales: ['de', 'en', 'es', 'fr', 'it', 'pt'],
   messages: messages
 });
