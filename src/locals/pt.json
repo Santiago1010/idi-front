@@ -34,7 +34,11 @@
         "error": "Digite um sobrenome válido."
       },
       "gender": {
-        "options": ["Masculino", "Feminino"]
+        "label": "Gênero biológico",
+        "tooltip": "Selecione seu gênero biológico ou a identidade de gênero com a qual você se identifica atualmente.",
+        "hint": "As opções disponíveis são 'Masculino' e 'Feminino', pois este campo se baseia no gênero biológico com o qual uma pessoa nasceu ou se identifica atualmente sexualmente.",
+        "options": ["Masculino", "Feminino"],
+        "error": "Insira um gênero biológico válido."
       },
       "birthday": {
         "label": "Data de nascimento",

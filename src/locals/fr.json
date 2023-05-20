@@ -34,7 +34,11 @@
         "error": "Entrez un nom de famille valide."
       },
       "gender": {
-        "options": ["Masculin", "Féminin"]
+        "label": "Genre biologique",
+        "tooltip": "Sélectionnez votre genre biologique ou l'identité de genre avec laquelle vous vous identifiez actuellement.",
+        "hint": "Les options disponibles sont 'Homme' et 'Femme' car ce champ est basé sur le genre biologique avec lequel une personne est née ou s'identifie actuellement sexuellement.",
+        "options": ["Homme", "Femme"],
+        "error": "Veuillez entrer un genre biologique valide."
       },
       "birthday": {
         "label": "Date de naissance",

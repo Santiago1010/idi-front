@@ -1,8 +1,8 @@
 <template>
   <q-card class="q-ma-md">
     <q-tabs v-model="typeUser">
-      <q-tab name="user" label="Usuario" @click="usersTypeChange('user')" />
-      <q-tab name="institution" label="Institución" @click="usersTypeChange('institution')" />
+      <q-tab name="user" :label="$t('links.signup.options[0]')" @click="usersTypeChange('user')" />
+      <q-tab name="institution" :label="$t('links.signup.options[1]')" @click="usersTypeChange('institution')" />
     </q-tabs>
 
     <q-separator />

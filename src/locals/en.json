@@ -34,7 +34,11 @@
         "error": "Enter a valid last name."
       },
       "gender": {
-        "options": ["Male", "Female"]
+        "label": "Biological Gender",
+        "tooltip": "Select your biological gender or the gender identity you currently identify with.",
+        "hint": "The available options are 'Male' and 'Female' as this field is based on the biological gender a person was born with or currently identifies with sexually.",
+        "options": ["Male", "Female"],
+        "error": "Enter a valid biological gender."
       },
       "birthday": {
         "label": "Date of birth",

@@ -34,7 +34,11 @@
         "error": "Ingresa un apellido válido",
       },
       "gender": {
+        "label": "Género biológico",
+        "tooltip": "Selecciona tu género biológico o la identidad de género con la que te sientas identificado/a actualmente.",
+        "hint": "Las opciones disponibles son 'hombre' y 'mujer' debido a que este campo se basa en el género biológico con el que una persona nació o se identifica sexuamente en la actualidad.",
         "options": ["Masculino", "Femenino"],
+        "error": "Ingresa un género biológico válido",
       },
       "birthday": {
         "label": "Fecha de nacimiento",

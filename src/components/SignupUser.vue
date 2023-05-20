@@ -12,8 +12,8 @@
       </div>
 
       <div class="col-12 col-md-8">
-        <q-input v-model="userData.email" type="text" class="q-mx-sm" outlined :label="$t('emailLabel.label')" :hint="$t('emailLabel.hint')">
-          <q-tooltip>{{ $t('emailLabel.tooltip') }}</q-tooltip>
+        <q-input v-model="userData.email" type="text" class="q-mx-sm" outlined :label="$t('inputs.user.email.label')" :hint="$t('inputs.user.email.hint')">
+          <q-tooltip>{{ $t('inputs.user.email.tooltip') }}</q-tooltip>
 
           <template v-slot:prepend>
             <q-icon name="mail" />
@@ -24,8 +24,8 @@
 
     <q-card-section class="row">
       <div class="col-12 col-md-6">
-        <q-input v-model="userData.name" outlined type="text" class="q-mx-sm" :label="$t('nameLabel.label')" :hint="$t('nameLabel.hint')">
-          <q-tooltip>{{ $t('nameLabel.tooltip') }}</q-tooltip>
+        <q-input v-model="userData.name" outlined type="text" class="q-mx-sm" :label="$t('inputs.user.name.label')" :hint="$t('inputs.user.name.hint')">
+          <q-tooltip>{{ $t('inputs.user.name.tooltip') }}</q-tooltip>
 
           <template v-slot:prepend>
             <q-icon name="person" />
@@ -34,8 +34,8 @@
       </div>
 
       <div class="col-12 col-md-6">
-        <q-input v-model="userData.lastName" outlined type="text" class="q-mx-sm" :label="$t('lastNameLabel.label')" :hint="$t('lastNameLabel.hint')">
-          <q-tooltip>{{ $t('lastNameLabel.tooltip') }}</q-tooltip>
+        <q-input v-model="userData.lastName" outlined type="text" class="q-mx-sm" :label="$t('inputs.user.lastName.label')" :hint="$t('inputs.user.lastName.hint')">
+          <q-tooltip>{{ $t('inputs.user.lastName.tooltip') }}</q-tooltip>
 
           <template v-slot:prepend>
             <q-icon name="group" />
@@ -46,8 +46,8 @@
 
     <q-card-section class="row">
       <div class="col-12 col-md-8">
-        <q-input v-model="userData.birthday" outlined type="text" class="q-mx-sm" :label="$t('birthdayLabel.label')" mask="date" :hint="$t('birthdayLabel.hint')">
-          <q-tooltip>{{ $t('birthdayLabel.tooltip') }}</q-tooltip>
+        <q-input v-model="userData.birthday" outlined type="text" class="q-mx-sm" :label="$t('inputs.user.birthday.label')" mask="date" :hint="$t('inputs.user.birthday.hint')">
+          <q-tooltip>{{ $t('inputs.user.birthday.tooltip') }}</q-tooltip>
 
           <template v-slot:prepend>
             <q-icon name="cake" />
@@ -68,8 +68,8 @@
       </div>
 
       <div class="col-12 col-md-4">
-        <q-select v-model="userData.gender" outlined :options="genresOptions" class="q-mx-sm" :label="$t('genderLabel.label')" :hint="$t('genderLabel.tooltip')" emit-value map-options>
-          <q-tooltip>{{ $t('genderLabel.tooltip') }}</q-tooltip>
+        <q-select v-model="userData.gender" outlined :options="genresOptions" class="q-mx-sm" :label="$t('inputs.user.gender.label')" :hint="$t('inputs.user.gender.tooltip')" emit-value map-options>
+          <q-tooltip>{{ $t('inputs.user.gender.tooltip') }}</q-tooltip>
 
           <template v-slot:prepend>
             <q-icon name="person_3" />
@@ -80,8 +80,8 @@
 
     <q-card-section class="row">
       <div class="col-12 col-md-4">
-        <q-input v-model="userData.phone" outlined type="text" class="q-mx-sm" :label="$t('phoneLabel.label')" :hint="$t('phoneLabel.hint')" mask="(+##) ### ### ####">
-          <q-tooltip>{{ $t('phoneLabel.tooltip') }}</q-tooltip>
+        <q-input v-model="userData.phone" outlined type="text" class="q-mx-sm" :label="$t('inputs.user.phone.label')" :hint="$t('inputs.user.phone.hint')" mask="(+##) ### ### ####">
+          <q-tooltip>{{ $t('inputs.user.phone.tooltip') }}</q-tooltip>
 
           <template v-slot:prepend>
             <q-icon name="contacts" />
@@ -90,8 +90,8 @@
       </div>
 
       <div class="col-12 col-md-4">
-        <q-input v-model="userData.password" :type="showPassword ? 'text' : 'password'" class="q-mx-sm" outlined :label="$t('passwordLabel.label')" :hint="$t('passwordLabel.hint')" counter>
-          <q-tooltip>{{ $t('passwordLabel.tooltip') }}</q-tooltip>
+        <q-input v-model="userData.password" :type="showPassword ? 'text' : 'password'" class="q-mx-sm" outlined :label="$t('inputs.user.password.label')" :hint="$t('inputs.user.password.hint')" counter>
+          <q-tooltip>{{ $t('inputs.user.password.tooltip') }}</q-tooltip>
 
           <template v-slot:prepend>
             <q-icon name="password" />
@@ -104,8 +104,8 @@
       </div>
 
       <div class="col-12 col-md-4">
-        <q-input v-model="userData.confirm" :type="showPassword ? 'text' : 'password'" class="q-mx-sm" outlined :label="$t('passwordLabel.confirmLabel')" :hint="$t('passwordLabel.confirmHint')" counter>
-          <q-tooltip>{{ $t('passwordLabel.confirmTooltip') }}</q-tooltip>
+        <q-input v-model="userData.confirm" :type="showPassword ? 'text' : 'password'" class="q-mx-sm" outlined :label="$t('inputs.user.confirm.label')" :hint="$t('inputs.user.confirm.hint')" counter>
+          <q-tooltip>{{ $t('inputs.user.confirm.tooltip') }}</q-tooltip>
 
           <template v-slot:prepend>
             <q-icon name="password" />
@@ -119,16 +119,16 @@
     </q-card-section>
 
     <q-card-actions vertical>
-      <q-btn type="submit" :label="$t('signup.button.label')" class="long-btn" color="info" icon-right="person_add">
+      <q-btn type="submit" :label="$t('links.signup.label.principal')" class="long-btn" color="info" icon-right="person_add">
         <q-tooltip>{{ $t('signup.button.tooltip') }}</q-tooltip>
       </q-btn>
     </q-card-actions>
 
     <q-card-actions class="q-px-xl">
-      <q-btn style="width: 49%; margin-left: .5%;" :label="$t('forgotPassword')"></q-btn>
+      <q-btn flat style="width: 49%; margin-left: .5%;" :label="$t('links.recover.label.alternative')"></q-btn>
 
-      <q-btn style="width: 49%; margin-right: .5%;" :label="$t('login.label')">
-        <q-tooltip>{{ $t('login.tooltip') }}</q-tooltip>
+      <q-btn flat style="width: 49%; margin-right: .5%;" :label="$t('links.login.label.alternative')">
+        <q-tooltip>{{ $t('links.login.tooltip') }}</q-tooltip>
       </q-btn>
     </q-card-actions>
   </q-form>
@@ -140,6 +140,7 @@
 
   // Importar plugins
   import messages from '@intlify/unplugin-vue-i18n/messages'
+  import { i18n } from '../utils/i18n.js'
 
   // Constantes y vaiables del componente
   const showPassword = ref(false)
@@ -160,11 +161,11 @@
 
   const genresOptions = ref([
     {
-      label: messages[actualLanguage].genres[0].source,
+      label: messages[actualLanguage].inputs.user.gender.options[0].source,
       value: 'm'
     },
     {
-      label: messages[actualLanguage].genres[1].source,
+      label: messages[actualLanguage].inputs.user.gender.options[0].source,
       value: 'f'
     }
   ])

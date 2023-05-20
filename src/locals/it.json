@@ -34,7 +34,11 @@
         "error": "Inserisci un cognome valido."
       },
       "gender": {
-        "options": ["Maschio", "Femmina"]
+        "label": "Sesso biologico",
+        "tooltip": "Seleziona il tuo sesso biologico o l'identità di genere con cui ti identifichi attualmente.",
+        "hint": "Le opzioni disponibili sono 'Maschio' e 'Femmina' poiché questo campo si basa sul sesso biologico con cui una persona è nata o si identifica attualmente sessualmente.",
+        "options": ["Maschio", "Femmina"],
+        "error": "Inserisci un sesso biologico valido."
       },
       "birthday": {
         "label": "Data di nascita",

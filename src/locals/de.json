@@ -34,7 +34,11 @@
         "error": "Geben Sie einen gültigen Nachnamen ein."
       },
       "gender": {
-        "options": ["Männlich", "Weiblich"]
+        "label": "Biologisches Geschlecht",
+        "tooltip": "Wähle dein biologisches Geschlecht oder das Geschlecht, mit dem du dich derzeit identifizierst.",
+        "hint": "Die verfügbaren Optionen sind 'Männlich' und 'Weiblich', da dieses Feld auf dem biologischen Geschlecht basiert, mit dem eine Person geboren wurde oder sich derzeit sexuell identifiziert.",
+        "options": ["Männlich", "Weiblich"],
+        "error": "Gib ein gültiges biologisches Geschlecht ein."
       },
       "birthday": {
         "label": "Geburtsdatum",
