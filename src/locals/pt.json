@@ -1,21 +1,154 @@
 {
-  "language": "Português",
-  "login": {
-    "label": "Conecte-se",
-    "buttonTooltip": "Pressione 'Enter' ou clique para entrar. Certifique-se de cumprir todas as validações necessárias e ter uma conta registrada e confirmada."
+  "info": {
+    "language": {
+      "name": "Português",
+      "lang": "pt",
+      "flag": "pt"
+    },
+    "platform": {
+      "name": "IDI",
+      "lastName": "Plataforma de Pesquisa, Desenvolvimento e Inovação",
+      "slogan": "Feito com ❤️ e 🧠 para um futuro melhor",
+      "keywords": ["Plataforma de Pesquisa", "Desenvolvimento e Inovação", "IDI", "Pesquisa Científica", "Desenvolvimento de Projetos", "Inovação Tecnológica", "Gestão de Projetos", "Fluxo de Trabalho Suave", "Eficiência na Pesquisa", "Colaboração na Pesquisa", "Formulação de Projetos de Pesquisa", "Metodologias de Pesquisa", "Gestão de Tarefas", "Agendas de Pesquisa", "Artigos Científicos", "Modelos de Artigos Científicos", "Revisão de Artigos Científicos", "Nível de Prontidão Tecnológica (TRL)", "Nível de Maturidade Tecnológica", "Avaliação do Progresso Tecnológico", "Viabilidade de Mercado"],
+      "description": "A Plataforma de Pesquisa, Desenvolvimento e Inovação (IDI) é uma ferramenta versátil que oferece suporte à pesquisa científica, desenvolvimento de projetos e inovação tecnológica. Com recursos como formulação de projetos, gestão de tarefas, criação de artigos científicos e medição da maturidade tecnológica, o IDI oferece um fluxo de trabalho eficiente e colaborativo para pesquisadores e cientistas, aumentando a produtividade e o sucesso em seus projetos."
+    }
   },
-  "slogan": "Feito com ❤️ e 🧠 por um futuro melhor",
-  "changeLanguage": "mudar idioma",
-  "emailLabel": "E-mail",
-  "emailLabel": {
-    "label": "Email",
-    "tooltip": "Por favor, insira um endereço de e-mail válido. O e-mail deve estar na lista de e-mails válidos.",
-    "hint": "Dica: Certifique-se de inserir um endereço de e-mail válido. Geralmente, esses são e-mails institucionais."
+  "inputs": {
+    "user": {
+      "code": {
+        "label": "Código de identificação do usuário",
+        "tooltip": "Este código é imutável.",
+        "hint": "Este é um código fornecido pela plataforma.",
+        "error": "Houve um erro com o código."
+      },
+      "name": {
+        "label": "Nome completo",
+        "tooltip": "Digite o(s) primeiro(s) nome(s) do usuário aqui, sem incluir o sobrenome.",
+        "hint": "Digite o(s) primeiro(s) nome(s) do usuário sem incluir o sobrenome.",
+        "error": "Digite um nome válido."
+      },
+      "lastName": {
+        "label": "Sobrenome completo",
+        "tooltip": "Digite o(s) sobrenome(s) do usuário aqui, sem incluir o(s) primeiro(s) nome(s).",
+        "hint": "Digite o(s) sobrenome(s) do usuário sem incluir o(s) primeiro(s) nome(s).",
+        "error": "Digite um sobrenome válido."
+      },
+      "gender": {
+        "options": ["Masculino", "Feminino"]
+      },
+      "birthday": {
+        "label": "Data de nascimento",
+        "tooltip": "Por favor, insira sua data de nascimento.",
+        "hint": "Insira sua data de nascimento no formato AAAA/MM/DD. Você deve ter pelo menos 10 anos de idade para se registrar na plataforma.",
+        "error": "Insira uma data de nascimento válida."
+      },
+      "email": {
+        "label": "Email",
+        "tooltip": "Por favor, insira um endereço de email válido. O email deve estar na lista de emails válidos.",
+        "hint": "Certifique-se de inserir um endereço de email válido. Geralmente, esses são emails institucionais.",
+        "error": "Insira um endereço de email válido."
+      },
+      "phone": {
+        "label": "Telefone",
+        "tooltip": "Digite seu número de telefone",
+        "hint": "Exemplo: (+57) 311 234 5647",
+        "error": "Digite um número de contato válido."
+      },
+      "password": {
+        "label": "Senha",
+        "tooltip": "Digite uma senha forte com no mínimo 8 caracteres.",
+        "hint": "Digite uma senha com no mínimo 8 caracteres.",
+        "error": "A senha é inválida ou muito fraca."
+      },
+      "confirm": {
+        "label": "Confirmar senha",
+        "tooltip": "Certifique-se de que a senha corresponda exatamente.",
+        "hint": "Confirme a senha para evitar problemas de segurança.",
+        "error": "As senhas não correspondem."
+      },
+      "confirmed": {
+        "label": "Confirmado em...",
+        "hint": "Data e hora da confirmação do usuário."
+      },
+      "created": {
+        "label": "Criado em...",
+        "hint": "Data e hora da criação do usuário."
+      },
+      "updated": {
+        "label": "Atualizado em...",
+        "hint": "Data e hora da última atualização das informações do usuário."
+      },
+      "deleted": {
+        "label": "Desativado em...",
+        "hint": "Data e hora da desativação do usuário. Se não estiver no formato acordado, significa que o usuário está ativo."
+      }
+    },
+    "institution": {
+      "code": {
+        "label": "Código de identificação da instituição",
+        "tooltip": "Este código é imutável.",
+        "hint": "Este é um código fornecido pela plataforma.",
+        "error": "Houve um erro com o código."
+      },
+      "name": {
+        "label": "Nome da instituição",
+        "tooltip": "Digite o nome da instituição sem o tipo de negócio.",
+        "hint": "Digite o nome da instituição.",
+        "error": "Digite um nome válido."
+      },
+      "link": {
+        "label": "Link da plataforma",
+        "tooltip": "Insira o link para a plataforma da instituição, na página inicial.",
+        "hint": "Insira o link para a plataforma da instituição.",
+        "error": "Insira um link válido."
+      },
+      "type": {
+        "label": "Tipo de instituição",
+        "tooltip": "Digite o tipo de instituição, por exemplo: Universidade, Associação, Fundação, etc.",
+        "hint": "Digite o tipo de instituição.",
+        "error": "Digite um tipo de instituição válido."
+      },
+      "created": {
+        "label": "Criado em...",
+        "hint": "Data e hora da criação da instituição."
+      },
+      "updated": {
+        "label": "Atualizado em...",
+        "hint": "Data e hora da última atualização das informações da instituição."
+      },
+      "deleted": {
+        "label": "Desativado em...",
+        "hint": "Data e hora da desativação da instituição. Se não estiver no formato acordado, significa que a instituição está ativa."
+      }
+    }
   },
-  "passwordLabel": {
-    "label": "Senha",
-    "tooltip": "Por favor, digite uma senha válida. A senha deve ter pelo menos 8 caracteres. Caso você esqueça, você pode solicitar a recuperação da mesma.",
-    "hint": "Dica: Certifique-se de inserir uma senha segura com pelo menos 8 caracteres."
-  },
-  "forgotPassword": "Esqueceu sua senha? Clique aqui para recuperá-la."
+  "links": {
+    "home": {
+      "noSession": {
+        "label": "início",
+        "path": "/"
+      },
+      "session": {
+        "label": "início",
+        "path": "/inicio"
+      },
+      "back": "voltar para início"
+    },
+    "signup": {
+      "label": {
+        "principal": "Cadastre-se!",
+        "alternative": "Ainda não tem uma conta? Clique aqui para se cadastrar!"
+      },
+      "path": "/registrar",
+      "options": ["usuário", "instituição"]
+    },
+    "login": {
+      "label": {
+        "principal": "Entrar",
+        "alternative": "Se você já tem uma conta, faça login aqui."
+      },
+      "path": "/login",
+      "options": ["usuário", "instituição"]
+    }
+  }
 }
