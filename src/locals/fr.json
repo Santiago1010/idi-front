@@ -1,20 +1,154 @@
 {
-  "language": "Français",
-  "login": {
-    "label": "Se connecter",
-    "buttonTooltip": "Appuyez sur 'Entrée' ou cliquez pour vous connecter. Assurez-vous de remplir toutes les validations requises et d'avoir un compte enregistré et confirmé."
+  "info": {
+    "language": {
+      "name": "Français",
+      "lang": "fr",
+      "flag": "fr"
+    },
+    "platform": {
+      "name": "IDI",
+      "lastName": "Plateforme de Recherche, Développement et Innovation",
+      "slogan": "Fabriqué avec ❤️ et 🧠 pour un meilleur avenir",
+      "keywords": ["Plateforme de Recherche", "Développement et Innovation", "IDI", "Recherche Scientifique", "Développement de Projet", "Innovation Technologique", "Gestion de Projet", "Flux de Travail Harmonieux", "Efficacité en Recherche", "Collaboration en Recherche", "Formulation de Projets de Recherche", "Méthodologies de Recherche", "Gestion des Tâches", "Calendriers de Recherche", "Articles Scientifiques", "Modèles d'Articles Scientifiques", "Revue d'Articles Scientifiques", "Niveau de Préparation Technologique (TRL)", "Niveau de Maturité Technologique", "Évaluation de la Progression Technologique", "Viabilité sur le Marché"],
+      "description": "La Plateforme de Recherche, Développement et Innovation (IDI) est un outil polyvalent qui soutient la recherche scientifique, le développement de projets et l'innovation technologique. Avec des fonctionnalités telles que la formulation de projets, la gestion des tâches, la création d'articles scientifiques et la mesure de la maturité technologique, l'IDI offre un flux de travail efficace et collaboratif pour les chercheurs et les scientifiques, améliorant ainsi la productivité et la réussite de leurs projets."
+    }
   },
-  "slogan": "Fait avec ❤️ et 🧠 pour un avenir meilleur",
-  "changeLanguage": "changer de langue",
-  "emailLabel": {
-    "label": "Adresse e-mail",
-    "tooltip": "Veuillez entrer une adresse e-mail valide. L'e-mail doit être dans la liste des e-mails valides.",
-    "hint": "Astuce : Assurez-vous d'entrer une adresse e-mail valide. Généralement, ce sont les e-mails institutionnels."
+  "inputs": {
+    "user": {
+      "code": {
+        "label": "Code d'identification de l'utilisateur",
+        "tooltip": "Ce code est immuable.",
+        "hint": "Il s'agit d'un code fourni par la plateforme.",
+        "error": "Il y a une erreur avec le code."
+      },
+      "name": {
+        "label": "Prénom(s) complet(s)",
+        "tooltip": "Entrez ici le(s) prénom(s) de l'utilisateur, sans inclure le nom de famille.",
+        "hint": "Entrez le(s) prénom(s) de l'utilisateur sans inclure le nom de famille.",
+        "error": "Entrez un nom valide."
+      },
+      "lastName": {
+        "label": "Nom(s) de famille complet(s)",
+        "tooltip": "Entrez ici le(s) nom(s) de famille de l'utilisateur, sans inclure le prénom.",
+        "hint": "Entrez le(s) nom(s) de famille de l'utilisateur sans inclure le prénom.",
+        "error": "Entrez un nom de famille valide."
+      },
+      "gender": {
+        "options": ["Masculin", "Féminin"]
+      },
+      "birthday": {
+        "label": "Date de naissance",
+        "tooltip": "Veuillez entrer votre date de naissance.",
+        "hint": "Entrez votre date de naissance au format AAAA/MM/JJ. Vous devez avoir au moins 10 ans pour vous inscrire sur la plateforme.",
+        "error": "Entrez une date de naissance valide."
+      },
+      "email": {
+        "label": "Email",
+        "tooltip": "Veuillez entrer une adresse e-mail valide. L'e-mail doit figurer dans la liste des e-mails valides.",
+        "hint": "Assurez-vous d'entrer une adresse e-mail valide. En général, ce sont des e-mails institutionnels.",
+        "error": "Entrez une adresse e-mail valide."
+      },
+      "phone": {
+        "label": "Téléphone",
+        "tooltip": "Entrez votre numéro de téléphone",
+        "hint": "Exemple : (+57) 311 234 5647",
+        "error": "Entrez un numéro de contact valide."
+      },
+      "password": {
+        "label": "Mot de passe",
+        "tooltip": "Entrez un mot de passe fort d'au moins 8 caractères.",
+        "hint": "Entrez un mot de passe d'au moins 8 caractères.",
+        "error": "Le mot de passe est invalide ou trop faible."
+      },
+      "confirm": {
+        "label": "Confirmer le mot de passe",
+        "tooltip": "Assurez-vous que le mot de passe correspond exactement.",
+        "hint": "Confirmez le mot de passe pour éviter les problèmes de sécurité.",
+        "error": "Les mots de passe ne correspondent pas."
+      },
+      "confirmed": {
+        "label": "Confirmé le...",
+        "hint": "Date et heure de confirmation de l'utilisateur."
+      },
+      "created": {
+        "label": "Créé le...",
+        "hint": "Date et heure de création de l'utilisateur."
+      },
+      "updated": {
+        "label": "Mis à jour le...",
+        "hint": "Date et heure de la dernière mise à jour des informations de l'utilisateur."
+      },
+      "deleted": {
+        "label": "Désactivé le...",
+        "hint": "Date et heure de désactivation de l'utilisateur. Si ce n'est pas dans le format convenu, cela signifie que l'utilisateur est actif."
+      }
+    },
+    "institution": {
+      "code": {
+        "label": "Code d'identification de l'institution",
+        "tooltip": "Ce code est immuable.",
+        "hint": "Il s'agit d'un code fourni par la plateforme.",
+        "error": "Il y a une erreur avec le code."
+      },
+      "name": {
+        "label": "Nom de l'institution",
+        "tooltip": "Entrez le nom de l'institution sans préciser son type d'activité.",
+        "hint": "Entrez le nom de l'institution.",
+        "error": "Entrez un nom valide."
+      },
+      "link": {
+        "label": "Lien vers la plateforme",
+        "tooltip": "Entrez le lien vers la plateforme de l'institution, sur la page d'accueil.",
+        "hint": "Entrez le lien vers la plateforme de l'institution.",
+        "error": "Entrez un lien valide."
+      },
+      "type": {
+        "label": "Type d'institution",
+        "tooltip": "Entrez le type d'institution, par exemple : Université, Association, Fondation, etc.",
+        "hint": "Entrez le type d'institution.",
+        "error": "Entrez un type d'institution valide."
+      },
+      "created": {
+        "label": "Créé le...",
+        "hint": "Date et heure de création de l'institution."
+      },
+      "updated": {
+        "label": "Mis à jour le...",
+        "hint": "Date et heure de la dernière mise à jour des informations de l'institution."
+      },
+      "deleted": {
+        "label": "Désactivé le...",
+        "hint": "Date et heure de désactivation de l'institution. Si ce n'est pas dans le format convenu, cela signifie que l'institution est active."
+      }
+    }
   },
-  "passwordLabel": {
-    "label": "Mot de passe",
-    "tooltip": "Veuillez entrer un mot de passe valide. Le mot de passe doit contenir au moins 8 caractères. En cas d'oubli, vous pouvez demander la récupération du mot de passe.",
-    "hint": "Astuce : Assurez-vous d'entrer un mot de passe sécurisé d'au moins 8 caractères."
-  },
-  "forgotPassword": "Mot de passe oublié ? Cliquez ici pour le récupérer."
+  "links": {
+    "home": {
+      "noSession": {
+        "label": "Accueil",
+        "path": "/"
+      },
+      "session": {
+        "label": "accueil",
+        "path": "/accueil"
+      },
+      "back": "Retour à l'accueil"
+    },
+    "signup": {
+      "label": {
+        "principal": "S'inscrire !",
+        "alternative": "Vous n'avez pas encore de compte ? Cliquez ici pour vous inscrire !"
+      },
+      "path": "/inscription",
+      "options": ["utilisateur", "institution"]
+    },
+    "login": {
+      "label": {
+        "principal": "Se connecter",
+        "alternative": "Si vous avez déjà un compte, connectez-vous ici."
+      },
+      "path": "/connexion",
+      "options": ["utilisateur", "institution"]
+    }
+  }
 }

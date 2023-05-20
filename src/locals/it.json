@@ -1,20 +1,16 @@
 {
-  "language": "Italiano",
-  "login": {
-    "label": "Accedi",
-    "buttonTooltip": "Premi 'Invio' o fai clic per accedere. Assicurati di rispettare tutte le validazioni richieste e di avere un account registrato e confermato."
-  },
-  "slogan": "Realizzato con ❤️ e 🧠 per un futuro migliore",
-  "changeLanguage": "cambia lingua",
-  "emailLabel": {
-    "label": "Indirizzo email",
-    "tooltip": "Per favore, inserisci un indirizzo email valido. L'email deve essere presente nella lista degli indirizzi email validi.",
-    "hint": "Suggerimento: Assicurati di inserire un indirizzo email valido. Generalmente, sono gli indirizzi email istituzionali."
-  },
-  "passwordLabel": {
-    "label": "Password",
-    "tooltip": "Per favore, inserisci una password valida. La password deve contenere almeno 8 caratteri. In caso di dimenticanza, puoi richiedere il recupero della stessa.",
-    "hint": "Suggerimento: Assicurati di inserire una password sicura di almeno 8 caratteri."
-  },
-  "forgotPassword": "Hai dimenticato la tua password? Clicca qui per recuperarla."
+  "info": {
+    "language": {
+      "name": "Italiano",
+      "lang": "it",
+      "flag": "it"
+    },
+    "platform": {
+      "name": "IDI",
+      "lastName": "Piattaforma di Ricerca, Sviluppo e Innovazione",
+      "slogan": "Realizzato con ❤️ e 🧠 per un futuro migliore",
+      "keywords": ["Piattaforma di Ricerca", "Sviluppo e Innovazione", "IDI", "Ricerca Scientifica", "Sviluppo Progetti", "Innovazione Tecnologica", "Gestione Progetti", "Flusso di Lavoro Semplice", "Efficienza nella Ricerca", "Collaborazione nella Ricerca", "Formulazione Progetto di Ricerca", "Metodologie di Ricerca", "Gestione Compiti", "Pianificazione Ricerche", "Articoli Scientifici", "Modelli di Articoli Scientifici", "Revisione Articoli Scientifici", "Livello di Prontezza Tecnologica (TRL)", "Livello di Maturità Tecnologica", "Valutazione Progresso Tecnologico", "Sostenibilità di Mercato"],
+      "description": "La Piattaforma di Ricerca, Sviluppo e Innovazione (IDI) è uno strumento versatile che supporta la ricerca scientifica, lo sviluppo di progetti e l'innovazione tecnologica. Con funzionalità come la formulazione del progetto, la gestione dei compiti, la creazione di articoli scientifici e la valutazione della maturità tecnologica, IDI offre un flusso di lavoro efficiente e collaborativo per ricercatori e scienziati, migliorando la produttività e il successo dei loro progetti."
+    }
+  }
 }
