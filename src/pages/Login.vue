@@ -1,6 +1,6 @@
 <template>
   <q-card class="q-ma-md q-pa-md">
-    <q-form>
+    <q-form @submit.prevent="loginUser">
       <q-card-section class="text-h2">{{ $t('login.label') }}</q-card-section>
 
       <q-card-section>
@@ -28,17 +28,27 @@
       </q-card-section>
 
       <q-card-actions>
-        <q-btn :label="$t('login.label')" color="info" class="long-btn" icon-right="login">
+        <q-btn type="submit" :label="$t('login.label')" color="info" class="long-btn" icon-right="login">
           <q-tooltip>{{ $t('login.butttonTooltip') }}</q-tooltip>
         </q-btn>
       </q-card-actions>
     </q-form>
+    <LoaderPage />
   </q-card>
 </template>
 
 <script setup>
   // Importar internos de Vue.
   import { ref } from 'vue'
+
+  //Importar stores de pinia
+  import { useUtilsStore } from '../stores/UtilsStore.js'
+
+  // Importar componentes
+  import LoaderPage from '../components/LoaderPage.vue'
+
+  // Constantes y variables del componente.
+  const utilsStore = useUtilsStore()
 
   // Constantes y variables de la página.
   const showPassword = ref(false)
@@ -50,10 +60,12 @@
 
   // Funciones y métodos
   const loginUser = () => {
-    loginUser(userData.value).then(response => {
+    utilsStore.setNewLoadersState(true)
+
+    /*loginUser(userData.value).then(response => {
       //
     }).catch(error => console.error(error)).then(() => {
-      //
-    })
+      utilsStore.setNewLoadersState(false)
+    })*/
   }
 </script>
