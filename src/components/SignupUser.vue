@@ -2,7 +2,7 @@
   <q-form @submit.prevent="signupUser">
     <q-card-section class="row">
       <div class="col-12 col-md-4">
-        <q-select v-model="userData.institution" outlined :label="$t('institutionLabel.label')" :hint="$t('institutionLabel.hint')">
+        <q-select v-model="userData.institution" outlined class="q-mx-sm" :label="$t('institutionLabel.label')" :hint="$t('institutionLabel.hint')">
           <q-tooltip>{{ $t('institutionLabel.tooltip') }}</q-tooltip>
 
           <template v-slot:prepend>
@@ -77,6 +77,60 @@
         </q-select>
       </div>
     </q-card-section>
+
+    <q-card-section class="row">
+      <div class="col-12 col-md-4">
+        <q-input v-model="userData.phone" outlined type="text" class="q-mx-sm" :label="$t('phoneLabel.label')" :hint="$t('phoneLabel.hint')" mask="(+##) ### ### ####">
+          <q-tooltip>{{ $t('phoneLabel.tooltip') }}</q-tooltip>
+
+          <template v-slot:prepend>
+            <q-icon name="contacts" />
+          </template>
+       </q-input>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <q-input v-model="userData.password" :type="showPassword ? 'text' : 'password'" class="q-mx-sm" outlined :label="$t('passwordLabel.label')" :hint="$t('passwordLabel.hint')" counter>
+          <q-tooltip>{{ $t('passwordLabel.tooltip') }}</q-tooltip>
+
+          <template v-slot:prepend>
+            <q-icon name="password" />
+          </template>
+
+          <template v-slot:append>
+            <q-icon :name="showPassword ? 'visibility_off' : 'visibility'" class="cursor-pointer" @click="showPassword = !showPassword" />
+          </template>
+        </q-input>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <q-input v-model="userData.confirm" :type="showPassword ? 'text' : 'password'" class="q-mx-sm" outlined :label="$t('passwordLabel.confirmLabel')" :hint="$t('passwordLabel.confirmHint')" counter>
+          <q-tooltip>{{ $t('passwordLabel.confirmTooltip') }}</q-tooltip>
+
+          <template v-slot:prepend>
+            <q-icon name="password" />
+          </template>
+
+          <template v-slot:append>
+            <q-icon :name="showPassword ? 'visibility_off' : 'visibility'" class="cursor-pointer" @click="showPassword = !showPassword" />
+          </template>
+        </q-input>
+      </div>
+    </q-card-section>
+
+    <q-card-actions vertical>
+      <q-btn type="submit" :label="$t('signup.button.label')" class="long-btn" color="info" icon-right="person_add">
+        <q-tooltip>{{ $t('signup.button.tooltip') }}</q-tooltip>
+      </q-btn>
+    </q-card-actions>
+
+    <q-card-actions class="q-px-xl">
+      <q-btn style="width: 49%; margin-left: .5%;" :label="$t('forgotPassword')"></q-btn>
+
+      <q-btn style="width: 49%; margin-right: .5%;" :label="$t('login.label')">
+        <q-tooltip>{{ $t('login.tooltip') }}</q-tooltip>
+      </q-btn>
+    </q-card-actions>
   </q-form>
 </template>
 
@@ -88,6 +142,8 @@
   import messages from '@intlify/unplugin-vue-i18n/messages'
 
   // Constantes y vaiables del componente
+  const showPassword = ref(false)
+
   const actualLanguage = localStorage.language
 
   const userData = ref({
@@ -98,7 +154,8 @@
     birthday: null,
     email: null,
     phone: null,
-    password: null
+    password: null,
+    confirm: null,
   })
 
   const genresOptions = ref([

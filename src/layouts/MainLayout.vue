@@ -24,7 +24,7 @@
       <router-view />
     </q-page-container>
 
-    <q-footer reveal elevated class="bg-grey-8 text-white">
+    <q-footer class="bg-grey-8 text-white" style="position: relative;">
       <q-toolbar>
         <q-toolbar-title>
           <q-avatar>

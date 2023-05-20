@@ -14,7 +14,10 @@
   "passwordLabel": {
     "label": "Contraseña",
     "tooltip": "Por favor ingresa una contraseña válida. La contraseña debe tener al menos 8 caracteres. En caso de olvidarla, puedes solicitar la recuperación de la misma.",
-    "hint": "Pista: Asegúrate de ingresar una contraseña segura de al menos 8 caracteres."
+    "hint": "Pista: Asegúrate de ingresar una contraseña segura de al menos 8 caracteres.",
+    "confirmLabel": "Confirma contraseña",
+    "confirmTooltip": "Por favor ingresa, ingresa la misma contraseña para confirmar que no te equivoques.",
+    "confirmHint": "Asegúrate de que sea la misma contraseña para evitar errores de seguridad."
   },
   "nameLabel": {
     "label": "Nombre(s) completo(s)",
@@ -41,6 +44,17 @@
     "tooltip": "Por favor ingresa tu fecha de nacimiento.",
     "hint": "Ingresa tu fecha de nacimiento en el formato AAAA/MM/DD. Debes tener al menos 10 años para poder registrarte en la plataforma."
   },
+  "phoneLabel": {
+    "label": "Teléfono",
+    "tooltip": "Ingresa tu número de teléfono",
+    "hint": "Ejemplo: (+57) 311 234 5647"
+  },
   "forgotPassword": "¿Has olvidado tu contraseña? Haz clic aquí para recuperarla.",
-  "genres": ["Masculino", "Femenino"]
+  "genres": ["Masculino", "Femenino"],
+  "signup": {
+    "button": {
+      "label": "¡registrarme!",
+      "tooltip": "Haz clic aquí para registrarte"
+    }
+  }
 }
