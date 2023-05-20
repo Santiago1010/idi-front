@@ -1,21 +1,156 @@
 {
-  "language": "English",
-  "login": {
-    "label": "Log In",
-    "buttonTooltip": "Press 'Enter' or click to log in. Make sure to fulfill all required validations and have a registered and confirmed account."
+  "info": {
+    "language": {
+      "name": "English",
+      "lang": "en",
+      "flag": "us"
+    },
+    "platform": {
+      "name": "IDI",
+      "lastName": "Research, Development, and Innovation Platform",
+      "slogan": "Made with ❤️ and 🧠 for a better future",
+      "keywords": ["Research Platform", "Development and Innovation", "IDI", "Scientific Research", "Project Development", "Technological Innovation", "Project Management", "Smooth Workflow", "Efficiency in Research", "Collaboration in Research", "Research Project Formulation", "Research Methodologies", "Task Management", "Research Schedules", "Scientific Articles", "Scientific Article Templates", "Scientific Article Review", "Technology Readiness Level (TRL)", "Technology Maturity Level", "Technology Progress Evaluation", "Market Viability"],
+      "description": "The Research, Development, and Innovation (IDI) Platform is a versatile tool that supports scientific research, project development, and technological innovation. With features such as project formulation, task management, creation of scientific articles, and measurement of technological maturity, IDI offers an efficient and collaborative workflow for researchers and scientists, enhancing productivity and success in their projects."
+    }
   },
-  "slogan": "Made with ❤️ and 🧠 for a better future",
-  "changeLanguage": "change language",
-  "emailLabel": "Email",
-  "emailLabel": {
-    "label": "Email",
-    "tooltip": "Please enter a valid email address. The email must be in the list of valid emails.",
-    "hint": "Hint: Make sure to enter a valid email address. Typically, these are institutional emails."
+  "inputs": {
+    "user": {
+      "code": {
+        "label": "User identification code",
+        "tooltip": "This code is immutable.",
+        "hint": "This is a code provided by the platform.",
+        "error": "There is an error with the code."
+      },
+      "name": {
+        "label": "Full name(s)",
+        "tooltip": "Enter the user's first name(s) here, without including the last name.",
+        "hint": "Enter the user's first name(s) without including the last name.",
+        "error": "Enter a valid name."
+      },
+      "lastName": {
+        "label": "Full last name(s)",
+        "tooltip": "Enter the user's last name(s) here, without including the first name.",
+        "hint": "Enter the user's last name(s) without including the first name.",
+        "error": "Enter a valid last name."
+      },
+      "gender": {
+        "options": ["Male", "Female"]
+      },
+      "birthday": {
+        "label": "Date of birth",
+        "tooltip": "Please enter your date of birth.",
+        "hint": "Enter your date of birth in the format YYYY/MM/DD. You must be at least 10 years old to register on the platform.",
+        "error": "Enter a valid date of birth."
+      },
+      "email": {
+        "label": "Email",
+        "tooltip": "Please enter a valid email address. The email must be in the list of valid emails.",
+        "hint": "Make sure to enter a valid email address. Generally, these are institutional emails.",
+        "error": "Enter a valid email address."
+      },
+      "phone": {
+        "label": "Phone",
+        "tooltip": "Enter your phone number",
+        "hint": "Example: (+57) 311 234 5647",
+        "error": "Enter a valid contact number."
+      },
+      "password": {
+        "label": "Password",
+        "tooltip": "Enter a strong password with a minimum of 8 characters.",
+        "hint": "Enter a password with a minimum of 8 characters.",
+        "error": "The password is invalid or too weak."
+      },
+      "confirm": {
+        "label": "Confirm password",
+        "tooltip": "Make sure the password matches exactly.",
+        "hint": "Confirm the password to avoid security issues.",
+        "error": "Passwords do not match."
+      },
+      "confirmed": {
+        "label": "Confirmed on...",
+        "hint": "Date and time of user confirmation."
+      },
+      "created": {
+        "label": "Created on...",
+        "hint": "Date and time of user creation."
+      },
+      "updated": {
+        "label": "Updated on...",
+        "hint": "Date and time of the last update to user information."
+      },
+      "deleted": {
+        "label": "Deactivated on...",
+        "hint": "Date and time of user deactivation. If it is not in the agreed format, it means the user is active."
+      }
+    },
+    "institution": {
+      "code": {
+        "label": "Institution identification code",
+        "tooltip": "This code is immutable.",
+        "hint": "This is a code provided by the platform.",
+        "error": "There is an error with the code."
+      },
+      "name": {
+        "label": "Institution name",
+        "tooltip": "Enter the institution's name without its business type.",
+        "hint": "Enter the institution's name.",
+        "error": "Enter a valid name."
+      },
+      "link": {
+
+
+        "label": "Platform link",
+        "tooltip": "Enter the link to the institution's platform, on the homepage.",
+        "hint": "Enter the link to the institution's platform.",
+        "error": "Enter a valid link."
+      },
+      "type": {
+        "label": "Institution type",
+        "tooltip": "Enter the institution's type, for example: University, Association, Foundation, etc.",
+        "hint": "Enter the institution's type.",
+        "error": "Enter a valid institution type."
+      },
+      "created": {
+        "label": "Created on...",
+        "hint": "Date and time of institution creation."
+      },
+      "updated": {
+        "label": "Updated on...",
+        "hint": "Date and time of the last update to institution information."
+      },
+      "deleted": {
+        "label": "Deactivated on...",
+        "hint": "Date and time of institution deactivation. If it is not in the agreed format, it means the institution is active."
+      }
+    }
   },
-  "passwordLabel": {
-    "label": "Password",
-    "tooltip": "Please enter a valid password. The password must be at least 8 characters long. In case you forget it, you can request recovery of your password.",
-    "hint": "Hint: Make sure to enter a secure password of at least 8 characters."
-  },
-  "forgotPassword": "Forgot your password? Click here to recover it."
+  "links": {
+    "home": {
+      "noSession": {
+        "label": "home",
+        "path": "/"
+      },
+      "session": {
+        "label": "home",
+        "path": "/home"
+      },
+      "back": "back to home"
+    },
+    "signup": {
+      "label": {
+        "principal": "Sign up!",
+        "alternative": "Don't have an account yet? Click here to sign up!"
+      },
+      "path": "/register",
+      "options": ["user", "institution"]
+    },
+    "login": {
+      "label": {
+        "principal": "Log in",
+        "alternative": "If you already have an account, log in here."
+      },
+      "path": "/login",
+      "options": ["user", "institution"]
+    }
+  }
 }
