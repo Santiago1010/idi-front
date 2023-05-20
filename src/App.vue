@@ -12,8 +12,8 @@
   const languageStore = useLanguageStore()
 
   onMounted(() => {
-    if (!localStorage.language) {
+    /*if (!localStorage.language) {
       languageStore.setNewLanguage(navigator.language.split('-')[0])
-    }
+    }*/
   })
 </script>

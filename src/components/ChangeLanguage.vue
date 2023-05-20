@@ -1,13 +1,8 @@
 <template>
-  <q-btn color="secondary" :label="$t('changeLanguage')">
-    <q-menu auto-close>
-      <q-list style="min-width: 100px">
-        <q-item v-for="(language, index) in languages" @click="changelanguage(index)" clickable>
-          <q-item-section>{{ language }}</q-item-section>
-        </q-item>
-      </q-list>
-    </q-menu>
-  </q-btn>
+  <select v-model="$i18n.locale" label="Cambiar idioma">
+    <option :value="$t('changeLanguage')" default>{{ $t('changeLanguage') }}</option>
+    <option v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`" :value="locale">{{ locale }}</option>
+  </select>
 </template>
 
 <script setup>
@@ -20,15 +15,38 @@
   const languageStore = useLanguageStore()
 
   // Constantes y variables del componente
-  const languages = ref({
-    'de': '🇩🇪 Deutsch',
-    'en': '🇬🇧 English',
-    'es': '🇪🇸 Español',
-    'ja': '🇯🇵 日本語',
-    'pt': '🇵🇹 Português',
-    'ru': '🇷🇺 Русский',
-    'zh': '🇨🇳 中文'
-  });
+  const optionsLanguages = ref([
+    {
+      locale: 'de',
+      language: 'Deutsch',
+      class: ''
+    },
+    {
+      locale: 'en',
+      language: 'English',
+      class: ''
+    },
+    {
+      locale: 'es',
+      language: 'Español',
+      class: ''
+    },
+    {
+      locale: 'fr',
+      language: 'Français',
+      class: ''
+    },
+    {
+      locale: 'it',
+      language: 'Italiano',
+      class: ''
+    },
+    {
+      locale: 'pt',
+      language: 'Português',
+      class: ''
+    }
+  ]);
 
   // Funciones y métodos
   const changelanguage = (newLanguage) => {

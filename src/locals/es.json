@@ -1,8 +1,8 @@
 {
-  "language": "🇪🇸 Español",
+  "language": "Español",
   "login": "Iniciar sesión",
   "slogan": "Hecho con ❤️ y 🧠 por un mejor futuro",
-  "changeLanguage": "🇪🇸 cambiar idioma",
+  "changeLanguage": "cambiar idioma",
   "emailLabel": {
     "label": "Correo electrónico",
     "tooltip": "Por favor ingresa un correo electrónico válido. El correo debe estar en la lista de correos válidos.",

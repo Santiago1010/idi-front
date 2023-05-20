@@ -1,8 +1,8 @@
 {
-  "language": "🇫🇷 Français",
+  "language": "Français",
   "login": "Se connecter",
   "slogan": "Fait avec ❤️ et 🧠 pour un avenir meilleur",
-  "changeLanguage": "🇪🇸 changer de langue",
+  "changeLanguage": "changer de langue",
   "emailLabel": {
     "label": "Adresse e-mail",
     "tooltip": "Veuillez entrer une adresse e-mail valide. L'e-mail doit être dans la liste des e-mails valides.",
