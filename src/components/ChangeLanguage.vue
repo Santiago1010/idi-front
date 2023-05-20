@@ -2,7 +2,7 @@
   <q-btn color="secondary" :label="$t('changeLanguage')">
     <q-menu auto-close>
       <q-list style="min-width: 100px">
-        <q-item v-for="(language, index) in languages" :key="index" v-if="language !== $t('language')" @click="changelanguage(index)" clickable>
+        <q-item v-for="(language, index) in languages" @click="changelanguage(index)" clickable>
           <q-item-section>{{ language }}</q-item-section>
         </q-item>
       </q-list>
@@ -13,6 +13,11 @@
 <script setup>
   // Importar internos de vue
   import { ref } from 'vue'
+
+  // Importar store
+  import { useLanguageStore } from '../stores/LanguageStore.js'
+
+  const languageStore = useLanguageStore()
 
   // Constantes y variables del componente
   const languages = ref({
@@ -27,10 +32,11 @@
 
   // Funciones y métodos
   const changelanguage = (newLanguage) => {
-    localStorage.removeItem('language')
+    console.clear()
+    localStorage.removeItem('language');
 
     if (!localStorage.language) {
-      localStorage.setItem('langauge', newLanguage)
+      languageStore.setNewLanguage({ newLanguage })
     }
   }
 </script>

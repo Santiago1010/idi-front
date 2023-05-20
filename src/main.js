@@ -22,11 +22,11 @@ import { i18n } from './utils/i18n.js'
 import App from './App.vue'
 
 createApp(App)
+.use(createPinia())
 .use(Quasar, {
   plugins: {}, // import Quasar plugins and add here
   lang: quasarLang,
 })
-.use(createPinia())
 .use(router)
 .use(i18n)
 .mount('#app')
