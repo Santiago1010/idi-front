@@ -2,5 +2,16 @@
   "language": "🇵🇹 Português",
   "login": "Conecte-se",
   "slogan": "Feito com ❤️ e 🧠 por um futuro melhor",
-  "changeLanguage": "🇵🇹 mudar idioma"
+  "changeLanguage": "🇵🇹 mudar idioma",
+  "emailLabel": "E-mail",
+  "emailLabel": {
+    "label": "Email",
+    "tooltip": "Por favor, insira um endereço de e-mail válido. O e-mail deve estar na lista de e-mails válidos.",
+    "hint": "Dica: Certifique-se de inserir um endereço de e-mail válido. Geralmente, esses são e-mails institucionais."
+  },
+  "passwordLabel": {
+    "label": "Senha",
+    "tooltip": "Por favor, digite uma senha válida. A senha deve ter pelo menos 8 caracteres. Caso você esqueça, você pode solicitar a recuperação da mesma.",
+    "hint": "Dica: Certifique-se de inserir uma senha segura com pelo menos 8 caracteres."
+  }
 }

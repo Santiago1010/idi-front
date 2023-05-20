@@ -17,6 +17,8 @@ import '@quasar/extras/animate/fadeOut.css'
 // Import Quasar css
 import 'quasar/src/css/index.sass'
 
+import './assets/styles/css/styles.css'
+
 import { i18n } from './utils/i18n.js'
 
 import App from './App.vue'

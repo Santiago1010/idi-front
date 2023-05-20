@@ -1,6 +1,46 @@
 <template>
-  <p class="text-body1">{{ $t('login') }}</p>
+  <q-card class="q-ma-md q-pa-md">
+    <q-form>
+      <q-card-section class="text-h2">{{ $t('login') }}</q-card-section>
+
+      <q-card-section>
+        <q-input v-model="userData.email" type="text" class="q-my-md" outlined :label="$t('emailLabel.label')" :hint="$t('emailLabel.hint')">
+          <q-tooltip>{{ $t('emailLabel.tooltip') }}</q-tooltip>
+
+          <template v-slot:prepend>
+            <q-icon name="mail" />
+          </template>
+        </q-input>
+
+        <q-input v-model="userData.password" :type="showPassword ? 'text' : 'password'" class="q-my-md" outlined :label="$t('passwordLabel.label')" :hint="$t('passwordLabel.hint')" counter>
+          <q-tooltip>{{ $t('passwordLabel.tooltip') }}</q-tooltip>
+
+          <template v-slot:prepend>
+            <q-icon name="password" />
+          </template>
+
+          <template v-slot:append>
+            <q-icon :name="showPassword ? 'visibility_off' : 'visibility'" class="cursor-pointer" @click="showPassword = !showPassword" />
+          </template>
+        </q-input>
+      </q-card-section>
+
+      <q-card-actions>
+        <q-btn :label="$t('login')" color="info" class="long-btn" icon-right="login"></q-btn>
+      </q-card-actions>
+    </q-form>
+  </q-card>
 </template>
 
 <script setup>
+  // Importar internos de Vue.
+  import { ref } from 'vue'
+
+  // Constantes y variables de la página.
+  const showPassword = ref(false)
+
+  const userData = ref({
+    email: null,
+    password: null
+  })
 </script>

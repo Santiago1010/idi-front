@@ -2,5 +2,16 @@
   "language": "🇬🇧 English",
   "login": "Login",
   "slogan": "Made with ❤️ and 🧠 for a better future",
-  "changeLanguage": "🇬🇧 change language"
+  "changeLanguage": "🇬🇧 change language",
+  "emailLabel": "Email",
+  "emailLabel": {
+    "label": "Email",
+    "tooltip": "Please enter a valid email address. The email must be in the list of valid emails.",
+    "hint": "Hint: Make sure to enter a valid email address. Typically, these are institutional emails."
+  },
+  "passwordLabel": {
+    "label": "Password",
+    "tooltip": "Please enter a valid password. The password must be at least 8 characters long. In case you forget it, you can request recovery of your password.",
+    "hint": "Hint: Make sure to enter a secure password of at least 8 characters."
+  }
 }

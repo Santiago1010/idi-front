@@ -2,5 +2,15 @@
   "language": "🇪🇸 Español",
   "login": "Iniciar sesión",
   "slogan": "Hecho con ❤️ y 🧠 por un mejor futuro",
-  "changeLanguage": "🇪🇸 cambiar idioma"
+  "changeLanguage": "🇪🇸 cambiar idioma",
+  "emailLabel": {
+    "label": "Correo electrónico",
+    "tooltip": "Por favor ingresa un correo electrónico válido. El correo debe estar en la lista de correos válidos.",
+    "hint": "Pista: Asegúrate de ingresar un correo electrónico válido. Generalmente, son los correos institucionales."
+  },
+  "passwordLabel": {
+    "label": "Contraseña",
+    "tooltip": "Por favor ingresa una contraseña válida. La contraseña debe tener al menos 8 caracteres. En caso de olvidarla, puedes solicitar la recuperación de la misma.",
+    "hint": "Pista: Asegúrate de ingresar una contraseña segura de al menos 8 caracteres."
+  }
 }
