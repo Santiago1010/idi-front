@@ -1,19 +1,10 @@
 <template>
-  <router-view />
+  <router-view/>
 </template>
 
 <script setup>
-  // Importar internos de vue
-  import { onMounted } from 'vue'
+import { useLocaleSwitcher } from './composable/use-locale-switcher.js';
 
-  // Importar store
-  import { useLanguageStore } from './stores/LanguageStore.js'
-
-  const languageStore = useLanguageStore()
-
-  onMounted(() => {
-    if (!localStorage.language) {
-      languageStore.setNewLanguage(navigator.language.split('-')[0])
-    }
-  })
+const localeSwitcher = useLocaleSwitcher();
+localeSwitcher.loadLastState();
 </script>
