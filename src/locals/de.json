@@ -1,21 +1,154 @@
 {
-  "language": "Deutsch",
-  "login": {
-    "label": "Anmelden",
-    "buttonTooltip": "Drücken Sie 'Enter' oder klicken Sie, um sich anzumelden. Stellen Sie sicher, dass alle erforderlichen Validierungen erfüllt sind und Sie ein registriertes und bestätigtes Konto haben."
+  "info": {
+    "language": {
+      "name": "Deutsch",
+      "lang": "de",
+      "flag": "de"
+    },
+    "platform": {
+      "name": "IDI",
+      "lastName": "Forschungs-, Entwicklungs- und Innovationsplattform",
+      "slogan": "Mit ❤️ und 🧠 für eine bessere Zukunft gemacht",
+      "keywords": ["Forschungsplattform", "Entwicklung und Innovation", "IDI", "Wissenschaftliche Forschung", "Projektentwicklung", "Technologische Innovation", "Projektmanagement", "Reibungsloser Arbeitsablauf", "Effizienz in der Forschung", "Zusammenarbeit in der Forschung", "Formulierung von Forschungsprojekten", "Forschungsmethoden", "Aufgabenmanagement", "Forschungspläne", "Wissenschaftliche Artikel", "Vorlagen für wissenschaftliche Artikel", "Überprüfung wissenschaftlicher Artikel", "Technologiebereitschaftsstufe (TRL)", "Technologiereifegrad", "Bewertung des Technologiefortschritts", "Marktfähigkeit"],
+      "description": "Die Forschungs-, Entwicklungs- und Innovationsplattform (IDI) ist ein vielseitiges Werkzeug, das wissenschaftliche Forschung, Projektentwicklung und technologische Innovation unterstützt. Mit Funktionen wie Projektformulierung, Aufgabenmanagement, Erstellung wissenschaftlicher Artikel und Messung der technologischen Reife bietet IDI einen effizienten und kollaborativen Arbeitsablauf für Forscherinnen und Forscher, der die Produktivität und den Erfolg ihrer Projekte steigert."
+    }
   },
-  "slogan": "Gemacht mit ❤️ und 🧠 für eine bessere Zukunft",
-  "changeLanguage": "Sprache ändern",
-  "emailLabel": "E-Mail",
-  "emailLabel": {
-    "label": "E-Mail",
-    "tooltip": "Bitte geben Sie eine gültige E-Mail-Adresse ein. Die E-Mail muss in der Liste der gültigen E-Mails stehen.",
-    "hint": "Tipp: Stellen Sie sicher, dass Sie eine gültige E-Mail-Adresse eingeben. In der Regel handelt es sich um geschäftliche E-Mails."
+  "inputs": {
+    "user": {
+      "code": {
+        "label": "Benutzeridentifikationscode",
+        "tooltip": "Dieser Code ist unveränderlich.",
+        "hint": "Dies ist ein Code, der von der Plattform bereitgestellt wird.",
+        "error": "Es liegt ein Fehler mit dem Code vor."
+      },
+      "name": {
+        "label": "Vorname",
+        "tooltip": "Geben Sie hier den Vornamen des Benutzers ein, ohne den Nachnamen.",
+        "hint": "Geben Sie den Vornamen des Benutzers ein, ohne den Nachnamen.",
+        "error": "Geben Sie einen gültigen Namen ein."
+      },
+      "lastName": {
+        "label": "Nachname",
+        "tooltip": "Geben Sie hier den Nachnamen des Benutzers ein, ohne den Vornamen.",
+        "hint": "Geben Sie den Nachnamen des Benutzers ein, ohne den Vornamen.",
+        "error": "Geben Sie einen gültigen Nachnamen ein."
+      },
+      "gender": {
+        "options": ["Männlich", "Weiblich"]
+      },
+      "birthday": {
+        "label": "Geburtsdatum",
+        "tooltip": "Bitte geben Sie Ihr Geburtsdatum ein.",
+        "hint": "Geben Sie Ihr Geburtsdatum im Format JJJJ/MM/TT ein. Sie müssen mindestens 10 Jahre alt sein, um sich auf der Plattform registrieren zu können.",
+        "error": "Geben Sie ein gültiges Geburtsdatum ein."
+      },
+      "email": {
+        "label": "E-Mail",
+        "tooltip": "Geben Sie eine gültige E-Mail-Adresse ein. Die E-Mail-Adresse muss in der Liste der gültigen E-Mails enthalten sein.",
+        "hint": "Stellen Sie sicher, dass Sie eine gültige E-Mail-Adresse eingeben. In der Regel handelt es sich um institutionelle E-Mails.",
+        "error": "Geben Sie eine gültige E-Mail-Adresse ein."
+      },
+      "phone": {
+        "label": "Telefon",
+        "tooltip": "Geben Sie Ihre Telefonnummer ein.",
+        "hint": "Beispiel: (+57) 311 234 5647",
+        "error": "Geben Sie eine gültige Kontaktnummer ein."
+      },
+      "password": {
+        "label": "Passwort",
+        "tooltip": "Geben Sie ein sicheres Passwort mit mindestens 8 Zeichen ein.",
+        "hint": "Geben Sie ein Passwort mit mindestens 8 Zeichen ein.",
+        "error": "Das Passwort ist ungültig oder zu schwach."
+      },
+      "confirm": {
+        "label": "Passwort bestätigen",
+        "tooltip": "Stellen Sie sicher, dass das Passwort exakt übereinstimmt.",
+        "hint": "Bestätigen Sie das Passwort, um Sicherheitsprobleme zu vermeiden.",
+        "error": "Die Passwörter stimmen nicht überein."
+      },
+      "confirmed": {
+        "label": "Bestätigt am...",
+        "hint": "Datum und Uhrzeit der Benutzerbestätigung."
+      },
+      "created": {
+        "label": "Erstellt am...",
+        "hint": "Datum und Uhrzeit der Benutzererstellung."
+      },
+      "updated": {
+        "label": "Aktualisiert am...",
+        "hint": "Datum und Uhrzeit des letzten Updates der Benutzerinformationen."
+      },
+      "deleted": {
+        "label": "Deaktiviert am...",
+        "hint": "Datum und Uhrzeit der Benutzerdeaktivierung. Wenn es nicht im vereinbarten Format ist, bedeutet dies, dass der Benutzer aktiv ist."
+      }
+    },
+    "institution": {
+      "code": {
+        "label": "Institutionsidentifikationscode",
+        "tooltip": "Dieser Code ist unveränderlich.",
+        "hint": "Dies ist ein Code, der von der Plattform bereitgestellt wird.",
+        "error": "Es liegt ein Fehler mit dem Code vor."
+      },
+      "name": {
+        "label": "Institutionsname",
+        "tooltip": "Geben Sie den Namen der Institution ohne ihre Geschäftsart ein.",
+        "hint": "Geben Sie den Namen der Institution ein.",
+        "error": "Geben Sie einen gültigen Namen ein."
+      },
+      "link": {
+        "label": "Plattform-Link",
+        "tooltip": "Geben Sie den Link zur Plattform der Institution auf der Homepage ein.",
+        "hint": "Geben Sie den Link zur Plattform der Institution ein.",
+        "error": "Geben Sie einen gültigen Link ein."
+      },
+      "type": {
+        "label": "Institutionstyp",
+        "tooltip": "Geben Sie den Institutionstyp ein, zum Beispiel: Universität, Verein, Stiftung, etc.",
+        "hint": "Geben Sie den Institutionstyp ein.",
+        "error": "Geben Sie einen gültigen Institutionstyp ein."
+      },
+      "created": {
+        "label": "Erstellt am...",
+        "hint": "Datum und Uhrzeit der Institutionserstellung."
+      },
+      "updated": {
+        "label": "Aktualisiert am...",
+        "hint": "Datum und Uhrzeit des letzten Updates der Institutsinformationen."
+      },
+      "deleted": {
+        "label": "Deaktiviert am...",
+        "hint": "Datum und Uhrzeit der Institutsdeaktivierung. Wenn es nicht im vereinbarten Format ist, bedeutet dies, dass die Institution aktiv ist."
+      }
+    }
   },
-  "passwordLabel": {
-    "label": "Passwort",
-    "tooltip": "Bitte geben Sie ein gültiges Passwort ein. Das Passwort muss mindestens 8 Zeichen lang sein. Falls Sie es vergessen, können Sie eine Wiederherstellung beantragen.",
-    "hint": "Hinweis: Stellen Sie sicher, dass Sie ein sicheres Passwort mit mindestens 8 Zeichen eingeben."
-  },
-  "forgotPassword": "Hast du dein Passwort vergessen? Klicke hier, um es wiederherzustellen."
+  "links": {
+    "home": {
+      "noSession": {
+        "label": "Startseite",
+        "path": "/"
+      },
+      "session": {
+        "label": "Startseite",
+        "path": "/startseite"
+      },
+      "back": "Zurück zur Startseite"
+    },
+    "signup": {
+      "label": {
+        "principal": "Registrieren!",
+        "alternative": "Sie haben noch kein Konto? Klicken Sie hier, um sich zu registrieren!"
+      },
+      "path": "/registrieren",
+      "options": ["Benutzer", "Institution"]
+    },
+    "login": {
+      "label": {
+        "principal": "Einloggen",
+        "alternative": "Wenn Sie bereits ein Konto haben, loggen Sie sich hier ein."
+      },
+      "path": "/einloggen",
+      "options": ["Benutzer", "Institution"]
+    }
+  }
 }
