@@ -1,6 +1,6 @@
 <template>
   <div class="dropdown" :class="{ active: dropdownActive }" @click="dropdownActive = !dropdownActive">
-    <input type="text" class="textBox" :placeholder="$t('changeLanguage')" readonly>
+    <input type="text" class="textBox" :placeholder="$t('options.changeLanguage')" readonly>
 
     <div class="options">
       <div v-for="language in optionsLanguages" :key="language.language" @click="$i18n.locale = changeLanguage(language.locale)"><span :class="`fi fi-${language.class}`"></span> {{ language.language }}</div>

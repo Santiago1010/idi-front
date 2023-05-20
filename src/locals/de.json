@@ -149,6 +149,16 @@
       },
       "path": "/einloggen",
       "options": ["Benutzer", "Institution"]
+    },
+    "recover": {
+      "label": {
+        "principal": "Passwort vergessen? Klicken Sie hier, um es wiederherzustellen",
+        "alternative": "Passwort vergessen?"
+      },
+      "path": "/passwort-wiederherstellen"
     }
+  },
+  "options": {
+    "changeLanguage": "Sprache ändern"
   }
 }

@@ -149,6 +149,16 @@
       },
       "path": "/accedi",
       "options": ["utente", "istituzione"]
+    },
+    "recover": {
+      "label": {
+        "principal": "Hai dimenticato la password? Fai clic qui per recuperarla",
+        "alternative": "Hai dimenticato la password?"
+      },
+      "path": "/recupero-password"
     }
+  },
+  "options": {
+    "changeLanguage": "Cambia lingua"
   }
 }

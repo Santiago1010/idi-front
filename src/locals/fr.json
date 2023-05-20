@@ -149,6 +149,16 @@
       },
       "path": "/connexion",
       "options": ["utilisateur", "institution"]
+    },
+    "recover": {
+      "label": {
+        "principal": "Mot de passe oublié ? Cliquez ici pour le récupérer",
+        "alternative": "Mot de passe oublié ?"
+      },
+      "path": "/recuperer-mot-de-passe"
     }
+  },
+  "options": {
+    "changeLanguage": "Changer de langue"
   }
 }

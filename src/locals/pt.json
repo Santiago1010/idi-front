@@ -149,6 +149,16 @@
       },
       "path": "/login",
       "options": ["usuário", "instituição"]
+    },
+    "recover": {
+      "label": {
+        "principal": "Esqueceu sua senha? Clique aqui para recuperá-la",
+        "alternative": "Esqueceu sua senha?"
+      },
+      "path": "/recuperar-senha"
     }
+  },
+  "options": {
+    "changeLanguage": "Alterar idioma"
   }
 }

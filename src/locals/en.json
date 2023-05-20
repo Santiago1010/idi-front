@@ -151,6 +151,16 @@
       },
       "path": "/login",
       "options": ["user", "institution"]
+    },
+    "recover": {
+      "label": {
+        "principal": "Forgot your password? Click here to recover it",
+        "alternative": "Forgot your password?"
+      },
+      "path": "/password-recovery"
     }
+  },
+  "options": {
+    "changeLanguage": "Change language"
   }
 }

@@ -1,19 +1,19 @@
 <template>
   <q-card class="q-ma-md q-pa-md">
     <q-form @submit.prevent="loginUser">
-      <q-card-section class="text-h2">{{ $t('login.label') }}</q-card-section>
+      <q-card-section class="text-h2">{{ $t('links.login.label.principal') }}</q-card-section>
 
       <q-card-section>
-        <q-input v-model="loginData.email" type="text" class="q-my-md" outlined :label="$t('emailLabel.label')" :hint="$t('emailLabel.hint')">
-          <q-tooltip>{{ $t('emailLabel.tooltip') }}</q-tooltip>
+        <q-input v-model="loginData.email" type="text" class="q-my-md" outlined :label="$t('inputs.user.email.label')" :hint="$t('inputs.user.email.hint')">
+          <q-tooltip>{{ $t('inputs.user.email.tooltip') }}</q-tooltip>
 
           <template v-slot:prepend>
             <q-icon name="mail" />
           </template>
         </q-input>
 
-        <q-input v-model="loginData.password" :type="showPassword ? 'text' : 'password'" class="q-my-md" outlined :label="$t('passwordLabel.label')" :hint="$t('passwordLabel.hint')" counter>
-          <q-tooltip>{{ $t('passwordLabel.tooltip') }}</q-tooltip>
+        <q-input v-model="loginData.password" :type="showPassword ? 'text' : 'password'" class="q-my-md" outlined :label="$t('inputs.user.password.label')" :hint="$t('inputs.user.password.hint')" counter>
+          <q-tooltip>{{ $t('inputs.user.password.tooltip') }}</q-tooltip>
 
           <template v-slot:prepend>
             <q-icon name="password" />
@@ -24,11 +24,11 @@
           </template>
         </q-input>
 
-        <router-link to="/">{{ $t('forgotPassword') }}</router-link>
+        <router-link to="/">{{ $t('links.recover.label.principal') }}</router-link>
       </q-card-section>
 
       <q-card-actions>
-        <q-btn type="submit" :label="$t('login.label')" color="info" class="long-btn" icon-right="login">
+        <q-btn type="submit" :label="$t('links.login.label.principal')" color="info" class="long-btn" icon-right="login">
           <q-tooltip>{{ $t('login.butttonTooltip') }}</q-tooltip>
         </q-btn>
       </q-card-actions>

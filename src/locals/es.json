@@ -9,7 +9,7 @@
       "name": "IDI",
       "lastName": "Plataforma de investigación, desarrollo e innovación.",
       "slogan": "Hecho con ❤️ y 🧠 por un mejor futuro",
-      "keywords": ["Plataforma de Investigación", "Desarrollo e Innovación", "IDI", "Investigación científica", "Desarrollo de proyectos", "Innovación tecnológica", "Gestión de proyectos", "Flujo de trabajo fluido", "Eficiencia en la investigación", "Colaboración en la investigación", "Formulación de proyectos de investigación", "Metodologías de investigación", "Gestión de tareas," "Cronogramas de investigación", "Artículos científicos", "Plantillas para artículos científicos", "Revisión de artículos científicos", "Tecnology Readiness Level (TRL)", "Nivel de madurez de tecnología", "Evaluación de progreso de tecnología", "Viabilidad en el mercado"],
+      "keywords": ["Plataforma de Investigación", "Desarrollo e Innovación", "IDI", "Investigación científica", "Desarrollo de proyectos", "Innovación tecnológica", "Gestión de proyectos", "Flujo de trabajo fluido", "Eficiencia en la investigación", "Colaboración en la investigación", "Formulación de proyectos de investigación", "Metodologías de investigación", "Gestión de tareas", "Cronogramas de investigación", "Artículos científicos", "Plantillas para artículos científicos", "Revisión de artículos científicos", "Tecnology Readiness Level (TRL)", "Nivel de madurez de tecnología", "Evaluación de progreso de tecnología", "Viabilidad en el mercado"],
       "description": "La Plataforma de Investigación, Desarrollo e Innovación (IDI) es una herramienta versátil que respalda la investigación científica, el desarrollo de proyectos y la innovación tecnológica. Con funcionalidades como la formulación de proyectos, gestión de tareas, creación de artículos científicos y medición de la madurez tecnológica, IDI ofrece un flujo de trabajo eficiente y colaborativo para investigadores y científicos, mejorando la productividad y el éxito en sus proyectos.",
     },
   },
@@ -150,5 +150,15 @@
       "path": "/iniciar-sesion",
       "options": ["usuario", "institucion"],
     },
+    "recover": {
+      "label": {
+        "principal": "¿Olvidaste tu contraseña? Haz click aquí para recuperarla",
+        "alternative": "¿Olvidaste tu contraseña?"
+      },
+      "path": "/recuperar-contrasena"
+    }
+  },
+  "options": {
+    "changeLanguage": "Cambiar idioma"
   }
 }
