@@ -16,5 +16,31 @@
     "tooltip": "Por favor ingresa una contraseña válida. La contraseña debe tener al menos 8 caracteres. En caso de olvidarla, puedes solicitar la recuperación de la misma.",
     "hint": "Pista: Asegúrate de ingresar una contraseña segura de al menos 8 caracteres."
   },
-  "forgotPassword": "¿Has olvidado tu contraseña? Haz clic aquí para recuperarla."
+  "nameLabel": {
+    "label": "Nombre(s) completo(s)",
+    "tooltip": "Ingresa aquí el nombre o nombres del usuario sin incluir su apellido.",
+    "hint": "Escribe el nombre o nombres del usuario sin incluir su apellido."
+  },
+  "lastNameLabel": {
+    "label": "Apellido(s) completo(s)",
+    "tooltip": "Ingresa aquí el apellido o apellidos del usuario sin incluir su nombre.",
+    "hint": "Escribe el apellido o apellidos del usuario sin incluir su nombre."
+  },
+  "institutionLabel": {
+    "label": "Selecciona la institución a la que perteneces",
+    "tooltip": "Escribe el nombre de la institución para filtrar las opciones disponibles.",
+    "hint": "Escribe el nombre de la institución para buscar y filtrar las opciones disponibles."
+  },
+  "genderLabel": {
+    "label": "Género biológico",
+    "tooltip": "Selecciona tu género biológico o la identidad de género con la que te sientas identificado/a actualmente.",
+    "hint": "Las opciones disponibles son 'hombre' y 'mujer' debido a que este campo se basa en el género biológico con el que una persona nació o se identifica sexuamente en la actualidad."
+  },
+  "birthdayLabel": {
+    "label": "Fecha de nacimiento",
+    "tooltip": "Por favor ingresa tu fecha de nacimiento.",
+    "hint": "Ingresa tu fecha de nacimiento en el formato AAAA/MM/DD. Debes tener al menos 10 años para poder registrarte en la plataforma."
+  },
+  "forgotPassword": "¿Has olvidado tu contraseña? Haz clic aquí para recuperarla.",
+  "genres": ["Masculino", "Femenino"]
 }
