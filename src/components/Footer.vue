@@ -5,23 +5,23 @@
 
       <q-separator dark vertical class="q-mx-sm" />
 
-      <router-link class="text-body2 text-white" to="/privacity">Privacidad</router-link>
+      <router-link class="text-body2 text-white" to="/privacity">{{ $t('footer.privacy') }}</router-link>
 
       <q-separator dark vertical class="q-mx-sm" />
 
-      <router-link class="text-body2 text-white" to="/privacity">Términos</router-link>
+      <router-link class="text-body2 text-white" to="/privacity">{{ $t('footer.terms') }}</router-link>
 
       <q-separator dark vertical class="q-mx-sm" />
 
-      <router-link class="text-body2 text-white" to="/privacity">Mapa del sitio</router-link>
+      <router-link class="text-body2 text-white" to="/privacity">{{ $t('footer.siteMap') }}</router-link>
 
       <q-separator dark vertical class="q-mx-sm" />
 
-      <router-link class="text-body2 text-white" to="/privacity">Datos de la empresa</router-link>
+      <router-link class="text-body2 text-white" to="/privacity">{{ $t('footer.companyData') }}</router-link>
 
       <q-space />
 
-      <q-btn flat icon-right="expand_less" @click="dialogFooter = true">asistencia y recursos</q-btn>
+      <q-btn flat icon-right="expand_less" @click="dialogFooter = true" :label="$t('footer.assitanceResources')"></q-btn>
     </q-toolbar>
 
     <q-dialog v-model="dialogFooter" position="bottom">
@@ -30,7 +30,7 @@
 
         <div class="row q-mx-xl">
           <col-12 class="col-md-3 q-px-xs">
-            <h6 class="text-bold footer-titles">Asistencia</h6>
+            <h6 class="text-bold footer-titles">{{ $t('footer.assitance.label') }}</h6>
 
             <ul>
               <li v-for="(assitance, index) in assitances" :key="index" class="q-my-md">
@@ -40,7 +40,7 @@
           </col-12>
 
           <col-12 class="col-md-3 q-px-xs">
-            <h6 class="text-bold footer-titles">Comunidad</h6>
+            <h6 class="text-bold footer-titles">{{ $t('footer.community.label') }}</h6>
 
             <ul>
               <li v-for="(assitance, index) in assitances" :key="index" class="q-my-md">
@@ -50,7 +50,7 @@
           </col-12>
 
           <col-12 class="col-md-3 q-px-xs">
-            <h6 class="text-bold footer-titles">Acerca de la plataforma</h6>
+            <h6 class="text-bold footer-titles">{{ $t('footer.aboutPlatform.label') }}</h6>
 
             <ul>
               <li v-for="(assitance, index) in assitances" :key="index" class="q-my-md">
@@ -60,7 +60,7 @@
           </col-12>
 
           <col-12 class="col-md-3 q-px-xs">
-            <h6 class="text-bold footer-titles">IDI</h6>
+            <h6 class="text-bold footer-titles">{{ $t('footer.idi.label') }}</h6>
 
             <ul>
               <li v-for="(assitance, index) in assitances" :key="index" class="q-my-md">
@@ -73,7 +73,6 @@
     </q-dialog>
   </div>
 </template>
-
 
 <script setup>
   // Importar internos de vue

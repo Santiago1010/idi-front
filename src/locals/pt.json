@@ -166,5 +166,44 @@
   },
   "options": {
     "changeLanguage": "Alterar idioma"
+  },
+  "footer": {
+    "privacy": "Privacidade",
+    "terms": "Termos",
+    "siteMap": "Mapa do site",
+    "companyData": "Dados da empresa",
+    "assitanceResources": "Assistência e recursos",
+    "assitance": {
+      "label": "Assistência",
+      "links": {
+        "helpCenter": "Central de Ajuda",
+        "discapacity": "Apoio a pessoas com deficiência",
+        "cancel": "Opções de cancelamento",
+        "fraud": "Denunciar fraude"
+      }
+    },
+    "community": {
+      "label": "Comunidade",
+      "links": {
+        "blog": "Blog",
+        "divulgation": "Divulgação",
+        "figth": "Nossa luta contra a discriminação"
+      }
+    },
+    "aboutPlatform": {
+      "label": "Sobre a plataforma",
+      "links": {
+        "mission": "Missão",
+        "vission": "Visão"
+      }
+    },
+    "idi": {
+      "label": "IDI",
+      "links": {
+        "aboutUs": "Sobre nós",
+        "trayectory": "Trajetória",
+        "team": "Equipe"
+      }
+    }
   }
 }
