@@ -1,71 +1,64 @@
 <template>
-  <q-card class="q-ma-md q-pa-md">
-    <q-form @submit.prevent="loginUser">
-      <q-card-section class="text-h2">{{ $t('links.login.label.principal') }}</q-card-section>
+  <q-card class="q-ma-md">
+    <q-tabs v-model="type" dense class="text-grey" active-color="primary" indicator-color="primary" align="justify" narrow-indicator>
+      <q-tab name="user" :label="$t('inputs.user.label')" @click="changeTypeLogin('user')" />
+      <q-tab name="institution" :label="$t('inputs.institution.label')" @click="changeTypeLogin('institution')" />
+    </q-tabs>
 
-      <q-card-section>
-        <q-input v-model="loginData.email" type="text" class="q-my-md" outlined :label="$t('inputs.user.email.label')" :hint="$t('inputs.user.email.hint')">
-          <q-tooltip>{{ $t('inputs.user.email.tooltip') }}</q-tooltip>
+    <q-separator />
+    <q-space />
 
-          <template v-slot:prepend>
-            <q-icon name="mail" />
-          </template>
-        </q-input>
+    <span class="text-h2 text-bold text-center q-mt-md">{{ $t('links.login.label.principal') }}</span>
 
-        <q-input v-model="loginData.password" :type="showPassword ? 'text' : 'password'" class="q-my-md" outlined :label="$t('inputs.user.password.label')" :hint="$t('inputs.user.password.hint')" counter>
-          <q-tooltip>{{ $t('inputs.user.password.tooltip') }}</q-tooltip>
+    <q-tab-panels v-model="type" animated>
+      <q-tab-panel name="user">
 
-          <template v-slot:prepend>
-            <q-icon name="password" />
-          </template>
+        <LoginUser />
+      </q-tab-panel>
 
-          <template v-slot:append>
-            <q-icon :name="showPassword ? 'visibility_off' : 'visibility'" class="cursor-pointer" @click="showPassword = !showPassword" />
-          </template>
-        </q-input>
-
-        <router-link to="/">{{ $t('links.recover.label.principal') }}</router-link>
-      </q-card-section>
-
-      <q-card-actions>
-        <q-btn type="submit" :label="$t('links.login.label.principal')" color="info" class="long-btn" icon-right="login">
-          <q-tooltip>{{ $t('login.butttonTooltip') }}</q-tooltip>
-        </q-btn>
-      </q-card-actions>
-    </q-form>
-    <LoaderPage />
+      <q-tab-panel name="institution" animated>
+        Mundio
+      </q-tab-panel>
+    </q-tab-panels>
   </q-card>
 </template>
 
 <script setup>
   // Importar internos de Vue.
-  import { ref } from 'vue'
-
-  //Importar stores de pinia
-  import { useUtilsStore } from '../stores/UtilsStore.js'
+  import { ref, onMounted } from 'vue'
+  import { useRouter, useRoute } from 'vue-router'
 
   // Importar componentes
-  import LoaderPage from '../components/LoaderPage.vue'
+  import LoginUser from '../components/LoginUser.vue'
 
   // Constantes y variables del componente.
-  const utilsStore = useUtilsStore()
+  const $router = useRouter()
+  const $route = useRoute()
+
 
   // Constantes y variables de la página.
-  const showPassword = ref(false)
-
-  const loginData = ref({
-    email: null,
-    password: null
-  })
+  const type = ref('user')
 
   // Funciones y métodos
-  const loginUser = () => {
-    //utilsStore.setNewLoadersState(true)
-
-    /*loginUser(loginData.value).then(response => {
-      //
-    }).catch(error => console.error(error)).then(() => {
-      utilsStore.setNewLoadersState(false)
-    })*/
+  const changeTypeLogin = (newType) => {
+    type.value = newType
+    $router.push(`/login/${newType}`)
   }
+
+  onMounted(() => {
+    console.clear()
+
+    if ($route.params.type !== 'user' && $route.params.type !== 'institution') {
+      $router.push('/404')
+    }
+
+    changeTypeLogin($route.params.type)
+  })
 </script>
+
+<style scoped>
+  .text-h2 {
+    font-family: 'Work Sans', Arial;
+    text-transform: capitalize;
+  }
+</style>

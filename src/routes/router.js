@@ -21,7 +21,7 @@ const routes = [
         component: Index
       },
       {
-        path: '/login',
+        path: '/login/:type',
         component: Login
       },
       {
