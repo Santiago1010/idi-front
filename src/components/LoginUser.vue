@@ -31,7 +31,7 @@
           <q-tooltip>{{ $t('login.butttonTooltip') }}</q-tooltip>
         </q-btn>
 
-        <q-btn flat type="button" :label="$t('links.recover.label.principal')" class="q-mt-xl long-btn"></q-btn>
+        <q-btn flat type="button" to="/signup" :label="$t('links.signup.label.alternative')" class="q-mt-xl long-btn"></q-btn>
       </q-card-actions>
     </q-form>
 
@@ -42,11 +42,17 @@
 <script setup>
   // Importar internos de Vue.
   import { ref } from 'vue'
+  import { publicRoutes } from '../utils/axios.js'
+  import { setNewPassword } from '../utils/security.js'
+
+  // Importar sotres
+  import { useUtilsStore } from '../stores/UtilsStore.js'
 
   // Importar componentes
   import LoaderPage from '../components/LoaderPage.vue'
 
   // Constantes y variables de la página.
+  const utilsStore = useUtilsStore()
   const showPassword = ref(false)
 
   const loginData = ref({
@@ -56,12 +62,14 @@
 
   // Funciones y métodos
   const loginUser = () => {
-    //utilsStore.setNewLoadersState(true)
+    utilsStore.setNewLoadersState(true)
 
-    /*loginUser(loginData.value).then(response => {
-      //
+    loginData.value.password = setNewPassword(loginData.value.password)
+
+    publicRoutes.prueba(loginData.value).then(response => {
+      console.log(response.data)
     }).catch(error => console.error(error)).then(() => {
       utilsStore.setNewLoadersState(false)
-    })*/
+    })
   }
 </script>

@@ -6,13 +6,11 @@
     </q-tabs>
 
     <q-separator />
-    <q-space />
 
     <span class="text-h2 text-bold text-center q-mt-md">{{ $t('links.login.label.principal') }}</span>
 
     <q-tab-panels v-model="type" animated>
       <q-tab-panel name="user">
-
         <LoginUser />
       </q-tab-panel>
 
