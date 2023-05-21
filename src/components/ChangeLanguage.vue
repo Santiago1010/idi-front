@@ -12,6 +12,10 @@
   // Importar internos de vue
   import { ref, onMounted } from 'vue'
 
+  // Importar stores
+  import { useUtilsStore } from '../stores/UtilsStore.js'
+
+
   // Constantes y variables del componente
   const optionsLanguages = ref([
     {
@@ -47,8 +51,12 @@
   ]);
   const dropdownActive = ref(false)
 
+  const utilsStore = useUtilsStore()
+
   // Funciones y métodos
   const changeLanguage = (newLanguage) => {
+    utilsStore.setNewLanguage(newLanguage)
+
     localStorage.removeItem('language')
     localStorage.setItem('language', newLanguage)
 

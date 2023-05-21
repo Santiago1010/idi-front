@@ -29,7 +29,7 @@
         <q-icon class="icon_close" name="close" @click="dialogFooter = false" />
 
         <div class="row q-mx-xl">
-          <col-12 class="col-md-3 q-px-xs">
+          <div class="col-12 col-md-3 q-px-xs">
             <h6 class="text-bold footer-titles">{{ $t('footer.assitance.label') }}</h6>
 
             <ul>
@@ -37,9 +37,9 @@
                 <router-link :to="assitance.to">{{ assitance.label }}</router-link>
               </li>
             </ul>
-          </col-12>
+          </div>
 
-          <col-12 class="col-md-3 q-px-xs">
+          <div class="col-12 col-md-3 q-px-xs">
             <h6 class="text-bold footer-titles">{{ $t('footer.community.label') }}</h6>
 
             <ul>
@@ -47,9 +47,9 @@
                 <router-link :to="assitance.to">{{ assitance.label }}</router-link>
               </li>
             </ul>
-          </col-12>
+          </div>
 
-          <col-12 class="col-md-3 q-px-xs">
+          <div class="col-12 col-md-3 q-px-xs">
             <h6 class="text-bold footer-titles">{{ $t('footer.aboutPlatform.label') }}</h6>
 
             <ul>
@@ -57,9 +57,9 @@
                 <router-link :to="assitance.to">{{ assitance.label }}</router-link>
               </li>
             </ul>
-          </col-12>
+          </div>
 
-          <col-12 class="col-md-3 q-px-xs">
+          <div class="col-12 col-md-3 q-px-xs">
             <h6 class="text-bold footer-titles">{{ $t('footer.idi.label') }}</h6>
 
             <ul>
@@ -67,7 +67,7 @@
                 <router-link :to="assitance.to">{{ assitance.label }}</router-link>
               </li>
             </ul>
-          </col-12>
+          </div>
         </div>
       </q-card>
     </q-dialog>
@@ -78,17 +78,27 @@
   // Importar internos de vue
   import { ref } from 'vue'
 
+  // Importar stores
+  import { useUtilsStore } from '../stores/UtilsStore.js'
+
+  // Importar intenacionalización
+  import messages from '@intlify/unplugin-vue-i18n/messages'
+
   // Variables y constantes del componente
   const dialogFooter = ref(false)
+  const utilsStore = useUtilsStore()
+
+  console.clear()
+  console.log(messages[utilsStore.language].footer.assitance.links.helpCenter.source)
 
   const assitances = ref([
     {
       to: '/',
-      label: 'Centro de ayuda'
+      label: messages[utilsStore.language].footer.assitance.links.helpCenter.source,
     },
     {
       to: '/',
-      label: 'Apoyo a las personas con discapacidad'
+      label: messages[utilsStore.language].footer.assitance.links.discapacity.source
     },
     {
       to: '/',

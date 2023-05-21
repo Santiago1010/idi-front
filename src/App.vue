@@ -6,9 +6,15 @@
   // Importar internos de vue
   import { onMounted } from 'vue'
 
+  // Importar tiendas
+  import { useUtilsStore } from './stores/UtilsStore.js'
+
+  // Constantes y variables del componente
+  const utilsSotre = useUtilsStore()
+
   onMounted(() => {
     if (!localStorage.language) {
-      languageStore.setNewLanguage(navigator.language.split('-')[0])
+      utilsSotre.setNewLanguage(navigator.language.split('-')[0])
     }
   })
 </script>
