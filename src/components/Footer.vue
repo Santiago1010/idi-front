@@ -88,9 +88,6 @@
   const dialogFooter = ref(false)
   const utilsStore = useUtilsStore()
 
-  console.clear()
-  console.log(messages[utilsStore.language].footer.assitance.links.helpCenter.source)
-
   const assitances = ref([
     {
       to: '/',

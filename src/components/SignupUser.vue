@@ -86,7 +86,7 @@
           <template v-slot:prepend>
             <q-icon name="contacts" />
           </template>
-       </q-input>
+        </q-input>
       </div>
 
       <div class="col-12 col-md-4">
@@ -137,16 +137,17 @@
 <script setup>
   // Importar internos de vue
   import { ref, onMounted } from 'vue'
+  import { useQuasar } from 'quasar'
   import { publicRoutes } from '../utils/axios.js'
+  import { setNewPassword } from '../utils/security.js'
 
   // Importar plugins
-  import messages from '@intlify/unplugin-vue-i18n/messages'
   import { i18n } from '../utils/i18n.js'
 
   // Constantes y vaiables del componente
+  const $q = useQuasar();
   const showPassword = ref(false)
-
-  const actualLanguage = localStorage.language
+  const { t: translate } = i18n.global
 
   const userData = ref({
     institution: null,
@@ -160,27 +161,30 @@
     confirm: null,
   })
 
-  const genresOptions = ref([
-    {
-      label: messages[actualLanguage].inputs.user.gender.options[0].source,
-      value: 'm'
-    },
-    {
-      label: messages[actualLanguage].inputs.user.gender.options[0].source,
-      value: 'f'
-    }
-  ])
+  const genresOptions = ref([{}])
   const institutionsOptions = ref([{}])
 
   // Métodos y funciones
   const signupUser = () => {
-    //
+    console.clear()
+
+    if (userData.value.password !== userData.value.confirm) {
+      $q.notify({
+        color: 'red-5',
+        icon: 'warning',
+        message: translate('inputs.user.confirm.error')
+      })
+
+      return false
+    }
+
+    //userData.value.password = setNewPassword(userData.value.password)
+    console.log(userData.value.institution)
   }
 
   const readAllInstitutions = () => {
     publicRoutes.readInstitutions().then(response => {
       response.data.data.map((institution, index) => {
-        console.log(index)
         institutionsOptions.value[index].label = institution.name
         institutionsOptions.value[index].value = institution.id
       })
@@ -197,6 +201,17 @@
   }
 
   onMounted(() => {
+    genresOptions.value = [
+      {
+        label: translate('inputs.user.gender.options[0]'),
+        value: 'm'
+      },
+      {
+        label: translate('inputs.user.gender.options[1]'),
+        value: 'f'
+      }
+    ]
+
     readAllInstitutions()
   })
 </script>
