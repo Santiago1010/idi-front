@@ -27,6 +27,7 @@ instance.interceptors.request.use((config) => {
 export const publicRoutes = {
   loginUser: (type, credentials) => instance.post(`/login/${type}`, credentials),
   signup: (userData) => instance.post('/signup', userData),
+  readInstitutions: () => instance.get('/public/read/institutions')
 };
 
 // Rutas autenticadas

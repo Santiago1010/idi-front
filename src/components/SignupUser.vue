@@ -2,7 +2,7 @@
   <q-form @submit.prevent="signupUser">
     <q-card-section class="row">
       <div class="col-12 col-md-4">
-        <q-select v-model="userData.institution" outlined class="q-mx-sm" :label="$t('inputs.institution.name.label')" :hint="$t('inputs.institution.name.hint')">
+        <q-select v-model="userData.institution" outlined :options="institutionsOptions" class="q-mx-sm" :label="$t('inputs.institution.name.label')" :hint="$t('inputs.institution.name.hint')" emit-value map-options>
           <q-tooltip>{{ $t('inputs.institution.name.tooltip') }}</q-tooltip>
 
           <template v-slot:prepend>
@@ -136,7 +136,8 @@
 
 <script setup>
   // Importar internos de vue
-  import { ref } from 'vue'
+  import { ref, onMounted } from 'vue'
+  import { publicRoutes } from '../utils/axios.js'
 
   // Importar plugins
   import messages from '@intlify/unplugin-vue-i18n/messages'
@@ -169,10 +170,21 @@
       value: 'f'
     }
   ])
+  const institutionsOptions = ref([{}])
 
   // Métodos y funciones
   const signupUser = () => {
     //
+  }
+
+  const readAllInstitutions = () => {
+    publicRoutes.readInstitutions().then(response => {
+      response.data.data.map((institution, index) => {
+        console.log(index)
+        institutionsOptions.value[index].label = institution.name
+        institutionsOptions.value[index].value = institution.id
+      })
+    }).catch(error => console.error(error)).then(() => {})
   }
 
   const limitAgesRange = (date) => {
@@ -183,4 +195,8 @@
 
     return selectedDate <= maxDate;
   }
+
+  onMounted(() => {
+    readAllInstitutions()
+  })
 </script>
