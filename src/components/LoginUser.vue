@@ -23,7 +23,7 @@
           </template>
         </q-input>
 
-        <router-link to="/">{{ $t('links.recover.label.principal') }}</router-link>
+        <router-link to="/recover-password/user">{{ $t('links.recover.label.principal') }}</router-link>
       </q-card-section>
 
       <q-card-actions vertical>

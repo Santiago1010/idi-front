@@ -8,6 +8,7 @@ import MainLayout from '../layouts/MainLayout.vue'
 import Index from '../pages/Index.vue'
 import Login from '../pages/Login.vue'
 import Signup from '../pages/Signup.vue'
+import Recover from '../pages/Recover.vue'
 
 import NotFound from '../pages/NotFound.vue'
 
@@ -27,6 +28,10 @@ const routes = [
       {
         path: '/signup',
         component: Signup
+      },
+      {
+        path: '/recover-password/:type',
+        component: Recover
       }
     ],
   },

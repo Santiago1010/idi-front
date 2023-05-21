@@ -163,7 +163,9 @@
         "principal": "Mot de passe oublié ? Cliquez ici pour le récupérer",
         "alternative": "Mot de passe oublié ?"
       },
-      "path": "/recuperer-mot-de-passe"
+      "path": "/recuperer-mot-de-passe",
+      "title": "Récupérez votre mot de passe !",
+      "description": "Bonjour ! Voici la page de récupération de mot de passe, votre fidèle compagnon lorsque vous avez besoin de retrouver l'accès à votre compte. Cette section vous aide à réinitialiser et à créer un nouveau mot de passe, tel un serrurier virtuel vous fournissant une nouvelle clé pour entrer. Vous avez simplement besoin de vérifier votre identité en fournissant des informations personnelles supplémentaires, telles que votre adresse e-mail enregistrée ou des réponses à des questions de sécurité. Une fois vérifié, la page vous guidera pour créer un nouveau mot de passe, en veillant à ce que vous le confirmiez correctement. N'oubliez pas de l'utiliser de manière responsable et de suivre les meilleures pratiques de sécurité. Ne paniquez pas, avec quelques étapes simples, vous retrouverez l'accès à votre compte en un rien de temps !"
     }
   },
   "options": {

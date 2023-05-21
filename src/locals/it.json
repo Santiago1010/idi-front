@@ -163,7 +163,9 @@
         "principal": "Hai dimenticato la password? Fai clic qui per recuperarla",
         "alternative": "Hai dimenticato la password?"
       },
-      "path": "/recupero-password"
+      "path": "/recupero-password",
+      "title": "Recupera la tua password!",
+      "description": "Ciao! Ecco la pagina di recupero password, il tuo compagno affidabile quando hai bisogno di riottenere l'accesso al tuo account. Questa sezione ti aiuta a reimpostare e creare una nuova password, come un fabbro virtuale che ti fornisce una nuova chiave per entrare. Devi solo verificare la tua identità fornendo informazioni personali aggiuntive, come la tua email registrata o risposte a domande di sicurezza. Una volta verificato, la pagina ti guiderà nella creazione di una nuova password, assicurandoti di confermarla correttamente. Ricorda di usarla in modo responsabile e seguire le migliori pratiche di sicurezza. Non preoccuparti, con pochi semplici passaggi, riacquisterai l'accesso al tuo account in poco tempo!"
     }
   },
   "options": {

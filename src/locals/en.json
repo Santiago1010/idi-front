@@ -165,7 +165,9 @@
         "principal": "Forgot your password? Click here to recover it",
         "alternative": "Forgot your password?"
       },
-      "path": "/password-recovery"
+      "path": "/password-recovery",
+      "title": "Recover Your Password!",
+      "description": "Hello! Here's the password recovery page, your reliable companion when you need to regain access to your account. This section helps you reset and create a new password, like a virtual locksmith providing you with a new key to enter. You just need to verify your identity by providing additional personal information such as your registered email or answers to security questions. Once verified, the page will guide you through creating a new password, ensuring you confirm it correctly. Remember to use it responsibly and follow best security practices. Don't panic, with a few simple steps, you'll regain access to your account in no time!"
     }
   },
   "options": {

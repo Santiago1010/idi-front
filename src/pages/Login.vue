@@ -47,7 +47,7 @@
     console.clear()
 
     if ($route.params.type !== 'user' && $route.params.type !== 'institution') {
-      $router.push('/404')
+      $router.push('/login/user')
     }
 
     changeTypeLogin($route.params.type)

@@ -163,7 +163,9 @@
         "principal": "¿Olvidaste tu contraseña? Haz click aquí para recuperarla",
         "alternative": "¿Olvidaste tu contraseña?"
       },
-      "path": "/recuperar-contrasena"
+      "path": "/recuperar-contrasena",
+      "title": "¡Recupera tu contraseña!",
+      "description": "¡Hola! Aquí está la página de recuperación de contraseña, tu compañera confiable cuando necesitas volver a acceder a tu cuenta. Esta sección te ayuda a restablecer y crear una nueva contraseña, como un cerrajero virtual que te proporciona una nueva llave para entrar. Solo necesitas verificar tu identidad proporcionando información personal adicional, como tu correo electrónico registrado o respuestas a preguntas de seguridad. Una vez verificado, la página te guiará para crear una nueva contraseña, asegurándote de confirmarla correctamente. Recuerda utilizarla de manera responsable y seguir las mejores prácticas de seguridad. ¡No entres en pánico, con unos simples pasos, volverás a tener acceso a tu cuenta en poco tiempo!"
     }
   },
   "options": {

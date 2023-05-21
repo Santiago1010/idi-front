@@ -163,7 +163,9 @@
         "principal": "Passwort vergessen? Klicken Sie hier, um es wiederherzustellen",
         "alternative": "Passwort vergessen?"
       },
-      "path": "/passwort-wiederherstellen"
+      "path": "/passwort-wiederherstellen",
+      "title": "Passwort wiederherstellen!",
+      "description": "Hallo! Hier ist die Passwort-Wiederherstellungsseite, Ihr zuverlässiger Begleiter, wenn Sie wieder Zugriff auf Ihr Konto benötigen. Dieser Abschnitt hilft Ihnen dabei, Ihr Passwort zurückzusetzen und ein neues zu erstellen, wie ein virtueller Schlosser, der Ihnen einen neuen Schlüssel zur Eingabe bereitstellt. Sie müssen lediglich Ihre Identität bestätigen, indem Sie zusätzliche persönliche Informationen wie Ihre registrierte E-Mail-Adresse oder Antworten auf Sicherheitsfragen angeben. Sobald Sie verifiziert wurden, führt Sie die Seite durch den Prozess der Erstellung eines neuen Passworts und stellt sicher, dass Sie es korrekt bestätigen. Denken Sie daran, es verantwortungsbewusst zu verwenden und bewährte Sicherheitspraktiken zu befolgen. Keine Panik, mit ein paar einfachen Schritten haben Sie in kürzester Zeit wieder Zugriff auf Ihr Konto!"
     }
   },
   "options": {

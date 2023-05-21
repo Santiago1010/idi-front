@@ -163,7 +163,9 @@
         "principal": "Esqueceu sua senha? Clique aqui para recuperá-la",
         "alternative": "Esqueceu sua senha?"
       },
-      "path": "/recuperar-senha"
+      "path": "/recuperar-senha",
+      "title": "Recupere sua senha!",
+      "description": "Olá! Aqui está a página de recuperação de senha, sua companheira confiável quando você precisa acessar sua conta novamente. Esta seção ajuda você a redefinir e criar uma nova senha, como um chaveiro virtual que fornece uma nova chave para entrar. Você só precisa verificar sua identidade fornecendo informações pessoais adicionais, como seu email registrado ou respostas a perguntas de segurança. Uma vez verificado, a página irá guiá-lo para criar uma nova senha, garantindo que você a confirme corretamente. Lembre-se de usá-la de forma responsável e seguir as melhores práticas de segurança. Não entre em pânico, com alguns passos simples, você terá acesso à sua conta em pouco tempo!"
     }
   },
   "options": {
