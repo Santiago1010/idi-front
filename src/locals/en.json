@@ -145,7 +145,9 @@
     "signup": {
       "label": {
         "principal": "Sign up!",
-        "alternative": "Don't have an account yet? Click here to sign up!"
+        "alternative": "Don't have an account yet? Click here to sign up!",
+        "title": "User Registration at IDI",
+        "description": "Join our community of researchers, developers, and innovators! Sign up on our platform to access resources and tools that support your projects and contribute to the advancement of science and technology. As a user, you can belong to multiple locations and institutions, but we kindly ask you to register with the institution you feel most connected to. Additionally, to ensure the authenticity and security of the platform, email validation will be required, specifically when selecting an institution. Join now and be part of our community of collaboration and growth in research, development, and innovation!"
       },
       "path": "/register",
       "options": ["user", "institution"]

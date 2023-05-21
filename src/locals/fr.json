@@ -143,7 +143,9 @@
     "signup": {
       "label": {
         "principal": "S'inscrire !",
-        "alternative": "Vous n'avez pas encore de compte ? Cliquez ici pour vous inscrire !"
+        "alternative": "Vous n'avez pas encore de compte ? Cliquez ici pour vous inscrire !",
+        "title": "Inscription des utilisateurs à IDI",
+        "description": "Rejoignez notre communauté de chercheurs, développeurs et innovateurs ! Inscrivez-vous sur notre plateforme pour accéder à des ressources et des outils qui soutiennent vos projets et contribuent à l'avancement de la science et de la technologie. En tant qu'utilisateur, vous pouvez appartenir à plusieurs sites et institutions, mais nous vous demandons de vous inscrire à l'institution à laquelle vous vous sentez le plus attaché. De plus, pour garantir l'authenticité et la sécurité de la plateforme, une validation de votre adresse e-mail sera requise, notamment lors de la sélection d'une institution. Rejoignez-nous dès maintenant et faites partie de notre communauté de collaboration et de croissance dans la recherche, le développement et l'innovation !",
       },
       "path": "/inscription",
       "options": ["utilisateur", "institution"]

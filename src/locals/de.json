@@ -143,7 +143,9 @@
     "signup": {
       "label": {
         "principal": "Registrieren!",
-        "alternative": "Sie haben noch kein Konto? Klicken Sie hier, um sich zu registrieren!"
+        "alternative": "Sie haben noch kein Konto? Klicken Sie hier, um sich zu registrieren!",
+        "title": "Benutzerregistrierung bei IDI",
+        "description": "Treten Sie unserer Gemeinschaft von Forschern, Entwicklern und Innovatoren bei! Registrieren Sie sich auf unserer Plattform, um auf Ressourcen und Werkzeuge zuzugreifen, die Ihre Projekte unterstützen und zum Fortschritt von Wissenschaft und Technologie beitragen. Als Benutzer können Sie mehreren Standorten und Institutionen angehören, aber wir bitten Sie, sich mit derjenigen Institution zu registrieren, mit der Sie sich am stärksten verbunden fühlen. Zur Gewährleistung der Echtheit und Sicherheit der Plattform wird die Validierung Ihrer E-Mail-Adresse erforderlich sein, insbesondere wenn Sie eine Institution auswählen. Treten Sie jetzt bei und werden Sie Teil unserer Gemeinschaft der Zusammenarbeit und des Wachstums in Forschung, Entwicklung und Innovation!"
       },
       "path": "/registrieren",
       "options": ["Benutzer", "Institution"]

@@ -144,6 +144,8 @@
       "label": {
         "principal": "¡Registrarme!",
         "alternative": "¿Aún no tienes una cuenta? ¡Haz click aquí para registrarte!",
+        "title": "Registro de Usuarios en IDI",
+        "description": "¡Únete a nuestra comunidad de investigadores, desarrolladores e innovadores! Regístrate en nuestra plataforma para acceder a recursos y herramientas que respaldan tus proyectos y contribuyen al avance de la ciencia y la tecnología. Como usuario, podrás pertenecer a múltiples sedes e instituciones, pero te pedimos que te registres con aquella institución a la que te sientas más vinculado. Además, para garantizar la autenticidad y seguridad de la plataforma, se requerirá la validación de tu correo electrónico, específicamente cuando selecciones una institución. ¡Únete ahora y sé parte de nuestra comunidad de colaboración y crecimiento en la investigación, desarrollo e innovación!"
       },
       "path": "/registrar",
       "options": ["usuario", "institucion"],

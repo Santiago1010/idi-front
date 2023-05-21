@@ -11,7 +11,17 @@
         </q-select>
       </div>
 
-      <div class="col-12 col-md-8">
+      <div class="col-12 col-md-4">
+        <q-select v-model="userData.institution" outlined :options="institutionsOptions" class="q-mx-sm" :label="$t('inputs.institution.name.label')" :hint="$t('inputs.institution.name.hint')" @update:model-value="getEmailExtensions" emit-value map-options>
+          <q-tooltip>{{ $t('inputs.institution.name.tooltip') }}</q-tooltip>
+
+          <template v-slot:prepend>
+            <q-icon name="home_work" />
+          </template>
+        </q-select>
+      </div>
+
+      <div class="col-12 col-md-4">
         <q-input v-model="userData.email" type="text" class="q-mx-sm" outlined :label="$t('inputs.user.email.label')" :hint="$t('inputs.user.email.hint')" :rules="[rulesStore.email]" :disable="disabledEmail">
           <q-tooltip>{{ $t('inputs.user.email.tooltip') }}</q-tooltip>
 
@@ -45,7 +55,7 @@
     </q-card-section>
 
     <q-card-section class="row">
-      <div class="col-12 col-md-8">
+      <div class="col-12 col-md-6">
         <q-input v-model="userData.birthday" outlined type="text" class="q-mx-sm" :label="$t('inputs.user.birthday.label')" mask="date" :hint="$t('inputs.user.birthday.hint')">
           <q-tooltip>{{ $t('inputs.user.birthday.tooltip') }}</q-tooltip>
 
@@ -67,7 +77,7 @@
         </q-input>
       </div>
 
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-6">
         <q-select v-model="userData.gender" outlined :options="genresOptions" class="q-mx-sm" :label="$t('inputs.user.gender.label')" :hint="$t('inputs.user.gender.tooltip')" emit-value map-options>
           <q-tooltip>{{ $t('inputs.user.gender.tooltip') }}</q-tooltip>
 
@@ -127,7 +137,7 @@
     <q-card-actions class="q-px-xl">
       <q-btn flat style="width: 49%; margin-left: .5%;" :label="$t('links.recover.label.alternative')"></q-btn>
 
-      <q-btn flat style="width: 49%; margin-right: .5%;" :label="$t('links.login.label.alternative')">
+      <q-btn flat style="width: 49%; margin-right: .5%;" to="/login" :label="$t('links.login.label.alternative')">
         <q-tooltip>{{ $t('links.login.tooltip') }}</q-tooltip>
       </q-btn>
     </q-card-actions>
