@@ -2,7 +2,7 @@
   <q-form @submit.prevent="signupUser">
     <q-card-section class="row">
       <div class="col-12 col-md-4">
-        <q-select v-model="userData.institution" outlined :options="institutionsOptions" class="q-mx-sm" :label="$t('inputs.institution.name.label')" :hint="$t('inputs.institution.name.hint')" emit-value map-options>
+        <q-select v-model="userData.institution" outlined :options="institutionsOptions" class="q-mx-sm" :label="$t('inputs.institution.name.label')" :hint="$t('inputs.institution.name.hint')" @update:model-value="getEmailExtensions" emit-value map-options>
           <q-tooltip>{{ $t('inputs.institution.name.tooltip') }}</q-tooltip>
 
           <template v-slot:prepend>
@@ -12,7 +12,7 @@
       </div>
 
       <div class="col-12 col-md-8">
-        <q-input v-model="userData.email" type="text" class="q-mx-sm" outlined :label="$t('inputs.user.email.label')" :hint="$t('inputs.user.email.hint')">
+        <q-input v-model="userData.email" type="text" class="q-mx-sm" outlined :label="$t('inputs.user.email.label')" :hint="$t('inputs.user.email.hint')" :rules="[rulesStore.email]" :disable="disabledEmail">
           <q-tooltip>{{ $t('inputs.user.email.tooltip') }}</q-tooltip>
 
           <template v-slot:prepend>
@@ -141,13 +141,22 @@
   import { publicRoutes } from '../utils/axios.js'
   import { setNewPassword } from '../utils/security.js'
 
+  // Importar stores
+  import { useRulesStore } from '../stores/RulesStore.js'
+  import { useRegexStore } from '../stores/RegexStore.js'
+
   // Importar plugins
   import { i18n } from '../utils/i18n.js'
 
   // Constantes y vaiables del componente
   const $q = useQuasar();
-  const showPassword = ref(false)
   const { t: translate } = i18n.global
+
+  const rulesStore = useRulesStore()
+  const regexStore = useRegexStore()
+
+  const showPassword = ref(false)
+  const disabledEmail = ref(true)
 
   const userData = ref({
     institution: null,
@@ -183,10 +192,13 @@
   }
 
   const readAllInstitutions = () => {
+    console.clear()
+
     publicRoutes.readInstitutions().then(response => {
       response.data.data.map((institution, index) => {
         institutionsOptions.value[index].label = institution.name
         institutionsOptions.value[index].value = institution.id
+        institutionsOptions.value[index].extensions = institution.extensions
       })
     }).catch(error => console.error(error)).then(() => {})
   }
@@ -198,6 +210,18 @@
     const selectedDate = new Date(date);
 
     return selectedDate <= maxDate;
+  }
+
+  const getEmailExtensions = () => {
+    console.clear()
+
+    const extensions = institutionsOptions.value.filter(
+      institution => institution.value === userData.value.institution
+    )[0].extensions
+
+    regexStore.setValidExtensions(extensions)
+
+    disabledEmail.value = false
   }
 
   onMounted(() => {
