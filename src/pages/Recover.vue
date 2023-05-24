@@ -18,7 +18,7 @@
       </q-card-section>
 
       <q-card-actions>
-        <q-btn type="submit" color="primary" label="recuperar contraseña" class="long-btn"></q-btn>
+        <q-btn type="submit" color="primary" :label="$t('links.recover.title')" class="long-btn"></q-btn>
       </q-card-actions>
 
       <q-card-actions vertical>
