@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+import { i18n } from './i18n'
+
 // Configuración global de Axios
 const instance = axios.create({
   baseURL: `${import.meta.env.VITE_API_SERVER_URI}/api/v1`,
@@ -12,8 +14,7 @@ const instance = axios.create({
 
 // Interceptor para agregar la cabecera del idioma a todas las solicitudes
 instance.interceptors.request.use((config) => {
-  const language = 'es';
-  config.headers['Accept-Language'] = language;
+  config.headers['Accept-Language'] = localStorage.language;
 
   const token = localStorage.getItem('jwt'); // Obtiene el token JWT almacenado en el cliente
   if (token) {
@@ -25,15 +26,14 @@ instance.interceptors.request.use((config) => {
 
 // Rutas públicas
 export const publicRoutes = {
-  recoverPassword: (type, email) => instance.patch(`/public/${type}s/token/password`, { email }),
-  loginUser: (type, credentials) => instance.post(`/login/${type}`, credentials),
   signup: (userData) => instance.post('/signup', userData),
-  readInstitutions: () => instance.get('/public/read/institutions')
+  readAllExtensions: () => instance.get(`/public/read/extensions`),
+  readInstitutions: () => instance.get('/public/read/institutions'),
+  recoverPasswordEmail: (type, email) => instance.patch(`/public/${type}/token/password`, { email })
 };
 
 // Rutas autenticadas
 export const authenticatedRoutes = {
-  getUserData: () => instance.get('/user-data'),
   updateProfile: (profileData) => instance.put('/profile', profileData),
 };
 

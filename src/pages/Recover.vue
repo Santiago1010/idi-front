@@ -6,7 +6,7 @@
       <p class="text-body1">{{ $t('links.recover.description') }}</p>
     </q-card-section>
 
-    <q-form @submit.prevent="sendRecoverPasswordEmail">
+    <q-form @submit.prevent="sendRecoverPasswordEmail" ref="recoverPaswordsForm">
       <q-card-section>
         <q-input v-model="email" type="text" class="q-my-md" outlined :label="$t('inputs.user.email.label')" :hint="$t('inputs.user.email.hint')">
           <q-tooltip>{{ $t('inputs.user.email.tooltip') }}</q-tooltip>
@@ -20,40 +20,74 @@
       <q-card-actions>
         <q-btn type="submit" color="primary" label="recuperar contraseña" class="long-btn"></q-btn>
       </q-card-actions>
+
+      <q-card-actions vertical>
+        <!--<q-btn flat type="submit" label="" class="long-btn"></q-btn>-->
+      </q-card-actions>
     </q-form>
+
+    <LoaderPage />
   </q-card>
 </template>
 
 <script setup>
   // Importar internos de Vue.
   import { ref, onMounted } from 'vue'
+  import { useQuasar } from 'quasar'
   import { useRouter, useRoute } from 'vue-router'
   import { publicRoutes } from '../utils/axios.js'
 
   // Importar sotres
   import { useUtilsStore } from '../stores/UtilsStore.js'
+  import { useRegexStore } from '../stores/RegexStore.js'
+  import { useRulesStore } from '../stores/RulesStore.js'
+
+  // Importar plugins
+  import { i18n } from '../utils/i18n.js'
 
   // Importar componentes
   import LoaderPage from '../components/LoaderPage.vue'
 
   // Constantes y variables de la página.
-  const utilsStore = useUtilsStore()
+  const $q = useQuasar()
+  const { t: translate } = i18n.global
   const $router = useRouter()
   const $route = useRoute()
 
+  const utilsStore = useUtilsStore()
+
   // Modelos
+  const recoverPaswordsForm = ref()
   const email = ref(null)
 
   // Funciones y métodos.
   const sendRecoverPasswordEmail = () => {
-    utilsStore.setNewLoadersState(true)
+    console.clear()
 
-    publicRoutes.recoverPassword($route.params.type, email.value).then(response => {
-      console.clear()
+    if (email.value !== null && email.value !== undefined) {
+      utilsStore.setNewLoadersState(true)
+
+      publicRoutes.recoverPasswordEmail($route.params.type, email.value).then(response => {
+        $q.notify({
+          color: response.data.status === 'success' && response.data.code === 200 ? 'green-5' : 'red-5',
+          icon: response.data.status === 'success' && response.data.code === 200 ? 'check' : 'warning',
+          message: response.data.message
+        })
+
+        email.value = response.data.status === 'success' && response.data.code === 200 ? null : email.value
+        recoverPaswordsForm.value.resetValidation()
+      }).catch(error => console.error(error)).then(() => {
+        utilsStore.setNewLoadersState(false)
+      })
+    }
+  }
+
+  const readExtensions = () => {
+    console.clear()
+
+    publicRoutes.readAllExtensions().then(response => {
       console.log(response.data)
-    }).catch(error => console.error(error)).then(() => {
-      utilsStore.setNewLoadersState(false)
-    })
+    }).catch(error => console.error(error))
   }
 
   onMounted(() => {
@@ -62,6 +96,8 @@
     if ($route.params.type !== 'user' && $route.params.type !== 'institution') {
       $router.push('/404')
     }
+
+    readExtensions()
   })
 </script>
 

@@ -5,7 +5,7 @@ export const i18n = createI18n({
   legacy: false,
   globalInjection: true,
   locale: localStorage.language,
-  fallbackLocale: 'es',
+  fallbackLocale: 'en',
   availableLocales: ['de', 'en', 'es', 'fr', 'it', 'pt'],
   messages: messages
 });
