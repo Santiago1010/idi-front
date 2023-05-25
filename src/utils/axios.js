@@ -14,7 +14,7 @@ const instance = axios.create({
 
 // Interceptor para agregar la cabecera del idioma a todas las solicitudes
 instance.interceptors.request.use((config) => {
-  config.headers['Accept-Language'] = localStorage.language;
+  config.headers['Accept-Language'] = 'es';//localStorage.language;
 
   const token = localStorage.getItem('jwt'); // Obtiene el token JWT almacenado en el cliente
   if (token) {
@@ -24,11 +24,24 @@ instance.interceptors.request.use((config) => {
   return config;
 });
 
+const generateQueryString = (queries) =>
+  queries
+    ? Object.keys(queries)
+        .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(queries[key])}`)
+        .join('&')
+    : '';
+
+const createRoute = (path, queries) =>
+  queries
+    ? `${path}${generateQueryString(queries) ? `?${generateQueryString(queries)}` : ''}`
+    : path;
+
 // Rutas públicas
 export const publicRoutes = {
   signup: (userData) => instance.post('/signup', userData),
   readAllExtensions: () => instance.get(`/public/read/extensions`),
   readInstitutions: () => instance.get('/public/read/institutions'),
+  readCampuses: (queries) => instance.get(createRoute('/public/read/campuses', queries)),
   recoverPasswordEmail: (type, email) => instance.patch(`/public/${type}/token/password`, { email })
 };
 

@@ -12,8 +12,8 @@
       </div>
 
       <div class="col-12 col-md-4">
-        <q-select v-model="userData.institution" outlined :options="institutionsOptions" class="q-mx-sm" :label="$t('inputs.institution.name.label')" :hint="$t('inputs.institution.name.hint')" @update:model-value="getEmailExtensions" emit-value map-options>
-          <q-tooltip>{{ $t('inputs.institution.name.tooltip') }}</q-tooltip>
+        <q-select v-model="userData.campus" outlined :options="campusesOptions" :label="$t('inputs.campus.name.label')" :hint="$t('inputs.campus.name.hint')" @update:model-value="getEmailExtensions" emit-value map-options :disable="disabledEmail">
+          <q-tooltip>{{ $t('inputs.campus.name.tooltip') }}</q-tooltip>
 
           <template v-slot:prepend>
             <q-icon name="home_work" />
@@ -170,6 +170,7 @@
 
   const userData = ref({
     institution: null,
+    campus: null,
     name: null,
     lastName: null,
     gender: null,
@@ -182,6 +183,7 @@
 
   const genresOptions = ref([{}])
   const institutionsOptions = ref([{}])
+  const campusesOptions = ref([{}])
 
   // Métodos y funciones
   const signupUser = () => {
@@ -205,12 +207,39 @@
     console.clear()
 
     publicRoutes.readInstitutions().then(response => {
-      response.data.data.map((institution, index) => {
+      response.data.data.institutions.map((institution, index) => {
         institutionsOptions.value[index].label = institution.name
         institutionsOptions.value[index].value = institution.id
+        institutionsOptions.value[index].code = institution.code
         institutionsOptions.value[index].extensions = institution.extensions
       })
     }).catch(error => console.error(error)).then(() => {})
+  }
+
+  const getCampuses = (institution) => {
+    console.clear()
+
+    const queries = {
+      institution: institution
+    }
+
+    publicRoutes.readCampuses(queries).then(response => {
+      if (response.data.data.campuses.length === 0) {
+        $q.notify({
+          color: 'red-5',
+          icon: 'warning',
+          message: translate('inputs.institution.code.error')
+        })
+
+        throw new Error(translate('inputs.institution.code.error'));
+      }
+
+      response.data.data.campuses.map((campus, index) => {
+        campusesOptions.value[index].value = campus.id
+        campusesOptions.value[index].label = campus.name
+        campusesOptions.value[index].code = campus.code
+      })
+    }).catch(error => console.error(error))
   }
 
   const limitAgesRange = (date) => {
@@ -225,11 +254,14 @@
   const getEmailExtensions = () => {
     console.clear()
 
-    const extensions = institutionsOptions.value.filter(
+    const institution = institutionsOptions.value.filter(
       institution => institution.value === userData.value.institution
-    )[0].extensions
+    )
+
+    const extensions = institution[0].extensions
 
     regexStore.setValidExtensions(extensions)
+    getCampuses(institution[0].code)
 
     disabledEmail.value = false
   }

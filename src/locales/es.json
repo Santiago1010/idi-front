@@ -127,6 +127,15 @@
         "hint": "Fecha y hora de la desactivación de la institución. Si no está en el formato acordado, significa que la institución está activa.",
       },
     },
+    "campus": {
+      "label": "sede",
+      "name": {
+        "label": "Nombre de la sede",
+        "tooltip": "Ingresa aquí el nombre de la sede.",
+        "hint": "Escribe el nombre de la sede.",
+        "error": "Ingresa un nombre válido",
+      },
+    }
   },
   "links": {
     "home": {
