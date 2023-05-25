@@ -135,7 +135,7 @@
     </q-card-actions>
 
     <q-card-actions class="q-px-xl">
-      <q-btn flat style="width: 49%; margin-left: .5%;" :label="$t('links.recover.label.alternative')"></q-btn>
+      <q-btn flat style="width: 49%; margin-left: .5%;" to="/recover-password/user" :label="$t('links.recover.label.alternative')"></q-btn>
 
       <q-btn flat style="width: 49%; margin-right: .5%;" to="/login/user" :label="$t('links.login.label.alternative')">
         <q-tooltip>{{ $t('links.login.tooltip') }}</q-tooltip>

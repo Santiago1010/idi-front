@@ -11,7 +11,7 @@ export default defineConfig({
     }),
 
     VueI18nPlugin({
-      include: './src/locals/**'
+      include: './src/locales/**'
     }),
 
     quasar({

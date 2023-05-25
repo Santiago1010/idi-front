@@ -22,7 +22,9 @@
       </q-card-actions>
 
       <q-card-actions vertical>
-        <!--<q-btn flat type="submit" label="" class="long-btn"></q-btn>-->
+        <q-btn flat type="submit" :to="`/login/${$route.params.type}`" :label="$t('links.login.label.alternative')" class="long-btn"></q-btn>
+
+        <q-btn v-if="$route.params.type === 'user'" flat type="submit" to="/signup" :label="$t('links.signup.label.alternative')" class="long-btn"></q-btn>
       </q-card-actions>
     </q-form>
 
