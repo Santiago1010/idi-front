@@ -12,6 +12,12 @@
       "keywords": ["Plataforma de Investigación", "Desarrollo e Innovación", "IDI", "Investigación científica", "Desarrollo de proyectos", "Innovación tecnológica", "Gestión de proyectos", "Flujo de trabajo fluido", "Eficiencia en la investigación", "Colaboración en la investigación", "Formulación de proyectos de investigación", "Metodologías de investigación", "Gestión de tareas", "Cronogramas de investigación", "Artículos científicos", "Plantillas para artículos científicos", "Revisión de artículos científicos", "Tecnology Readiness Level (TRL)", "Nivel de madurez de tecnología", "Evaluación de progreso de tecnología", "Viabilidad en el mercado"],
       "description": "La Plataforma de Investigación, Desarrollo e Innovación (IDI) es una herramienta versátil que respalda la investigación científica, el desarrollo de proyectos y la innovación tecnológica. Con funcionalidades como la formulación de proyectos, gestión de tareas, creación de artículos científicos y medición de la madurez tecnológica, IDI ofrece un flujo de trabajo eficiente y colaborativo para investigadores y científicos, mejorando la productividad y el éxito en sus proyectos.",
     },
+    "templates": {
+      "recoverToken": {
+        "subject": "Problema con recuperación de contraseña - Token inválido",
+        "body": "Estimado equipo de soporte de IDI,\n\nEspero que se encuentren bien. Me pongo en contacto con ustedes debido a un problema que estoy enfrentando al intentar recuperar mi contraseña.\n\nRecientemente solicité la recuperación de contraseña y recibí un token para completar el proceso. Sin embargo, al ingresar el token proporcionado, recibí un mensaje indicando que es inválido. He verificado cuidadosamente y confirmo que he ingresado correctamente el token, pero aún así no puedo avanzar.\n\nAgradecería mucho si pudieran revisar este inconveniente y proporcionarme una solución. Adjunto en este correo el token que me fue enviado para su referencia: %token%.\n\nAdemás, me gustaría solicitar que, en caso de ser necesario, me envíen nuevamente la URL de recuperación, en caso de que hubiera algún problema al recibirla anteriormente.\n\nAgradezco su atención y pronta respuesta a este asunto. Espero poder resolver este problema y acceder nuevamente a mi cuenta.\n\nSaludos cordiales,\n[Nombre del remitente]"
+      }
+    },
   },
   "inputs": {
     "user": {
@@ -174,7 +180,7 @@
       },
       "path": "/recuperar-contrasena",
       "title": "¡Recupera tu contraseña!",
-      "description": "¡Hola! Aquí está la página de recuperación de contraseña, tu compañera confiable cuando necesitas volver a acceder a tu cuenta. Esta sección te ayuda a restablecer y crear una nueva contraseña, como un cerrajero virtual que te proporciona una nueva llave para entrar. Solo necesitas verificar tu identidad proporcionando información personal adicional, como tu correo electrónico registrado o respuestas a preguntas de seguridad. Una vez verificado, la página te guiará para crear una nueva contraseña, asegurándote de confirmarla correctamente. Recuerda utilizarla de manera responsable y seguir las mejores prácticas de seguridad. ¡No entres en pánico, con unos simples pasos, volverás a tener acceso a tu cuenta en poco tiempo!"
+      "description": "¡Hola! Aquí está la página de recuperación de contraseña, tu compañera confiable cuando necesitas volver a acceder a tu cuenta. Esta sección te ayuda a restablecer y crear una nueva contraseña, como un cerrajero virtual que te proporciona una nueva llave para entrar. Solo necesitas verificar tu identidad proporcionando información personal adicional, como tu correo electrónico registrado o respuestas a preguntas de seguridad. Una vez verificado, la página te guiará para crear una nueva contraseña, asegurándote de confirmarla correctamente. Recuerda utilizarla de manera responsable y seguir las mejores prácticas de seguridad. ¡No entres en pánico, con unos simples pasos, volverás a tener acceso a tu cuenta en poco tiempo!",
     }
   },
   "options": {
@@ -218,5 +224,8 @@
         "team": "Equipo"
       }
     }
+  },
+  "valids": {
+    "invalidToken": "Lamentablemente, el token ingresado para la recuperación de contraseña es inválido. Pedimos disculpas por las molestias. Existen varias razones por las cuales esto puede ocurrir. Es posible que el token haya expirado debido a un tiempo límite establecido para su uso. También es posible que haya sido enviado incorrectamente en el correo electrónico, o que accidentalmente se hayan eliminado algunos caracteres al ingresarlo. Te invitamos amablemente a realizar nuevamente el proceso de recuperación de contraseña para obtener un nuevo token válido. Si persisten los problemas, no dudes en contactar a nuestro equipo de soporte (%email%) para recibir asistencia adicional."
   }
 }
