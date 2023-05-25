@@ -9,6 +9,7 @@ import Index from '../pages/Index.vue'
 import Login from '../pages/Login.vue'
 import Signup from '../pages/Signup.vue'
 import Recover from '../pages/Recover.vue'
+import RecoverConfirm from '../pages/RecoverConfirm.vue'
 
 import NotFound from '../pages/NotFound.vue'
 
@@ -32,6 +33,10 @@ const routes = [
       {
         path: '/recover-password/:type',
         component: Recover
+      },
+      {
+        path: '/:reason/:type/:token',
+        component: RecoverConfirm
       }
     ],
   },
