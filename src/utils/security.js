@@ -3,7 +3,7 @@ import CryptoJS from 'crypto-js';
 export function encodeAES(string) {
   // Declarar objeto "keys" que contiene la clave y el vector de inicialización para el cifrado AES
   const key = CryptoJS.enc.Utf8.parse(CryptoJS.MD5(import.meta.env.VITE_AES_KEY))
-    // Calcular el vector de inicialización para el cifrado AES
+  // Calcular el vector de inicialización para el cifrado AES
   const iv = CryptoJS.enc.Utf8.parse(import.meta.env.VITE_AES_IV)
 
   // Se retorna el string encriptado.

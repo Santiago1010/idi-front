@@ -43,7 +43,8 @@ export const publicRoutes = {
   readInstitutions: () => instance.get('/public/read/institutions'),
   validToken: (type, token, queries) => instance.get(createRoute(`/public/${type}/valid/token/${token}`, queries)),
   readCampuses: (queries) => instance.get(createRoute('/public/read/campuses', queries)),
-  recoverPasswordEmail: (type, email) => instance.patch(`/public/${type}/token/password`, { email })
+  recoverPasswordEmail: (type, email) => instance.patch(`/public/${type}/token/password`, { email }),
+  recoverPassword: (type, token, data) => instance.patch(`/public/${type}/recover/password/${token}`, data)
 };
 
 // Rutas autenticadas

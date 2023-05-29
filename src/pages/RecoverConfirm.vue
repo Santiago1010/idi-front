@@ -5,7 +5,7 @@
         {{ reason === 'recover-password' ? $t('links.recover.title') : 'Confirma tu cuenta' }}
       </q-card-section>
 
-      <q-form @submit.prevent="reason === 'recover-password' ? recoverPassword : confirmAccount">
+      <q-form @submit.prevent="reason === 'recover-password' ? recoverPassword() : confirmAccount()">
         <q-card-section>
           <div class="row q-mb-md">
             <div class="col-12 q-px-md">
@@ -32,7 +32,7 @@
           </div>
 
           <div class="row q-mb-md">
-            <div class="col-12 col-md-6 q-px-md">
+            <div class="col-12 q-px-md" :class="reason !== 'confirm' ? 'col-md-6' : 'col-md-12'">
               <q-input v-model="accountData.password" :type="showPassword ? 'text' : 'password'" class="q-mx-sm" outlined :label="$t('inputs.user.password.label')" :hint="$t('inputs.user.password.hint')" counter>
                 <q-tooltip>{{ $t('inputs.user.password.tooltip') }}</q-tooltip>
 
@@ -46,7 +46,7 @@
               </q-input>
             </div>
 
-            <div class="col-12 col-md-6 q-px-md">
+            <div v-if="reason !== 'confirm'" class="col-12 col-md-6 q-px-md">
               <q-input v-model="accountData.confirm" :type="showPassword ? 'text' : 'password'" class="q-mx-sm" outlined :label="$t('inputs.user.confirm.label')" :hint="$t('inputs.user.confirm.hint')" counter>
                 <q-tooltip>{{ $t('inputs.user.confirm.tooltip') }}</q-tooltip>
 
@@ -61,6 +61,10 @@
             </div>
           </div>
         </q-card-section>
+
+        <q-card-actions>
+          <q-btn type="submit" class="long-btn" color="positive" :label="reason === 'recover-password' ? $t('links.recover.title') : 'Confirma tu cuenta'"></q-btn>
+        </q-card-actions>
       </q-form>
     </div>
 
@@ -72,21 +76,28 @@
 
 <script setup>
   import { ref, onMounted } from 'vue'
+  import { useQuasar } from 'quasar'
   import { useRouter, useRoute } from 'vue-router'
   import { publicRoutes } from '../utils/axios.js'
   import { templateRecoverToken } from '../utils/setMailto.js'
+  import { setNewPassword } from '../utils/security.js'
 
   // Importar stores
   import { useRulesStore } from '../stores/RulesStore.js'
   import { useRegexStore } from '../stores/RegexStore.js'
 
+  // Importar plugins
+  import { i18n } from '../utils/i18n.js'
+
   // Contantes de la página
+  const $q = useQuasar()
   const $router = useRouter()
   const $route = useRoute()
   const reason = ref(null)
   const type = ref(null)
   const token = ref(null)
   const valid = ref(false)
+  const { t: translate } = i18n.global
 
   const rulesStore = useRulesStore()
   const regexStore = useRegexStore()
@@ -97,6 +108,8 @@
     password: null,
     confirm: null
   })
+
+  const showPassword = ref(false)
 
   // Funciones de la página
   const validToken = () => {
@@ -118,9 +131,33 @@
     })
   }
 
-  const recoverPassword = () => {}
+  const recoverPassword = () => {
+    if (accountData.value.password !== accountData.value.confirm) {
+      $q.notify({
+        color: 'red-5',
+        icon: 'warning',
+        message: translate('inputs.user.confirm.error')
+      })
 
-  const confirmAccount = () => {}
+      accountData.value.confirm = null
+
+      return false;
+    }
+
+    const newData = accountData.value
+    newData.reason = 'recover::password'
+
+    newData.password = setNewPassword(newData.password)
+    newData.confirm = setNewPassword(newData.confirm)
+
+    publicRoutes.recoverPassword(type.value, token.value, newData).then(response => {
+      console.log(response.data)
+    }).catch(error => console.error(error)).then(() => {})
+  }
+
+  const confirmAccount = () => {
+    console.log('¿UwU?')
+  }
 
   onMounted(() => {
     console.clear()
