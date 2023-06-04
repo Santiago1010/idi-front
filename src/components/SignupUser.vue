@@ -1,38 +1,6 @@
 <template>
   <q-form @submit.prevent="signupUser">
     <q-card-section class="row">
-      <div class="col-12 col-md-4">
-        <q-select v-model="userData.institution" outlined :options="institutionsOptions" class="q-mx-sm" :label="$t('inputs.institution.name.label')" :hint="$t('inputs.institution.name.hint')" @update:model-value="getEmailExtensions" emit-value map-options>
-          <q-tooltip>{{ $t('inputs.institution.name.tooltip') }}</q-tooltip>
-
-          <template v-slot:prepend>
-            <q-icon name="home_work" />
-          </template>
-        </q-select>
-      </div>
-
-      <div class="col-12 col-md-4">
-        <q-select v-model="userData.campus" outlined :options="campusesOptions" :label="$t('inputs.campus.name.label')" :hint="$t('inputs.campus.name.hint')" @update:model-value="getEmailExtensions" emit-value map-options :disable="disabledEmail">
-          <q-tooltip>{{ $t('inputs.campus.name.tooltip') }}</q-tooltip>
-
-          <template v-slot:prepend>
-            <q-icon name="home_work" />
-          </template>
-        </q-select>
-      </div>
-
-      <div class="col-12 col-md-4">
-        <q-input v-model="userData.email" type="text" class="q-mx-sm" outlined :label="$t('inputs.user.email.label')" :hint="$t('inputs.user.email.hint')" :rules="[rulesStore.email]" :disable="disabledEmail">
-          <q-tooltip>{{ $t('inputs.user.email.tooltip') }}</q-tooltip>
-
-          <template v-slot:prepend>
-            <q-icon name="mail" />
-          </template>
-        </q-input>
-      </div>
-    </q-card-section>
-
-    <q-card-section class="row">
       <div class="col-12 col-md-6">
         <q-input v-model="userData.name" outlined type="text" class="q-mx-sm" :label="$t('inputs.user.name.label')" :hint="$t('inputs.user.name.hint')">
           <q-tooltip>{{ $t('inputs.user.name.tooltip') }}</q-tooltip>
@@ -49,6 +17,28 @@
 
           <template v-slot:prepend>
             <q-icon name="group" />
+          </template>
+        </q-input>
+      </div>
+    </q-card-section>
+
+    <q-card-section class="row">
+      <div class="col-12 col-md-6">
+        <q-input v-model="userData.phone" outlined type="text" class="q-mx-sm" :label="$t('inputs.user.phone.label')" :hint="$t('inputs.user.phone.hint')" mask="(+##) ### ### ####">
+          <q-tooltip>{{ $t('inputs.user.phone.tooltip') }}</q-tooltip>
+
+          <template v-slot:prepend>
+            <q-icon name="contacts" />
+          </template>
+        </q-input>
+      </div>
+
+      <div class="col-12 col-md-6">
+        <q-input v-model="userData.email" type="text" class="q-mx-sm" outlined :label="$t('inputs.user.email.label')" :hint="$t('inputs.user.email.hint')">
+          <q-tooltip>{{ $t('inputs.user.email.tooltip') }}</q-tooltip>
+
+          <template v-slot:prepend>
+            <q-icon name="mail" />
           </template>
         </q-input>
       </div>
@@ -89,17 +79,7 @@
     </q-card-section>
 
     <q-card-section class="row">
-      <div class="col-12 col-md-4">
-        <q-input v-model="userData.phone" outlined type="text" class="q-mx-sm" :label="$t('inputs.user.phone.label')" :hint="$t('inputs.user.phone.hint')" mask="(+##) ### ### ####">
-          <q-tooltip>{{ $t('inputs.user.phone.tooltip') }}</q-tooltip>
-
-          <template v-slot:prepend>
-            <q-icon name="contacts" />
-          </template>
-        </q-input>
-      </div>
-
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-6">
         <q-input v-model="userData.password" :type="showPassword ? 'text' : 'password'" class="q-mx-sm" outlined :label="$t('inputs.user.password.label')" :hint="$t('inputs.user.password.hint')" counter>
           <q-tooltip>{{ $t('inputs.user.password.tooltip') }}</q-tooltip>
 
@@ -113,7 +93,7 @@
         </q-input>
       </div>
 
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-6">
         <q-input v-model="userData.confirm" :type="showPassword ? 'text' : 'password'" class="q-mx-sm" outlined :label="$t('inputs.user.confirm.label')" :hint="$t('inputs.user.confirm.hint')" counter>
           <q-tooltip>{{ $t('inputs.user.confirm.tooltip') }}</q-tooltip>
 
@@ -125,6 +105,12 @@
             <q-icon :name="showPassword ? 'visibility_off' : 'visibility'" class="cursor-pointer" @click="showPassword = !showPassword" />
           </template>
         </q-input>
+      </div>
+    </q-card-section>
+
+    <q-card-section>
+      <div class="col-12">
+        <q-editor v-model="userData.aboutMe" :toolbar="toolbar"></q-editor>
       </div>
     </q-card-section>
 
@@ -141,6 +127,7 @@
         <q-tooltip>{{ $t('links.login.tooltip') }}</q-tooltip>
       </q-btn>
     </q-card-actions>
+    <LoaderPage />
   </q-form>
 </template>
 
@@ -154,6 +141,10 @@
   // Importar stores
   import { useRulesStore } from '../stores/RulesStore.js'
   import { useRegexStore } from '../stores/RegexStore.js'
+  import { useUtilsStore } from '../stores/UtilsStore.js'
+
+  // Importar componentes
+  import LoaderPage from './LoaderPage.vue'
 
   // Importar plugins
   import { i18n } from '../utils/i18n.js'
@@ -164,13 +155,12 @@
 
   const rulesStore = useRulesStore()
   const regexStore = useRegexStore()
+  const utilsStore = useUtilsStore()
 
   const showPassword = ref(false)
   const disabledEmail = ref(true)
 
   const userData = ref({
-    institution: null,
-    campus: null,
     name: null,
     lastName: null,
     gender: null,
@@ -179,15 +169,71 @@
     phone: null,
     password: null,
     confirm: null,
+    avatar: null,
+    aboutMe: 'Cuéntanos quién eres'
   })
 
   const genresOptions = ref([{}])
   const institutionsOptions = ref([{}])
   const campusesOptions = ref([{}])
 
+  const toolbar = ref([
+        [
+          {
+            label: $q.lang.editor.align,
+            icon: $q.iconSet.editor.align,
+            fixedLabel: true,
+            options: ['left', 'center', 'right', 'justify']
+          }
+        ],
+        ['bold', 'italic', 'strike', 'underline', 'subscript', 'superscript'],
+        ['token', 'hr', 'link', 'custom_btn'],
+        ['print', 'fullscreen'],
+        [
+          {
+            label: $q.lang.editor.formatting,
+            icon: $q.iconSet.editor.formatting,
+            list: 'no-icons',
+            options: [
+              'p',
+              'h1',
+              'h2',
+              'h3',
+              'h4',
+              'h5',
+              'h6',
+              'code'
+            ]
+          },
+          {
+            label: $q.lang.editor.fontSize,
+            icon: $q.iconSet.editor.fontSize,
+            fixedLabel: true,
+            fixedIcon: true,
+            list: 'no-icons',
+            options: [
+              'size-1',
+              'size-2',
+              'size-3',
+              'size-4',
+              'size-5',
+              'size-6',
+              'size-7'
+            ]
+          },
+          'removeFormat'
+        ],
+        ['quote', 'unordered', 'ordered', 'outdent', 'indent'],
+
+        ['undo', 'redo'],
+        ['viewsource']
+      ]);
+
   // Métodos y funciones
   const signupUser = () => {
     console.clear()
+
+    utilsStore.setNewLoadersState(true)
 
     if (userData.value.password !== userData.value.confirm) {
       $q.notify({
@@ -199,47 +245,30 @@
       return false
     }
 
-    //userData.value.password = setNewPassword(userData.value.password)
-    console.log(userData.value.institution)
-  }
+    userData.value.password = setNewPassword(userData.value.password)
 
-  const readAllInstitutions = () => {
-    console.clear()
-
-    publicRoutes.readInstitutions().then(response => {
-      response.data.data.institutions.map((institution, index) => {
-        institutionsOptions.value[index].label = institution.name
-        institutionsOptions.value[index].value = institution.id
-        institutionsOptions.value[index].code = institution.code
-        institutionsOptions.value[index].extensions = institution.extensions
+    publicRoutes.signup(userData.value).then(response => {
+      $q.notify({
+        icon: response.data.status === 'success' ? 'check' : 'warning',
+        color: response.data.status === 'success' ? 'green-5' : 'red-5',
+        message: response.data.message
       })
-    }).catch(error => console.error(error)).then(() => {})
-  }
 
-  const getCampuses = (institution) => {
-    console.clear()
-
-    const queries = {
-      institution: institution
-    }
-
-    publicRoutes.readCampuses(queries).then(response => {
-      if (response.data.data.campuses.length === 0) {
-        $q.notify({
-          color: 'red-5',
-          icon: 'warning',
-          message: translate('inputs.institution.code.error')
-        })
-
-        throw new Error(translate('inputs.institution.code.error'));
+      userData.value = {
+        name: null,
+        lastName: null,
+        gender: null,
+        birthday: null,
+        email: null,
+        phone: null,
+        password: null,
+        confirm: null,
+        avatar: null,
+        aboutMe: 'Cuéntanos quién eres'
       }
-
-      response.data.data.campuses.map((campus, index) => {
-        campusesOptions.value[index].value = campus.id
-        campusesOptions.value[index].label = campus.name
-        campusesOptions.value[index].code = campus.code
-      })
-    }).catch(error => console.error(error))
+    }).catch(error => console.error(error)).then(() => {
+      utilsStore.setNewLoadersState(false)
+    });
   }
 
   const limitAgesRange = (date) => {
@@ -249,21 +278,6 @@
     const selectedDate = new Date(date);
 
     return selectedDate <= maxDate;
-  }
-
-  const getEmailExtensions = () => {
-    console.clear()
-
-    const institution = institutionsOptions.value.filter(
-      institution => institution.value === userData.value.institution
-    )
-
-    const extensions = institution[0].extensions
-
-    regexStore.setValidExtensions(extensions)
-    getCampuses(institution[0].code)
-
-    disabledEmail.value = false
   }
 
   onMounted(() => {
@@ -277,7 +291,5 @@
         value: 'f'
       }
     ]
-
-    readAllInstitutions()
   })
 </script>

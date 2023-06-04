@@ -9,7 +9,7 @@
         <q-card-section>
           <div class="row q-mb-md">
             <div class="col-12 q-px-md">
-              <q-input v-model="accountData.code" type="text" class="q-mx-sm" outlined :label="$t('inputs.user.code.label')" :hint="$t('inputs.user.code.hint')">
+              <q-input v-model="accountData.code" type="text" class="q-mx-sm" outlined :label="$t('inputs.user.code.label')" :rules="[rulesStore.required, rulesStore.codes.user]" :hint="$t('inputs.user.code.hint')">
                 <q-tooltip>{{ $t('inputs.user.code.tooltip') }}</q-tooltip>
 
                 <template v-slot:prepend>
@@ -21,7 +21,7 @@
 
           <div class="row q-mb-md">
             <div class="col-12 q-px-md">
-              <q-input v-model="accountData.email" type="text" class="q-mx-sm" outlined :label="$t('inputs.user.email.label')" :hint="$t('inputs.user.email.hint')">
+              <q-input v-model="accountData.email" type="text" class="q-mx-sm" outlined :label="$t('inputs.user.email.label')" :rules="[rulesStore.required]" :hint="$t('inputs.user.email.hint')">
                 <q-tooltip>{{ $t('inputs.user.email.tooltip') }}</q-tooltip>
 
                 <template v-slot:prepend>
@@ -33,7 +33,7 @@
 
           <div class="row q-mb-md">
             <div class="col-12 q-px-md" :class="reason !== 'confirm' ? 'col-md-6' : 'col-md-12'">
-              <q-input v-model="accountData.password" :type="showPassword ? 'text' : 'password'" class="q-mx-sm" outlined :label="$t('inputs.user.password.label')" :hint="$t('inputs.user.password.hint')" counter>
+              <q-input v-model="accountData.password" :type="showPassword ? 'text' : 'password'" class="q-mx-sm" outlined :label="$t('inputs.user.password.label')" :rules="[rulesStore.required, rulesStore.password]" :hint="$t('inputs.user.password.hint')" counter>
                 <q-tooltip>{{ $t('inputs.user.password.tooltip') }}</q-tooltip>
 
                 <template v-slot:prepend>
@@ -47,7 +47,7 @@
             </div>
 
             <div v-if="reason !== 'confirm'" class="col-12 col-md-6 q-px-md">
-              <q-input v-model="accountData.confirm" :type="showPassword ? 'text' : 'password'" class="q-mx-sm" outlined :label="$t('inputs.user.confirm.label')" :hint="$t('inputs.user.confirm.hint')" counter>
+              <q-input v-model="accountData.confirm" :type="showPassword ? 'text' : 'password'" class="q-mx-sm" outlined :label="$t('inputs.user.confirm.label')" :rules="[rulesStore.required]" :hint="$t('inputs.user.confirm.hint')" counter>
                 <q-tooltip>{{ $t('inputs.user.confirm.tooltip') }}</q-tooltip>
 
                 <template v-slot:prepend>
@@ -71,6 +71,8 @@
     <div v-else>
       <p class="text-body1" v-html="$t('valids.invalidToken').replace(`%email%`, `<a href='${templateRecoverToken(token)}'>support@idi.com</a>`)"></p>
     </div>
+
+    <LoaderPage />
   </q-card>
 </template>
 
@@ -85,9 +87,13 @@
   // Importar stores
   import { useRulesStore } from '../stores/RulesStore.js'
   import { useRegexStore } from '../stores/RegexStore.js'
+  import { useUtilsStore } from '../stores/UtilsStore.js'
 
   // Importar plugins
   import { i18n } from '../utils/i18n.js'
+
+  // Importar componentes
+  import LoaderPage from '../components/LoaderPage.vue'
 
   // Contantes de la página
   const $q = useQuasar()
@@ -101,6 +107,7 @@
 
   const rulesStore = useRulesStore()
   const regexStore = useRegexStore()
+  const utilsStore = useUtilsStore()
 
   const accountData = ref({
     code: null,
@@ -144,6 +151,8 @@
       return false;
     }
 
+    utilsStore.setNewLoadersState(true)
+
     const newData = accountData.value
     newData.reason = 'recover::password'
 
@@ -151,8 +160,14 @@
     newData.confirm = setNewPassword(newData.confirm)
 
     publicRoutes.recoverPassword(type.value, token.value, newData).then(response => {
-      console.log(response.data)
-    }).catch(error => console.error(error)).then(() => {})
+      $q.notify({
+        color: response.data.status === 'success' && response.data.code === 200 ? 'green-5' : 'red-5',
+        icon: response.data.status === 'success' && response.data.code === 200 ? 'check' : 'warning',
+        message: response.data.message
+      })
+    }).catch(error => console.error(error)).then(() => {
+      utilsStore.setNewLoadersState(false)
+    })
   }
 
   const confirmAccount = () => {

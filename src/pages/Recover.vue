@@ -71,25 +71,17 @@
 
       publicRoutes.recoverPasswordEmail($route.params.type, email.value).then(response => {
         $q.notify({
-          color: response.data.status === 'success' && response.data.code === 200 ? 'green-5' : 'red-5',
-          icon: response.data.status === 'success' && response.data.code === 200 ? 'check' : 'warning',
+          color: response.data.status === 'success' ? 'green-5' : 'red-5',
+          icon: response.data.status === 'success' ? 'check' : 'warning',
           message: response.data.message
         })
 
-        email.value = response.data.status === 'success' && response.data.code === 200 ? null : email.value
+        email.value = response.data.status === 'success' ? null : email.value
         recoverPaswordsForm.value.resetValidation()
       }).catch(error => console.error(error)).then(() => {
         utilsStore.setNewLoadersState(false)
       })
     }
-  }
-
-  const readExtensions = () => {
-    console.clear()
-
-    publicRoutes.readAllExtensions().then(response => {
-      console.log(response.data)
-    }).catch(error => console.error(error))
   }
 
   onMounted(() => {
@@ -98,8 +90,6 @@
     if ($route.params.type !== 'user' && $route.params.type !== 'institution') {
       $router.push('/404')
     }
-
-    readExtensions()
   })
 </script>
 

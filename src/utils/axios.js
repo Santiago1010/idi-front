@@ -38,13 +38,13 @@ const createRoute = (path, queries) =>
 
 // Rutas públicas
 export const publicRoutes = {
-  signup: (userData) => instance.post('/signup', userData),
+  signup: (userData) => instance.post(`/public/user`, userData),
   readAllExtensions: () => instance.get(`/public/read/extensions`),
   readInstitutions: () => instance.get('/public/read/institutions'),
   validToken: (type, token, queries) => instance.get(createRoute(`/public/${type}/valid/token/${token}`, queries)),
   readCampuses: (queries) => instance.get(createRoute('/public/read/campuses', queries)),
   recoverPasswordEmail: (type, email) => instance.patch(`/public/${type}/token/password`, { email }),
-  recoverPassword: (type, token, data) => instance.patch(`/public/${type}/recover/password/${token}`, data)
+  recoverPassword: (type, token, data) => instance.patch(`/public/${type}/recover/${token}`, data)
 };
 
 // Rutas autenticadas
