@@ -28,9 +28,9 @@ export function parseJwt(token) {
 export function setNewPassword(password) {  // Calcular el hash SHA-256 de la contraseña
   const hash = encodeSHA256(password);
 
-    // Cifrar la contraseña utilizando AES
+  // Cifrar la contraseña utilizando AES
   const encryptedPassword = encodeAES(hash);
 
-    // Devolver la contraseña cifrada como una cadena de texto
+  // Devolver la contraseña cifrada como una cadena de texto
   return encryptedPassword;
 }

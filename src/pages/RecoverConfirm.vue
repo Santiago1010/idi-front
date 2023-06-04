@@ -123,17 +123,16 @@
     console.clear()
 
     const queries = {
-      reason: 'password'
+      reason: $route.params.reason === 'confirm' ? 'confirm' : 'password'
     }
 
     publicRoutes.validToken(type.value, token.value, queries).then(response => {
-      if (response.data.code === 200) {
+      if (response.data.status === 'success') {
         valid.value = true
       } else {
         valid.value = false
       }
     }).catch(error => {
-      console.error(error)
       valid.value = false
     })
   }
@@ -171,17 +170,45 @@
   }
 
   const confirmAccount = () => {
-    console.log('¿UwU?')
+    console.clear()
+
+    utilsStore.setNewLoadersState(true)
+
+    const queries = {
+      reason: 'confirm'
+    }
+
+    accountData.value.password = setNewPassword(accountData.value.password)
+
+    publicRoutes.confirmAccount(type.value, token.value, accountData.value, queries).then(response => {
+      $q.notify({
+        icon: response.data.status === 'success' ? 'check' : 'warning',
+        color: response.data.status === 'success' ? 'green-5' : 'red-5',
+        message: response.data.message
+      })
+
+      if (response.data.status !== 'success') {
+        console.log(response.data)
+        return false
+      }
+
+      accountData.value = {
+        code: null,
+        email: null,
+        password: null,
+        confirm: null
+      }
+    }).catch(error => console.error(error)).then(() => {
+      utilsStore.setNewLoadersState(false)
+    })
   }
 
   onMounted(() => {
     console.clear()
 
-    if (
-      ($route.params.reason !== 'recover-password' && $route.params.reason !== 'confirm')
+    if (($route.params.reason !== 'recover-password' && $route.params.reason !== 'confirm')
       ||
-      ($route.params.type !== 'user' && $route.params.type !== 'institution')
-      ) {
+      ($route.params.type !== 'user' && $route.params.type !== 'institution')) {
       $router.push('/404')
   }
 

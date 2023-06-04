@@ -254,6 +254,10 @@
         message: response.data.message
       })
 
+      if (response.data.status !== 'success') {
+        console.log(response.data)
+      }
+
       userData.value = {
         name: null,
         lastName: null,
