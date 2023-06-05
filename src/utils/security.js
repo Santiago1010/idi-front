@@ -1,4 +1,5 @@
 import CryptoJS from 'crypto-js';
+import jwt_decode from 'jwt-decode'
 
 export function encodeAES(string) {
   // Declarar objeto "keys" que contiene la clave y el vector de inicialización para el cifrado AES
@@ -33,4 +34,29 @@ export function setNewPassword(password) {  // Calcular el hash SHA-256 de la co
 
   // Devolver la contraseña cifrada como una cadena de texto
   return encryptedPassword;
+}
+
+export function validateToken() {
+  const token = localStorage.getItem('jwt')
+  if (!token) {
+    return false
+  }
+
+  try {
+    const decoded = jwt_decode(token)
+    const currentTime = Math.floor(Date.now() / 1000)
+
+    if (decoded.exp < currentTime) {
+      // El token ha expirado
+      return false
+    }
+
+    //if (true) {}
+
+    // Token válido
+    return true
+  } catch (error) {
+    // Error al decodificar el token
+    return false
+  }
 }

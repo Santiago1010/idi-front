@@ -41,17 +41,22 @@
 <script setup>
   // Importar internos de Vue.
   import { ref } from 'vue'
+  import { useQuasar } from 'quasar'
   import { publicRoutes } from '../utils/axios.js'
   import { setNewPassword } from '../utils/security.js'
 
   // Importar sotres
   import { useUtilsStore } from '../stores/UtilsStore.js'
+  import { useSessionStore } from '../stores/SessionStore.js'
 
   // Importar componentes
   import LoaderPage from '../components/LoaderPage.vue'
 
   // Constantes y variables de la página.
+  const $q = useQuasar()
+
   const utilsStore = useUtilsStore()
+  const sessionStore = useSessionStore()
   const showPassword = ref(false)
 
   const loginData = ref({
@@ -68,7 +73,15 @@
     loginData.value.password = setNewPassword(loginData.value.password)
 
     publicRoutes.login('user', loginData.value).then(response => {
-      console.log(response.data)
+      $q.notify({
+        icon: response.data.status === 'success' ? 'check' : 'warning',
+        color: response.data.status === 'success' ? 'green-5' : 'red-5',
+        message: response.data.message
+      })
+
+      if (response.data.data.token) {
+        sessionStore.setNewToken(response.data.data.token)
+      }
     }).catch(error => console.error(error)).then(() => {
       utilsStore.setNewLoadersState(false)
     })
