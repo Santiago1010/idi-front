@@ -81,9 +81,9 @@
         message: response.data.message
       })
 
-      if (response.data.data.token && validateToken(response.data.data.token)) {
+      if (response.data.data.token) {
         sessionStore.setNewToken(response.data.data.token)
-        $router.push('/user/home')
+        $router.push('/user')
       } else {
         $q.notify({
           icon: 'warning',

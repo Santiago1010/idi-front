@@ -36,7 +36,7 @@
                 </q-item>
                 <q-separator />
                 <q-item clickable>
-                  <q-item-section>Cerrar sesión</q-item-section>
+                  <q-item-section @click="closeSession">Cerrar sesión</q-item-section>
                 </q-item>
               </q-list>
             </q-menu>
@@ -46,10 +46,6 @@
     </q-header>
 
     <q-drawer show-if-above side="left" bordered>
-      <!-- drawer content -->
-    </q-drawer>
-
-    <q-drawer show-if-above side="right" bordered>
       <!-- drawer content -->
     </q-drawer>
 
@@ -76,15 +72,36 @@
   import { useRouter } from 'vue-router'
   import { validateToken } from '../utils/security.js'
 
+  import { useSessionStore } from '../stores/SessionStore.js'
+
   const $router = useRouter()
 
   const code = ref(null)
-  const yours = ref(
-    [
+  const yours = ref(null)
+  const utils = ref(null)
+
+  const sessionStore = useSessionStore()
+
+  // Funciones
+  const goTo = (url) => {
+    $router.push(url)
+  }
+
+  const closeSession = () => {
+    sessionStore.jwt = null
+    localStorage.removeItem('jwt')
+
+    $router.push('/')
+  }
+
+  onMounted(() => {
+    code.value = validateToken().code
+
+    yours.value = [
       {
         id: 1,
         name: 'Tu perfil',
-        url: `/user/profile/${code.value}`
+        url: `/user/${code.value}`
       },
       {
         id: 2,
@@ -107,9 +124,7 @@
         url: `/user/teams/${code.value}`
       }
     ]
-  )
-  const utils = ref(
-    [
+    utils.value = [
       {
         id: 1,
         name: 'Ayuda',
@@ -121,14 +136,5 @@
         url: `/user/settigns/${code.value}`
       }
     ]
-  )
-
-  // Funciones
-  const goTo = (url) => {
-    $router.push(url)
-  }
-
-  onMounted(() => {
-    code.value = validateToken().code
   })
 </script>

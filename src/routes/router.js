@@ -13,6 +13,7 @@ import Recover from '../pages/Recover.vue'
 import RecoverConfirm from '../pages/RecoverConfirm.vue'
 
 import Home from '../pages/Home.vue'
+import UsersProfile from '../pages/UsersProfile.vue'
 
 import NotFound from '../pages/NotFound.vue'
 
@@ -52,8 +53,8 @@ const routes = [
         component: Home
       },
       {
-        path: '/:code',
-        component: Home
+        path: ':code',
+        component: UsersProfile
       }
     ],
     beforeEnter: (to, from, next) => {
@@ -71,7 +72,7 @@ const routes = [
         return false
       }
 
-      next(/*{ path: `/user/${data.code}` }*/);
+      next();
     },
   },
   {

@@ -48,16 +48,19 @@ export function validateToken() {
 
     if (decoded.exp < currentTime) {
       // El token ha expirado
+      console.error('El token ha expirado')
       return false
     }
 
     if (decoded.iss !== import.meta.env.VITE_API_SERVER_URI) {
       // El token no fue emitido por la API certificada
+      console.error('El token no fue emitido por la API certificada')
       return false
     }
 
     if (decoded.aud !== import.meta.env.VITE_SERVER_URL_AUD) {
       // El token no fue emitido para este cliente
+      console.error('El token no fue emitido para este cliente')
       return false
     }
 
@@ -65,6 +68,8 @@ export function validateToken() {
     return decoded.data
   } catch (error) {
     // Error al decodificar el token
+    console.error('Error al decodificar el token')
+    console.error(error)
     return false
   }
 }
