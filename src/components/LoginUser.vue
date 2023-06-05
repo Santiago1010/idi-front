@@ -1,9 +1,8 @@
 <template>
   <q-card-section>
     <q-form @submit.prevent="loginUser">
-
       <q-card-section>
-        <q-input v-model="loginData.email" type="text" class="q-my-md" outlined :label="$t('inputs.user.email.label')" :hint="$t('inputs.user.email.hint')">
+        <q-input v-model="loginData.identifier" type="text" class="q-my-md" outlined :label="$t('inputs.user.email.label')" :hint="$t('inputs.user.email.hint')">
           <q-tooltip>{{ $t('inputs.user.email.tooltip') }}</q-tooltip>
 
           <template v-slot:prepend>
@@ -56,17 +55,19 @@
   const showPassword = ref(false)
 
   const loginData = ref({
-    email: null,
+    identifier: null,
     password: null
   })
 
   // Funciones y métodos
   const loginUser = () => {
+    console.clear()
+
     utilsStore.setNewLoadersState(true)
 
     loginData.value.password = setNewPassword(loginData.value.password)
 
-    publicRoutes.prueba(loginData.value).then(response => {
+    publicRoutes.login('user', loginData.value).then(response => {
       console.log(response.data)
     }).catch(error => console.error(error)).then(() => {
       utilsStore.setNewLoadersState(false)
