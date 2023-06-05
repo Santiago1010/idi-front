@@ -43,7 +43,7 @@
   import { ref } from 'vue'
   import { useQuasar } from 'quasar'
   import { publicRoutes } from '../utils/axios.js'
-  import { setNewPassword } from '../utils/security.js'
+  import { setNewPassword, validateToken } from '../utils/security.js'
 
   // Importar sotres
   import { useUtilsStore } from '../stores/UtilsStore.js'
@@ -79,8 +79,14 @@
         message: response.data.message
       })
 
-      if (response.data.data.token) {
+      if (response.data.data.token && validateToken(response.data.data.token)) {
         sessionStore.setNewToken(response.data.data.token)
+      } else {
+        $q.notify({
+          icon: 'warning',
+          color: 'red-5',
+          message: 'El token es inválido'
+        })
       }
     }).catch(error => console.error(error)).then(() => {
       utilsStore.setNewLoadersState(false)

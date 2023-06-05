@@ -51,7 +51,15 @@ export function validateToken() {
       return false
     }
 
-    //if (true) {}
+    if (decoded.iss !== import.meta.env.VITE_API_SERVER_URI) {
+      // El token no fue emitido por la API certificada
+      return false
+    }
+
+    if (decoded.aud !== import.meta.env.VITE_SERVER_URL_AUD) {
+      // El token no fue emitido para este cliente
+      return false
+    }
 
     // Token válido
     return true
