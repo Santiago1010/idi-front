@@ -1,8 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { validateToken } from '../utils/security.js'
 
 // Importar layouts
 import MainLayout from '../layouts/MainLayout.vue'
-//import SessionLayout from '../layouts/SessionLayout.vue'
+import UsersSessionLayout from '../layouts/UsersSessionLayout.vue'
 
 // Importar páginas
 import Index from '../pages/Index.vue'
@@ -10,6 +11,8 @@ import Login from '../pages/Login.vue'
 import Signup from '../pages/Signup.vue'
 import Recover from '../pages/Recover.vue'
 import RecoverConfirm from '../pages/RecoverConfirm.vue'
+
+import Home from '../pages/Home.vue'
 
 import NotFound from '../pages/NotFound.vue'
 
@@ -40,29 +43,33 @@ const routes = [
       }
     ],
   },
-  /*{
-    path: '/',
-    component: SessionLayout,
+  {
+    path: '/user',
+    component: UsersSessionLayout,
     children: [
+      {
+        path: '/home',
+        component: Home
+      }
     ],
     beforeEnter: (to, from, next) => {
-      const sessionStore = useSessionStore()
+      let data = validateToken()
 
-      if (sessionStorage.jwt) {
-        sessionStore.validJWT(sessionStorage.jwt)
-
-        if (sessionStore.verify) {
-          next();
-        } else {
-          next({path: '/login'});
-        }
-      } else {
-        sessionStorage.clear()
-        sessionStore.clear()
-        next({path: '/login'});
+      if (!data) {
+        localStorage.removeItem('jwt')
+        next({path: '/login/user'})
+        return false
       }
-    }
-  },*/
+
+      if (data.rol == 2) {
+        localStorage.removeItem('jwt')
+        next({path: '/login/institution'})
+        return false
+      }
+
+      next();
+    },
+  },
   {
     path: '/:pathMatch(.*)*',
     name: 'not-found',

@@ -62,7 +62,7 @@ export function validateToken() {
     }
 
     // Token válido
-    return true
+    return decoded.data
   } catch (error) {
     // Error al decodificar el token
     return false

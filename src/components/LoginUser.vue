@@ -41,6 +41,7 @@
 <script setup>
   // Importar internos de Vue.
   import { ref } from 'vue'
+  import { useRouter } from 'vue-router'
   import { useQuasar } from 'quasar'
   import { publicRoutes } from '../utils/axios.js'
   import { setNewPassword, validateToken } from '../utils/security.js'
@@ -54,6 +55,7 @@
 
   // Constantes y variables de la página.
   const $q = useQuasar()
+  const $router = useRouter()
 
   const utilsStore = useUtilsStore()
   const sessionStore = useSessionStore()
@@ -81,6 +83,7 @@
 
       if (response.data.data.token && validateToken(response.data.data.token)) {
         sessionStore.setNewToken(response.data.data.token)
+        $router.push('/user/home')
       } else {
         $q.notify({
           icon: 'warning',
@@ -88,6 +91,8 @@
           message: 'El token es inválido'
         })
       }
+
+      loginData.value.password = null
     }).catch(error => console.error(error)).then(() => {
       utilsStore.setNewLoadersState(false)
     })
