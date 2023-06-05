@@ -48,7 +48,11 @@ const routes = [
     component: UsersSessionLayout,
     children: [
       {
-        path: '/home',
+        path: '/',
+        component: Home
+      },
+      {
+        path: '/:code',
         component: Home
       }
     ],
@@ -67,7 +71,7 @@ const routes = [
         return false
       }
 
-      next();
+      next(/*{ path: `/user/${data.code}` }*/);
     },
   },
   {
