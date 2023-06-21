@@ -6,7 +6,7 @@
 
     <div class="col-12 col-md-8">
       <q-card class="q-pa-md q-ma-md">
-        <q-card-section :html="aboutMe"></q-card-section>
+        <q-card-section>{{ aboutMe }}</q-card-section>
       </q-card>
     </div>
   </div>

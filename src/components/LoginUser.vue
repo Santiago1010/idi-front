@@ -72,9 +72,15 @@
 
     utilsStore.setNewLoadersState(true)
 
-    loginData.value.password = setNewPassword(loginData.value.password)
+    const usersLoginData = {
+      identifier: loginData.value.identifier,
+      password: null
+    }
+
+    usersLoginData.password = setNewPassword(loginData.value.password)
 
     publicRoutes.login('user', loginData.value).then(response => {
+      console.log(response.data)
       $q.notify({
         icon: response.data.status === 'success' ? 'check' : 'warning',
         color: response.data.status === 'success' ? 'green-5' : 'red-5',
@@ -90,6 +96,8 @@
           color: 'red-5',
           message: 'El token es inválido'
         })
+
+        console.error(response.data)
       }
 
       loginData.value.password = null

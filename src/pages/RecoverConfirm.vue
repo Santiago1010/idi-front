@@ -123,10 +123,12 @@
     console.clear()
 
     const queries = {
-      reason: $route.params.reason === 'confirm' ? 'confirm' : 'password'
+      reason: $route.params.reason,
+      type: type.value
     }
 
-    publicRoutes.validToken(type.value, token.value, queries).then(response => {
+    publicRoutes.validToken(token.value, queries).then(response => {
+      console.log(response.data)
       if (response.data.status === 'success') {
         valid.value = true
       } else {
@@ -175,12 +177,19 @@
     utilsStore.setNewLoadersState(true)
 
     const queries = {
-      reason: 'confirm'
+      reason: 'confirm',
+      type: type.value
     }
 
-    accountData.value.password = setNewPassword(accountData.value.password)
+    const accountDataConfirm = {
+      code: accountData.value.code,
+      email: accountData.value.email,
+      password: null
+    }
 
-    publicRoutes.confirmAccount(type.value, token.value, accountData.value, queries).then(response => {
+    accountDataConfirm.password = setNewPassword(accountData.value.password)
+
+    publicRoutes.confirmAccount(queries.type, token.value, accountDataConfirm, queries).then(response => {
       $q.notify({
         icon: response.data.status === 'success' ? 'check' : 'warning',
         color: response.data.status === 'success' ? 'green-5' : 'red-5',
@@ -188,7 +197,7 @@
       })
 
       if (response.data.status !== 'success') {
-        console.log(response.data)
+        console.error(response.data)
         return false
       }
 
@@ -198,6 +207,8 @@
         password: null,
         confirm: null
       }
+
+      $router.push(`/login/${type.value}`)
     }).catch(error => console.error(error)).then(() => {
       utilsStore.setNewLoadersState(false)
     })

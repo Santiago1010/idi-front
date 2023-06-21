@@ -178,56 +178,56 @@
   const campusesOptions = ref([{}])
 
   const toolbar = ref([
-        [
-          {
-            label: $q.lang.editor.align,
-            icon: $q.iconSet.editor.align,
-            fixedLabel: true,
-            options: ['left', 'center', 'right', 'justify']
-          }
-        ],
-        ['bold', 'italic', 'strike', 'underline', 'subscript', 'superscript'],
-        ['token', 'hr', 'link', 'custom_btn'],
-        ['print', 'fullscreen'],
-        [
-          {
-            label: $q.lang.editor.formatting,
-            icon: $q.iconSet.editor.formatting,
-            list: 'no-icons',
-            options: [
-              'p',
-              'h1',
-              'h2',
-              'h3',
-              'h4',
-              'h5',
-              'h6',
-              'code'
-            ]
-          },
-          {
-            label: $q.lang.editor.fontSize,
-            icon: $q.iconSet.editor.fontSize,
-            fixedLabel: true,
-            fixedIcon: true,
-            list: 'no-icons',
-            options: [
-              'size-1',
-              'size-2',
-              'size-3',
-              'size-4',
-              'size-5',
-              'size-6',
-              'size-7'
-            ]
-          },
-          'removeFormat'
-        ],
-        ['quote', 'unordered', 'ordered', 'outdent', 'indent'],
+    [
+    {
+      label: $q.lang.editor.align,
+      icon: $q.iconSet.editor.align,
+      fixedLabel: true,
+      options: ['left', 'center', 'right', 'justify']
+    }
+    ],
+    ['bold', 'italic', 'strike', 'underline', 'subscript', 'superscript'],
+    ['token', 'hr', 'link', 'custom_btn'],
+    ['print', 'fullscreen'],
+    [
+    {
+      label: $q.lang.editor.formatting,
+      icon: $q.iconSet.editor.formatting,
+      list: 'no-icons',
+      options: [
+        'p',
+        'h1',
+        'h2',
+        'h3',
+        'h4',
+        'h5',
+        'h6',
+        'code'
+        ]
+    },
+    {
+      label: $q.lang.editor.fontSize,
+      icon: $q.iconSet.editor.fontSize,
+      fixedLabel: true,
+      fixedIcon: true,
+      list: 'no-icons',
+      options: [
+        'size-1',
+        'size-2',
+        'size-3',
+        'size-4',
+        'size-5',
+        'size-6',
+        'size-7'
+        ]
+    },
+    'removeFormat'
+    ],
+    ['quote', 'unordered', 'ordered', 'outdent', 'indent'],
 
-        ['undo', 'redo'],
-        ['viewsource']
-      ]);
+    ['undo', 'redo'],
+    ['viewsource']
+    ]);
 
   // Métodos y funciones
   const signupUser = () => {
@@ -245,9 +245,26 @@
       return false
     }
 
-    userData.value.password = setNewPassword(userData.value.password)
+    const newUsersData = {
+      name: userData.value.name,
+      lastName: usersData.value.lastName,
+      gender: usersData.value.gender,
+      birthday: usersData.value.birthday,
+      email: usersData.value.email,
+      phone: usersData.value.phone,
+      password: null,
+      avatar: usersData.value.avatar,
+      aboutMe: usersData.value.aboutMe
+    }
 
-    publicRoutes.signup(userData.value).then(response => {
+    newUsersData.password = setNewPassword(userData.value.password)
+
+    const queries = {
+      reason: 'confirm',
+      type: 'user'
+    }
+
+    publicRoutes.signup(newUsersData, queries).then(response => {
       $q.notify({
         icon: response.data.status === 'success' ? 'check' : 'warning',
         color: response.data.status === 'success' ? 'green-5' : 'red-5',
@@ -286,14 +303,14 @@
 
   onMounted(() => {
     genresOptions.value = [
-      {
-        label: translate('inputs.user.gender.options[0]'),
-        value: 'm'
-      },
-      {
-        label: translate('inputs.user.gender.options[1]'),
-        value: 'f'
-      }
+    {
+      label: translate('inputs.user.gender.options[0]'),
+      value: 'm'
+    },
+    {
+      label: translate('inputs.user.gender.options[1]'),
+      value: 'f'
+    }
     ]
   })
 </script>

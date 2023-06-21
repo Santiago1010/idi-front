@@ -4,7 +4,7 @@ import { i18n } from './i18n'
 
 // Configuración global de Axios
 const instance = axios.create({
-  baseURL: `${import.meta.env.VITE_API_SERVER_URI}/api/v1`,
+  baseURL: `${import.meta.env.VITE_API_SERVER_URI}/api/v2`,
   headers: {
     common: {
       'Content-Type': 'application/json',
@@ -38,15 +38,15 @@ const createRoute = (path, queries) =>
 
 // Rutas públicas
 export const publicRoutes = {
-  signup: (userData) => instance.post(`/public/user`, userData),
+  signup: (usersData, queries) => instance.post(createRoute(`/public/user`, queries), usersData),
   readAllExtensions: () => instance.get(`/public/read/extensions`),
   readInstitutions: () => instance.get('/public/read/institutions'),
-  validToken: (type, token, queries) => instance.get(createRoute(`/public/${type}/valid/token/${token}`, queries)),
+  validToken: (token, queries) => instance.get(createRoute(`/public/token/${token}/valid`, queries)),
   readCampuses: (queries) => instance.get(createRoute('/public/read/campuses', queries)),
   login: (type, data) => instance.post(`/public/login/${type}`, data),
   recoverPasswordEmail: (type, email) => instance.patch(`/public/${type}/token/password`, { email }),
   recoverPassword: (type, token, data) => instance.patch(`/public/${type}/recover/${token}`, data),
-  confirmAccount: (type, token, data, queries) => instance.patch(createRoute(`/public/${type}/confirm/${token}`, queries), data)
+  confirmAccount: (type, token, data, queries) => instance.patch(createRoute(`/public/${type}/${token}/confirm`, queries), data)
 };
 
 // Rutas autenticadas
