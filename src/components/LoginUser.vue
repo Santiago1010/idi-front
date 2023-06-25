@@ -79,7 +79,7 @@
 
     usersLoginData.password = setNewPassword(loginData.value.password)
 
-    publicRoutes.login('user', loginData.value).then(response => {
+    publicRoutes.login('user', usersLoginData).then(response => {
       console.log(response.data)
       $q.notify({
         icon: response.data.status === 'success' ? 'check' : 'warning',

@@ -39,11 +39,8 @@ const createRoute = (path, queries) =>
 // Rutas públicas
 export const publicRoutes = {
   signup: (usersData, queries) => instance.post(createRoute(`/public/user`, queries), usersData),
-  readAllExtensions: () => instance.get(`/public/read/extensions`),
-  readInstitutions: () => instance.get('/public/read/institutions'),
   validToken: (token, queries) => instance.get(createRoute(`/public/token/${token}/valid`, queries)),
-  readCampuses: (queries) => instance.get(createRoute('/public/read/campuses', queries)),
-  login: (type, data) => instance.post(`/public/login/${type}`, data),
+  login: (type, data) => instance.post(`/public/${type}/login`, data),
   recoverPasswordEmail: (type, email) => instance.patch(`/public/${type}/token/password`, { email }),
   recoverPassword: (type, token, data) => instance.patch(`/public/${type}/recover/${token}`, data),
   confirmAccount: (type, token, data, queries) => instance.patch(createRoute(`/public/${type}/${token}/confirm`, queries), data)
