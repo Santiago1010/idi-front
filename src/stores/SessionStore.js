@@ -1,9 +1,11 @@
 import { defineStore } from 'pinia'
+import { validateToken } from '../utils/security.js'
 
 export const useSessionStore = defineStore('session', {
   state: () => {
     return {
-      jwt: null
+      jwt: '',
+      usersData: {}
     }
   },
   actions: {
@@ -11,6 +13,7 @@ export const useSessionStore = defineStore('session', {
       localStorage.removeItem('jwt')
       localStorage.setItem('jwt', jwt)
       this.jwt = jwt
+      this.usersData = validateToken();
     },
   }
 })

@@ -109,7 +109,7 @@
       {
         id: 3,
         name: 'Tus proyectos',
-        url: `/user/projects/${code.value}`
+        url: `/${code.value}/projects`
       },
       {
         id: 4,

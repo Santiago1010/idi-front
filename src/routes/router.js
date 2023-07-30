@@ -4,6 +4,7 @@ import { validateToken } from '../utils/security.js'
 // Importar layouts
 import MainLayout from '../layouts/MainLayout.vue'
 import UsersSessionLayout from '../layouts/UsersSessionLayout.vue'
+import ManagerLayout from '../layouts/ManagerLayout.vue'
 
 // Importar páginas
 import Index from '../pages/Index.vue'
@@ -14,6 +15,7 @@ import RecoverConfirm from '../pages/RecoverConfirm.vue'
 
 import Home from '../pages/Home.vue'
 import UsersProfile from '../pages/UsersProfile.vue'
+import Projects from '../pages/Projects.vue'
 
 import NotFound from '../pages/NotFound.vue'
 
@@ -45,17 +47,13 @@ const routes = [
     ],
   },
   {
-    path: '/user',
+    path: '/:code',
     component: UsersSessionLayout,
     children: [
       {
         path: '/',
         component: Home
       },
-      {
-        path: ':code',
-        component: UsersProfile
-      }
     ],
     beforeEnter: (to, from, next) => {
       let data = validateToken()
@@ -74,6 +72,16 @@ const routes = [
 
       next();
     },
+  },
+  {
+    path: '/:code',
+    component: ManagerLayout,
+    children: [
+      {
+        path: '/:code/projects',
+        component: Projects,
+      }
+    ],
   },
   {
     path: '/:pathMatch(.*)*',
