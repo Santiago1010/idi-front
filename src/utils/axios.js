@@ -7,7 +7,7 @@ const instance = axios.create({
   baseURL: `${import.meta.env.VITE_API_SERVER_URI}/api/v2`,
   headers: {
     common: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'multipart/form-data',
     },
   },
 });

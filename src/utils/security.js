@@ -73,3 +73,13 @@ export function validateToken() {
     return false
   }
 }
+
+export function setFormData(data) {
+  const formData = new FormData();
+
+  Object.keys(data).forEach(function(property) {
+    formData.append(property, data[property]);
+  });
+
+  return formData;
+}

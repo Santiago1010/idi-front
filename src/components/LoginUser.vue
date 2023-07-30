@@ -44,7 +44,7 @@
   import { useRouter } from 'vue-router'
   import { useQuasar } from 'quasar'
   import { publicRoutes } from '../utils/axios.js'
-  import { setNewPassword, validateToken } from '../utils/security.js'
+  import { setNewPassword, validateToken, setFormData } from '../utils/security.js'
 
   // Importar sotres
   import { useUtilsStore } from '../stores/UtilsStore.js'
@@ -79,7 +79,7 @@
 
     usersLoginData.password = setNewPassword(loginData.value.password)
 
-    publicRoutes.login('user', usersLoginData).then(response => {
+    publicRoutes.login('user', setFormData(usersLoginData)).then(response => {
       console.log(response.data)
       $q.notify({
         icon: response.data.status === 'success' ? 'check' : 'warning',

@@ -136,7 +136,7 @@
   import { ref, onMounted } from 'vue'
   import { useQuasar } from 'quasar'
   import { publicRoutes } from '../utils/axios.js'
-  import { setNewPassword } from '../utils/security.js'
+  import { setNewPassword, setFormData } from '../utils/security.js'
 
   // Importar stores
   import { useRulesStore } from '../stores/RulesStore.js'
@@ -264,7 +264,7 @@
       type: 'user'
     }
 
-    publicRoutes.signup(newUsersData, queries).then(response => {
+    publicRoutes.signup(setFormData(newUsersData), queries).then(response => {
       $q.notify({
         icon: response.data.status === 'success' ? 'check' : 'warning',
         color: response.data.status === 'success' ? 'green-5' : 'red-5',

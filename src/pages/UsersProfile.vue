@@ -1,12 +1,14 @@
 <template>
   <div class="row">
     <div class="col-12 col-md-4">
-      Jiji
+      <q-card class="q-pa-md q-ma-md">
+        <q-card-section v-html="aboutMe"></q-card-section>
+      </q-card>
     </div>
 
     <div class="col-12 col-md-8">
       <q-card class="q-pa-md q-ma-md">
-        <q-card-section>{{ aboutMe }}</q-card-section>
+        <q-card-section v-html="aboutMe"></q-card-section>
       </q-card>
     </div>
   </div>
